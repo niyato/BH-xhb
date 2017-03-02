@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>儿童成长智能分析系统</title>
+    <link rel="stylesheet" type="text/css" href="Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/lhgcalendar.css">
+    <script src="Content/Scripts/lhgcore.min.js"></script>
+    <script src="Content/Scripts/lhgcalendar.min.js"></script>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/echarts.common.min.js" ></script>
+    <script src="js/moment.min.js" ></script>
+    <script src="js/underscore-min.js" ></script>
+    <script src="js/services.js" ></script>
+    <script src="js/graph.js" ></script>
+    <style type="text/css">
+        #line-chart {
+            height: 300px;
+            width: 800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+            color: #fff;
+        }
+    </style>
+    <!--分页-->
+    <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
+    <script src="Content/Scripts/jquery.pagination.js"></script>
+    <style type="text/css">
+        .demo1{
+            height:20px;
+        }
+    </style>
+</head>
+
+<body class="theme-blue">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header"><!--header-->
+            <div class="top">
+                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
+				<div style="width:590px; float:right;">
+					<div class="fr signOut" hidden="hidden">
+						 <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button> -->
+						<!-- <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px"> -->
+						<img src="" width="30px" height="30px">
+                        <span class="Gname"></span> | <span class="Tname"></span>老师
+						<a class="mL10" id="logout">退出</a>
+					</div>
+				</div>	
+            </div>
+            <!--header_end-->
+        </div>
+        <div class="navbar-collapse collapse" style="height: 1px;">
+        </div>
+    </div>
+    <!--content-->
+    <div id="wrap" style="clear:both;">
+        <!--左侧导航-->
+        <div class="tab-content">
+            <div class="leftMenu" id="leftMenu">
+                <ul id="menudiv" class="mT10">
+                    <li class="li_mo" style="background-color:#aba9ab;">
+                        <a id="move" href="daily-personal.html" style="background-color:#aba9ab;">学生运动分析</a>
+                    </li>
+                    <li class="li_slp">
+                        <a id="sleep" href="sleep.html">学生睡眠分析</a>
+                    </li>
+                     <li class="li_act">
+                        <a id="activity" href="activity.html">体育活动分析</a>
+                    </li>
+                    <li class="li_eat">
+                        <a id="diet" href="diet.html">学生饮食分析</a>
+                    </li>
+                     <li class="li_gym">
+                        <a id="gym" href="gym.html">学生体操分析</a>
+                    </li>
+                    <li class="li_abn">
+                        <a id="abn" href="abnormal.html">学生异常分析</a>
+                    </li>
+                    <li class="li_att">
+                        <a id="att" href="attendance.html">安全考勤</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="overflow:hidden;">	
+		<div class="rightContent" id="daily-page">
+			<div id="rightContentBox1" class="rightContentBox1"> <!--学生运动分析列表内容-->
+
+					<div>
+						<div class="fr1">
+							<p>学生运动分析</p>
+						</div>
+
+						<div class="sport_intensity"><!--sport_intensity_START-->
+							<div class="lableinfo_intensity">
+								<span style="border-left-width: 6px;"></span>
+								<p>
+									<font color="#5677fc">运动强度</font>
+									分析
+								</p>
+							</div><!--lableinfo_intensity_END-->
+
+							<div class="sport_intensity_select" style="margin-left:-30px; width:100%; height:100%;"><!--sport_intensity_select_start-->
+								<br/>
+								<div class="demo1" style="width:1180px;">
+									<div class="mR25">    
+										<label>年级选择</label>
+										<select id='intensity-daily-grade-selector' style="border-radius:10px; text-align:center">
+											<option value="0">全部年级</option>
+											<option value="1">托班</option>
+											<option value="2">小班</option>
+											<option value="3">中班</option>
+											<option value="4">大班</option>
+										</select>
+									</div>
+									<div class="mR25">
+										<label>班级选择</label>
+										<select id='intensity-daily-class-selector' style="border-radius:10px; text-align:center">
+											<option>全部班级</option>
+										</select>
+									</div>
+									<div class="mR25">
+										<label>学生选择</label>
+										<select id='intensity-daily-student-selector' style="border-radius:10px; text-align:center">
+											<option>全部学生</option>
+										</select>
+									</div>
+									<div class="mR25">
+										<label>时间</label>
+										<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="intensity-daily-time"  />
+									</div>    
+									<div class="mR25">
+										<input type="button" id="intensity-daily-confirm" style="border-radius:5px;" value="查询" />
+									</div> 
+				   
+								</div>
+							</div><!--sport_intensity_select_END-->
+							<br/>
+							<div class="sport_density" style="margin-top:15px; text-align:center;"><!--sport_density_start-->  
+						
+							</div>
+						</div><!--sport_intensity_END-->
+
+
+						
+
+						<div class="lableinfo">
+							<span style="border-left-width: 6px;"></span>
+							<p>
+								<font color="#5677fc">运动密度</font>
+								分析
+							</p>
+						</div>
+					</div>
+
+				<div>
+					<br/>
+					<div class="demo1" style="width:1180px;">
+						<div class="mR25">    
+							<label>年级选择</label>
+							<select id='daily-grade-selector' style="border-radius:10px; text-align:center">
+								<option value="0">全部年级</option>
+								<option value="1">托班</option>
+								<option value="2">小班</option>
+								<option value="3">中班</option>
+								<option value="4">大班</option>
+							</select>
+						</div>
+						<div class="mR25">
+							<label>班级选择</label>
+							<select id='daily-class-selector' style="border-radius:10px; text-align:center">
+								<option>全部班级</option>
+							</select>
+						</div>
+						<div class="mR25">
+							<label>学生选择</label>
+							<select id='daily-student-selector' style="border-radius:10px; text-align:center">
+								<option>全部学生</option>
+							</select>
+						</div>
+						<div class="mR25">
+							<label>时间</label>
+							<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="daily-time" readonly onchange="" value="" />
+						</div>    
+						<div class="mR25">
+							<input type="button" id="daily-confirm" style="border-radius:5px" value="查询" />
+						</div>   
+					</div>
+				</div>
+
+			 <div class="applicationbox" id="daily-box" style="text-align:center;"></div>
+			</div>  
+		</div>
+	</div>
+    <script src="js/daily-page.js" ></script>
+    <script src="js/daily-header.js" ></script>
+    <script src="js/check-login.js" ></script>
+    <script type="text/javascript">
+        bhyf.checkLogin();
+        bhyf.daliyHeader.init();
+        bhyf.daliyPage.init();
+		function backhome(){
+		    
+			localStorage.removeItem('pid');
+			localStorage.removeItem('gname');
+			localStorage.removeItem('tname');
+			localStorage.removeItem('picurl');
+			window.location.href = 'Homepage.html';
+		 }
+    </script>
+</body>
+</html>

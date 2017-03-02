@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>儿童成长智能分析系统</title>
+    <link rel="stylesheet" type="text/css" href="Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/lhgcalendar.css">
+    <script src="Content/Scripts/lhgcore.min.js"></script>
+    <script src="Content/Scripts/lhgcalendar.min.js"></script>
+
+    <!--//活动柱状图-->
+	 <script src="js/jquery-3.1.1.js"></script>
+	 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+     <script src="js/homepageApi.js" ></script>
+    
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/moment.min.js" ></script>
+    <script src="js/underscore-min.js" ></script>
+    
+    <style type="text/css">
+        #line-chart {
+            height: 300px;
+            width: 800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+            color: #fff;
+        }
+    </style>
+    <!--分页-->
+    <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
+    <script src="Content/Scripts/jquery.pagination.js"></script>
+    <style type="text/css">
+        .demo1{
+            height:20px;
+			float:right;
+        }
+    </style>
+</head>
+
+<body class="theme-blue">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header"><!--header-->
+            <div class="top">
+                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
+                <div class="fr signOut">
+                    <button onClick="back_choose()" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到园所</button>
+                    <img src="Content/css/images/raw_1479018034.jpeg" width="30px" height="30px">
+                    <span class=""></span>admin
+                    <a class="mL10" id="logout">退出</a>
+                </div>
+            </div>
+            <!--header_end-->
+        </div>
+        <div class="navbar-collapse collapse" style="height: 1px;">
+        </div>
+    </div>
+    <!--content-->  
+    <div class="Homepage-Content" id="homepage">
+        <div id="rightContentBox1" class="rightContentBox1"> <!--学生运动分析列表内容-->
+
+        <div>
+
+            <div class="sport_intensity"><!--sport_intensity_START-->
+                <div class="lableinfo_intensity">
+                    <span style="border-left-width: 6px;"></span>
+                    <p>
+                        各园所<font color="#5677fc">运动强度</font>
+                        分析（单位：人均）
+                    </p>
+                </div><!--lableinfo_intensity_END-->
+
+                <div class="sport_intensity_select" style="margin-left:-30px; width:100%; height:100%;"><!--sport_intensity_select_start-->
+                    <br/>
+                    <div class="demo1">
+                        <div class="mR25">    
+                            <label>运动强度选择</label>
+                            <select id='sp-intensity-select' style="border-radius:10px; text-align:center">
+                                <option value="0">全部</option>
+                                <option value="低">低强度</option>
+                                <option value="中">中强度</option>
+                                <option value="高">高强度</option>
+                            </select>
+                        </div>
+                        <div class="mR25">
+                            <label>自定义时间段</label>
+                            <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="intensity-daily-time1"  /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="intensity-daily-time2"  />
+                        </div>    
+                        <div class="mR25" style="float:left;">
+                            <input type="button" id="intensity-daily-confirm" style="border-radius:5px; float:right;" value="查询" onClick="AllSportIntensity()" />
+                        </div> 
+       
+                    </div>
+                </div><!--sport_intensity_select_END-->
+                <br/>
+                <div class="sport_intensity_content" id="sport_intensity_content" style="margin-top:30px; width:100%; height:500px;">
+				</div>
+            </div><!--sport_intensity_END-->
+
+
+            
+            <div class="sleep_analysis">
+                <div class="lableinfo_sleep">
+                   <span style="border-left-width: 6px;"></span>
+                   <p>
+                    各园所<font color="#5677fc">睡眠情况</font>
+                    分析（单位：人）
+                   </p>
+                </div>
+				
+			   <div class="sleep_analysis_select" style="margin-left:-30px; width:100%; height:100%;">	
+			     <br/>
+                    <div class="demo1">
+                        <div class="mR25">    
+                            <label>睡眠质量选择</label>
+                            <select id='sl-analysis-select' style="border-radius:10px; text-align:center">
+                                <option value="0">全部</option>
+                                <option value="少">睡眠少</option>
+                                <option value="正常">睡眠正常</option>
+                                <option value="多">睡眠充足</option>
+                            </select>
+                        </div>
+                        <div class="mR25">
+                            <label>自定义时间段</label>
+                            <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="sleep-analysis-time1" readonly onchange="" value="" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="sleep-analysis-time2"  />
+                        </div>    
+                        <div class="mR25" style="float:left">
+                            <input type="button" id="daily-confirm" style="border-radius:5px" value="查询" onClick="AllSleepAnalysis()" />
+                        </div>   
+                    </div>
+					<div class="sleep_avg_content" id="sleep_avg_content" style="margin-top:60px;margin-bottom:20px; width:100%; height:400px;">
+					    
+					</div>
+                    <div class="sleep_percent_content" id="sleep_percent_content" style="margin-bottom:20px; width:100%; height:400px;">
+					    
+					</div>
+				</div>
+				   
+			</div>
+			
+			<div class="eating_habits">
+                <div class="lableinfo_diet">
+                   <span style="border-left-width: 6px;"></span>
+                   <p>
+                    各园所<font color="#5677fc">饮食习惯</font>
+                    分析（单位：人）
+                   </p>
+                </div>
+				
+			   <div class="diet_habits_select" style="margin-left:-30px; width:100%; height:100%;">	
+			     <br/>
+                    <div class="demo1">
+                        <div class="mR25">    
+                            <label>饮食习惯</label>
+                            <select id='eating-habits-select' style="border-radius:10px; text-align:center">
+                                <option value="0">全部</option>
+                                <option value="1">有待提升</option>
+                                <option value="2">习惯一般</option>
+                                <option value="3">习惯良好</option>
+                            </select>
+                        </div>
+                        <div class="mR25">
+                            <label>自定义时间段</label>
+                            <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="diet-habits-time1" readonly onchange="" value="" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="diet-habits-time2" readonly onchange="" value="" />
+                        </div>    
+                        <div class="mR25" style="float:left">
+                            <input type="button" id="daily-confirm" style="border-radius:5px" value="查询" onClick="AllEatingHabits()" />
+                        </div>   
+                    </div>
+					<div class="diet_avg_content" id="diet_avg_content" style="margin-top:60px;width:100%; height:400px;">
+					    
+					</div>
+                    <div class="diet_percent_content" id="diet_percent_content" style="width:100%; height:400px;">
+					    
+					</div>
+				</div>
+            </div>
+        </div>
+
+     </div>  
+	</div>
+
+
+
+    <script type="text/javascript">
+	  $(function () {
+		document.getElementById("intensity-daily-time1").value = '2016-12-01';
+		document.getElementById("intensity-daily-time2").value = '2016-12-31';  	
+        AllSportIntensity();
+		document.getElementById("sleep-analysis-time1").value = '2016-12-01';
+		document.getElementById("sleep-analysis-time2").value = '2016-12-31';
+        AllSleepAnalysis();
+		document.getElementById("diet-habits-time1").value = '2016-12-01';
+		document.getElementById("diet-habits-time2").value = '2016-12-31';
+		AllEatingHabits();
+      });
+	 
+	  J(function () {
+        J('#intensity-daily-time1').calendar({ maxDate: '#intensity-daily-time2' });
+        J('#intensity-daily-time2').calendar({ minDate: '#intensity-daily-time1' });
+      });
+	  
+	   J(function () {
+        J('#sleep-analysis-time1').calendar({ maxDate: '#sleep-analysis-time2' });
+        J('#sleep-analysis-time2').calendar({ minDate: '#sleep-analysis-time1' });
+      });
+	  
+	  J(function () {
+        J('#diet-habits-time1').calendar({ maxDate: '#diet-habits-time2' });
+        J('#diet-habits-time2').calendar({ minDate: '#diet-habits-time1' });
+      });
+
+    function opcal() {
+        J.calendar.Show();
+    }
+
+
+	function back_choose(){
+			   window.location.href='choose.html';
+			}
+			
+		$('#logout').on('click', function () {
+        localStorage.removeItem('pid');
+        localStorage.removeItem('gname');
+        localStorage.removeItem('tname');
+        localStorage.removeItem('picurl');
+        window.location.href = 'login.html';
+    });
+	
+    
+    </script>
+</body>
+</html>
