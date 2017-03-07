@@ -11,17 +11,10 @@
     <link rel="stylesheet" type="text/css" href="Content/css/theme.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="Content/css/lhgcalendar.css">
+    <link rel="stylesheet" type="text/css" href="css/easydialog.css">
     <script src="Content/Scripts/lhgcore.min.js"></script>
     <script src="Content/Scripts/lhgcalendar.min.js"></script>
 
-	<!--//活动柱状图-->
-	 <script src="js/jquery-3.1.1.js"></script>
-	 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
 	
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -41,6 +34,7 @@
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
             color: #fff;
         }
+
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
@@ -58,9 +52,6 @@
             <div class="top">
                 <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
                 <div class="fr signOut">
-                     <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button>
-                    <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px">
-                    <span class="Gname"></span> -->
 					<img src="" width="30px" height="30px">
                     <span class="Gname"></span> | <span class="Tname"></span>老师
                     <a class="mL10" id="logout">退出</a>
@@ -77,17 +68,17 @@
         <div class="tab-content">
             <div class="leftMenu" id="leftMenu">
                 <ul id="menudiv" class="mT10">
-                    <li class="li_mo1" style="background-color:#999999; height:46px;">
-                        <a href="daily-personal.html" style="background-color:#999999; color:#ffffff;">学生活动数据分析</a>
+                    <li class="li_mo1">
+                        <a href="daily-personal.html" style="color:#ffffff;">学生活动数据分析</a>
                     </li>
-                    <li>
+                    <li class="li_mo" >
                         <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
                     </li>
                     <li class="li_slp">
-                        <a id="sleep" href="sleep.html"><span>睡眠分析<span></a>
+                        <a id="sleep" href="sleep.html"><span>睡眠分析</span></a>
                     </li>
                      <li class="li_act">
-                        <a id="activity" href="activity.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">体育活动分析</span></a>
+                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
                     </li>
                     <li class="li_eat">
                         <a id="diet" href="diet.html"><span>饮食分析</span></a>
@@ -105,7 +96,7 @@
                         <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
                     </li>
 					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
+                        <a id="areabuild" href="areaAnalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区角建构<span></a>
                     </li>
 					<li>
                         <a id="areaAnalysis" href="participateRecord.html"><span>区角分析<span></a>
@@ -116,73 +107,31 @@
     </div>   
 
     <div class="rightContent">
-        <div class="rightContentBox2"> <!--学生体育活动列表内容-->
+        <div class="rightContentBox2">
+		    </br>
             <div>
                 <div class="fr1">
-                    <p>学生体育活动分析</p>
-                </div>
-                <div class="lableinfo">
-                    <p>本园体育活动时间段<span id="timeSec-activity"><span/></p>
+                    <p>当前区角采集设备的配置情况</p>
                 </div>
             </div>
-
+            <div class="create_area">
+               <a class="ca" href="createArea.html"><span class="text">新建区角</span></a>
+               
+            </div>
             <div>
-            </br>
-            <div class="demo1" id="activityCondition" >
-                <div class="mR25" id="activityDate">
-                    <label>时间选择</label>
-                    <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="J-xl_activity" readonly onchange="" value="" />
-                </div> 
-                <div class="mR25">    
-                    <label>年级选择</label>
-                    <select id="activityGrade" style="border-radius:10px; text-align:center">
-                        <option value="0">全部年级</option>
-                        <option value="1">托班</option>
-                        <option value="2">小班</option>
-                        <option value="3">中班</option>
-                        <option value="4">大班</option>
-                    </select>
-                </div>
-                <div class="mR25">
-                    <label>班级选择</label>
-                    <select id="activityClass" style="border-radius:10px; text-align:center">
-                        <option value="0">选择班级</option>
-
-                    </select>
-                </div>
-                <div class="mR25">
-                    <label>学生选择</label>
-                    <select id="activityPersonId" style="border-radius:10px; text-align:center">
-                        <option value="0">选择学生</option>
-
-                    </select>
-                </div>
-                <div class="mR25">
-                    <label>活动状态</label>
-                    <select id="activityStatus" style="border-radius:10px; text-align:center"><option value="">全部状态</option>
-                        <option value="低">较低</option>
-                        <option value="中">适中</option>
-                        <option value="高">较高</option>
-                    </select>
-                </div>   
-                <div class="mR25" style="float:right">
-                    <input type="button" id="select" style="border-radius:5px" onclick="onchangeActivityDate()" value="查询"  />
-                </div>   
-            </div>
+            
         </div>
 
         <div class="applicationbox" style="text-align:center;">
-            <table width="100%" border="0" cellspacing="0" class="accTabbox" id="tblist">
+            <table width="100%" border="0" cellspacing="0" class="accTabbox" id="areaAngle_info">
                 <thead >
                     <tr id="topic">
-                        <th scope="col">年级名称</th>
-                        <th scope="col">班级名称</th>
-                        <th scope="col">学生名称</th>
-                        <th scope="col">高强度时长</th>
-                        <th scope="col">中强度时长</th>
-                        <th scope="col">低强度时长</th>
-                        <th scope="col">活动状态</th>
-                        <th scope="col">日数据</th>
+                        <th scope="col">区角名称</th>
+                        <th scope="col">区角所属</th>
+                        <th scope="col">区角类型</th>
+                        <th scope="col">自定义类型</th>
+                        <th scope="col">关联设备</th>
+                        <th scope="col">操作</th>
                     </tr>
                 </thead>
                 <tbody >  
@@ -225,48 +174,25 @@
     <script src="js/check-login.js" ></script>
     <script src="js/activity-page.js"></script>
     <script src="js/javaApi.js"></script>
+	<script src="java_js/javaApi.js"></script>
+    <script src="Content/Scripts/easydialog.min.js"></script>
     <script type="text/javascript">
     bhyf.checkLogin();
-    xhb.page.init();
+    //xhb.page.init();
+	
 
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
     
-    $(function () {	
-        var current=CurentTime();
-        document.getElementById("J-xl_activity").value=current;
- 
+	$(function () {	
+        queryAreaAngleInfo(page_id);
     });
-	
-	J(function () {
-        J('#J-xl_activity').calendar({});
-    });
-	
-	 function opcal() {
-        J.calendar.Show();
-    }
-	
-    function CurentTime()
-    {
-        var now = new Date();
+   
 
-        var year = now.getFullYear();       //年
-        var month = now.getMonth() + 1;     //月
-        var day = now.getDate();            //日
-        var clock = year + "-";
-        if(month < 10)
-            clock += "0";
-        clock += month + "-";
-        if(day < 10)
-            clock += "0";
-        clock += day + " ";
-        return(clock);
-    };
-        
     //翻页响应
       function pageselectCallback(page_id, jq){
-          var current=document.getElementById("J-xl_activity").value;
-                initData_activity(page_id,current);
+          
+                queryAreaAngleInfo(page_id);
                 //return false;
           
      }
@@ -278,6 +204,18 @@
 			localStorage.removeItem('tname');
 			localStorage.removeItem('picurl');
 		 }
+     function store(areaId){
+         localStorage.setItem("areaId",areaId);
+
+         window.location.href = 'areaAngleEdit.html';
+     }
+     function turnRecord(areaId,areaName,typeName){
+         localStorage.setItem("areaId",areaId);
+         localStorage.setItem("areaAngleType",typeName);
+         localStorage.setItem("areaAngleName",areaName);
+
+         window.location.href = 'ConfigRecord.html';
+    }
     </script>
 </body>
 </html>

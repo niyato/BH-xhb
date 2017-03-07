@@ -45,11 +45,12 @@ a{ text-decoration:none;}
 
 .leftMenu{ width:200px;height:100%;position:fixed;box-sizing: border-box; border-style:solid; background-color:#f0f0f0; border-width:0px; margin-top:6px;}
 .leftMenu ul{ padding:0;}
-.leftMenu li a{ text-decoration:none; color:#000; cursor:pointer;background:#e9e5e1;display: block;width: 200px;height: 46px;margin-left: -35px;text-align: center;line-height: 46px;}
-.leftMenu .li_mo a{ background:#aba9ab;}
-.leftMenu li a.on{color:#aba9ab;}
-.leftMenu ul>li{font-size:16px; padding:10px 0 10px 30px; margin-top:0px; border:solid 1px lightgrey; border-width:1px; background:#e9e5e1;}
-.leftMenu ul .li_mo{ background:#aba9ab;}
+.leftMenu li a{ text-decoration:none; color:#000; cursor:pointer;display: block;width: 200px;height: 46px;margin-left: -35px;text-align: center;}
+.leftMenu .li_mo a{}
+.leftMenu li a.on{}
+.leftMenu ul>li{font-size:16px; padding:10px 0 10px 30px; margin-top:0px; border:solid 1px lightgrey; border-width:1px; background:#d9d9d9; height:46px;}
+.leftMenu ul li a span{ display:block; width:150px; margin-left:25px;}
+.leftMenu ul .li_mo1{ background:#aba9ab;}
 .cur{ background:#D96C00; font-weight:bold;}
 
 .rightContent{ margin-left:200px;}
@@ -234,10 +235,10 @@ a{ text-decoration:none;}
 	margin-bottom:5px;
 	margin-left:5px;}
 .rightContentBox1 .demo1 .mR25 #select{ width:90px; height:26px; background-color:#26a69a; border-color:#26a69a; color:#fff;}
-.applicationbox{box-shadow: 0 0px 5px #ddd; margin-top:60px; margin-left:30px;}
+.applicationbox{box-shadow: 0 0px 5px #ddd; margin-top:30px;}
 .applicationbox th,.applicationbox td{ padding:10px; border-bottom:1px solid #D2DAE0; border-right:1px solid #D2DAE0;text-align:center;}
 .applicationbox th{ background:#e3e8ee; font-weight:bold; text-align:center;}
-.applicationbox td a{color:#4D5E70; text-decoration:underline;}
+.applicationbox td a{color:#5677fc;}
 .rightContentBox2 .applicationbox table tbody tr td .btn{background-image:url(../Content/css/images/button_icon.png); border:none; background-color:#FFF;}
 #att_1 table tbody tr td .btn{background-image:url(../Content/css/images/jsr.png); border:none;}
 .rightContentBox2{ padding:20px 30px;}
@@ -247,19 +248,185 @@ a{ text-decoration:none;}
     top: 86.25px;
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
-    font-size: 14.3px;
+    font-size: 16px;
     padding: 0px;
     border-radius: 0px;
     border-width: 0px;
     line-height: 21px;
-    font-weight: normal;
+    font-weight:bold;
     font-style: normal;
     justify-content: center;
     align-items: center;
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
-	border-bottom: 1px solid #bdc3c7;}
+	margin-bottom:20px;
+	margin-top:30px;}
+.rightContentBox2 .create_area{    
+    width: 143px;
+    height: 44px;
+    left: 243px;
+    top: 200px;
+    color: #fff;
+    background-color: #ffa726;
+    border-color: #fb8c00;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+	cursor:pointer;}
+.rightContentBox2 .create_area .ca{ width: 140px;height: 40px;color: #fff;
+    background-color: #ffa726;
+    border-color: #fb8c00;
+	border:none;
+	display:block;}
+.rightContentBox2 .create_area .ca span{line-height: 44px; width:143px; height:44px;}
+.rightContentBox2 .carea{
+    height: 33.75px;
+    left: 168.75px;
+    top: 86.25px;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 0px;
+    border-width: 0px;
+    line-height: 21px;
+    font-weight:bold;
+    font-style: normal;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+	margin-bottom:20px;
+	margin-top:30px;}
+.rightContentBox2 .carea p{color:black; width:500px;}
+.rightContentBox2 .carea .return{    width: 92px;
+    height: 34px;
+	float:right;
+    color: #ffffff;
+    background-color: #787778;
+    border-color: ;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+	margin-top:-25px;}
+.rightContentBox2 .carea .return a{ 
+    line-height:34px; 
+    color:#ffffff;
+    display: block;
+    width: 90px;
+    height: 30px;
+}
+.rightContentBox2 .configuration{ margin-top:20px; margin-left:40px;}
+.rightContentBox2 .configuration .areaname .sort{width: 94px;
+    height: 34px;
+	line-height:34px;
+    left: 939px;
+    top: 237px;
+    color: #ffffff;
+    background-color: #787778;
+    border-color: ;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: left;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;}
+.rightContentBox2 .configuration .areaname .triangle_border_up{
+    width:0;
+    height:0;
+    border-width:0 10px 10px;
+    border-style:solid;
+    border-color:transparent transparent #f3f3f3;/*透明 透明  白色*/
+    margin-left:60px;
+	margin-top:-30px;
+    position:relative;
+	cursor:pointer;
+}
+.rightContentBox2 .configuration .areaname .triangle_border_down{
+    width:0;
+    height:0;
+    border-width:10px 10px 0;
+    border-style:solid;
+    border-color:#f3f3f3 transparent transparent;/*白色 透明 透明 */
+    margin-left:60px;
+	margin-top:5px;
+    position:relative;
+	cursor:pointer;
+}
+.rightContentBox2 .areaname{ font-size:16px;}
+.rightContentBox2 .areaBelongs{font-size:16px; margin-top:30px;}
+.rightContentBox2 .areatype{font-size:16px; margin-top:30px;}
+.rightContentBox2 .SelectEquipment{font-size:16px; margin-top:30px;}
+.rightContentBox2 .areagenerate{
+	width: 149px;
+    height: 38px;
+	line-height:38px;
+    left: 302px;
+    top: 565px;
+    color: #fff;
+    background-color: #738ffe;
+    border-color: #4e6cef;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+pointer-events: auto;}
+.rightContentBox2 .areacancel{
+	width: 149px;
+    height: 38px;
+	line-height:38px;
+    left: 479px;
+    top: 565px;
+    color: #fff;
+    background-color: #aba9ab;
+    border-color: #444;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 3px;
+    border-width: 0px;
+    border-style: solid;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+pointer-events: auto;}
+.rightContentBox2 .de label{ font-size:16px; margin-right:10px;}
 .rightContentBox2 .lableinfo{ margin-top:20px; margin-left:30px;}
 .rightContentBox2 .demo1{ margin-left:30px;}
 .rightContentBox2 .demo1 select{
