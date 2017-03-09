@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>儿童成长智能分析系统</title>
+    <link rel="stylesheet" type="text/css" href="Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/lhgcalendar.css">
+	<link rel="stylesheet" type="text/css" href="css/easydialog.css">
+    <script src="Content/Scripts/lhgcore.min.js"></script>
+    <script src="Content/Scripts/lhgcalendar.min.js"></script>
+
+
+	
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/moment.min.js" ></script>
+    <script src="js/underscore-min.js" ></script>
+    <script src="js/services.js" ></script>
+    <script src="js/graph.js" ></script>
+    <script src="js/activity-zztu.js"></script>
+    <style type="text/css">
+	     .demo1{
+            height:20px;
+        }
+		.allstu .selname { margin-left:20px; margin-right:10px;}
+        #line-chart {
+            height: 300px;
+            width: 800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+            color: #fff;
+        }
+		.hjcs{width: 100px;
+				height: 30px;
+				left: 551.4999999999998px;
+				top: 405.2499999999998px;
+				color: #fff;
+				background-color: #ffa726;
+				border-color: #fb8c00;
+				transform: rotate(0deg);
+				-webkit-transform: rotate(0deg);
+				font-size: 10.5px;
+				padding: 0px;
+				border-radius: 0px;
+				border-width: 0px;
+				border-style: solid;
+				text-align: center;
+				line-height: 15px;
+				font-weight: normal;
+				font-style: normal;
+				z-index: 7;
+				opacity: 1;
+				pointer-events: auto;
+			}
+    </style>
+    <!--分页-->
+    <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
+    <script src="Content/Scripts/jquery.pagination.js"></script>
+</head>
+
+<body class="theme-blue">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header"><!--header-->
+            <div class="top">
+                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
+                <div class="fr signOut">
+					<img src="" width="30px" height="30px">
+                    <span class="Gname"></span> | <span class="Tname"></span>老师
+                    <a class="mL10" id="logout">退出</a>
+                </div>
+            </div>
+            <!--header_end-->
+        </div>
+        <div class="navbar-collapse collapse" style="height: 1px;">
+        </div>
+    </div>
+    <!--content-->
+    <div id="wrap">
+        <!--左侧导航-->
+        <div class="tab-content">
+            <div class="leftMenu" id="leftMenu">
+                <ul id="menudiv" class="mT10">
+                    <li class="li_mo1">
+                        <a href="daily-personal.html" id="move" style="color:#ffffff;">学生活动数据分析</a>
+                    </li>
+                    <li class="li_mo" >
+                        <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
+                    </li>
+                    <li class="li_slp">
+                        <a id="sleep" href="sleep.html"><span>睡眠分析</span></a>
+                    </li>
+                     <li class="li_act">
+                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
+                    </li>
+                    <li class="li_eat">
+                        <a id="diet" href="diet.html"><span>饮食分析</span></a>
+                    </li>
+                     <li class="li_gym">
+                        <a id="gym" href="gym.html"><span>体操分析</span></a>
+                    </li>
+                    <li class="li_abn">
+                        <a id="abn" href="abnormal.html"><span>异常分析</span></a>
+                    </li>
+                    <li class="li_att">
+                        <a id="att" href="attendance.html"><span>安全考勤</span></a>
+                    </li>
+					<li class="li_mo1">
+                        <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
+                    </li>
+					<li>
+                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
+                    </li>
+					<li>
+                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析<span></a>
+                    </li>
+					<li>
+                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区域活动分析&记录<span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>   
+
+<div class="rightContent">
+    <div class="rightContentBox2"> <!---->
+            <div style="border-bottom:1px solid #D2DAE0;">
+                <div class="obrcod">
+                    <p>绘本阅读区域</p>
+                    <span>观察记录</span>
+                    <div class="return">
+                       <a class="" href="areaAngleAngalysis.html">返回</a>
+                    </div>
+                </div>
+            </div>
+
+        <div>
+            </br>
+            <div style=" height:130px;background-color:#f0f0f0; padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
+					<div class="de" id="" style="">
+					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px;">
+							<label>时间段选择：</label>
+							<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+						</div>
+                        
+						<div class="" style="float:left; margin-left:20px;">
+                            <label>统计学生的年纪/班级选择：</label>						
+							<label>年级选择</label>
+							<select id="" onchange="" style="text-align:center; width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; ">
+								<option value="0">全部年级</option>
+								<option value="1">托班</option>
+								<option value="2">小班</option>
+								<option value="3">中班</option>
+								<option value="4">大班</option>
+							</select>
+						</div>
+						<div class="" style="float:left; margin-left:30px; margin-right:30px;">
+							<label>班级选择</label>
+							<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
+								<option value="0">选择班级</option>
+
+							</select>
+						</div>
+						<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:right; margin-right:20px;">
+							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="查询"  />
+						</div>   
+
+					</div>
+			</div>
+			
+			<div style=" height:130px;margin-bottom:50px; background-color:#f0f0f0; padding-top:10px; margin-top:10px; margin-left:20px; margin-right:20px; ">
+			   <label style="margin-left:20px; font-weight:bold;">请选择您要观察记录的学生：</label>
+			   <br/>
+			   <div class="allstu" style=" margin-right:50px;">
+					<div style=" width:800px;">
+						 <input class="selname" type="checkbox"><span>叶之凡</span>
+						 <input type="checkbox" id="allsel" style="margin-left:20px; margin-right:10px;">
+						 <span>全选</span>
+					</div> 
+					    <input type="button" id="select" style=" width:60px; height:25px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF; float:right;" onclick="" value="确定"  />
+			   </div>
+			</div>
+			
+			<div style="border-top:1px solid #D2DAE0;"><!--环境创设start -->
+				<div  style=" margin-left:20px; margin-right:20px; text-align:center;">
+				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+					   <p>环境创设</p>
+				   </div>
+				   
+				</div>
+				<div class="hjcs-content" style=" margin-left:20px; margin-top:20px; color:black; margin-top">
+					  <p style=" float:left;">记录名称</p>
+					  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请描述下该记录的名称，例如：4月小班的绘本阅读区角活动观察记录"></textarea>
+					  <p style="color:red; margin-left:20px;">必填</p>				  
+				</div>
+				<br/>
+				<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
+					<p style=" float:left;">建构目的</p>
+					  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请简要说明设置此区角的目的"></textarea>  
+					  <p style=" color:red;">必填</p>	
+				</div>
+				<br/>
+				<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
+					<p style=" float:left;">投放教材</p>
+					<div type="button" style=" width:95px; height:93px; background:url(Content/images/upfile.png);margin-left:75px; cursor:pointer;" onclick=''></div>
+					<p style=" float:left;margin-left: 180px;margin-top: -20px;">允许上传10张照片</P>
+					<textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px; margin-left:-220px;" placeholder="请简单描述下您在此区角投放的教材"></textarea>
+				</div>
+			</div><!--环境创设end-->
+			
+			<div style="border-top:1px solid #D2DAE0; margin-top:50px; margin-bottom:50px;"><!--孩子表现start-->
+				<div  style=" margin-left:20px; margin-right:20px; text-align:center; margin-top:30px;">
+				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+					   <p>孩子表现</p>
+				   </div>
+				   
+				</div>
+				
+				<div class="hzbx-content" style=" margin-left:20px; margin-top:20px; color:black; float:clear; ">
+					  <p style=" float:left; font-weight: bold; margin-bottom:20px;">活动数据记录</p>
+					<div class="applicationbox" id="" style=" text-align:center;">
+							<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
+								<thead >
+									<tr id="">
+										<th scope="col">学生名称</th>
+										<th scope="col">参与次数</th>
+										<th scope="col">个人平均运动量</th>
+										<th scope="col">与班级平均值比较</th>
+										<th scope="col">个人停留时间</th>
+										<th scope="col">与班级平均值比较</th>
+									</tr>
+								</thead>
+								<tbody >
+									<tr>
+										  <td>叶之凡</td>
+										  <td>60</td>
+										  <td>60</td>
+										  <td><p>低于</p>60%</td>
+										  <td>20</td>
+										  <td><p style="color:red;">高于</p>20%</td>
+									</tr>								
+								</tbody>    
+							</table>
+							<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+							<input type="hidden" id="pagenum">
+					</div>	
+
+					<p style=" float:left; font-weight: bold; margin-bottom:20px; margin-top:50px;">学生活动的视频记录</p>
+					<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center;margin-top:50px; float:right;">
+						<option value="0">请选择学生</option>
+						<option value="1">叶之凡</option>
+					</select>
+					<div class="applicationbox" id="" style=" text-align:center;">
+						<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
+							<thead >
+								<tr id="">
+									<th scope="col">学生名称</th>
+									<th scope="col">进入时间</th>
+									<th scope="col">离开时间</th>
+									<th scope="col">停留时长</th>
+									<th scope="col">活动量</th>
+									<th scope="col">操作</th>
+								</tr>
+							</thead>
+							<tbody >
+								<tr>
+									  <td>叶之凡</td>
+									  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
+									  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
+									  <td>5分</td>
+									  <td>150</td>
+									  <td><p style="color:#5677fc;">预览</p></td>
+								</tr>								
+							</tbody>    
+						</table>
+						<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+						<input type="hidden" id="pagenum">
+							
+					</div>
+					
+					<div style="">
+						<p style=" float:left; font-weight: bold; margin-bottom:20px; margin-top:0px;  margin-right:20px;">学生活动的观察录入</p>
+						<p style=" color:red; margin-top:50px;">下述内容为必填项</p>
+						<br/>
+						<ul style=" float:left; margin-left:20px;">
+						   <li>
+							  <p style=" float:left;">叶智钒</p>
+							  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+						  </li>
+						  <li>
+							   <p style=" float:left;">叶智钒</p>
+							  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+						  </li>
+						  <li>
+							   <p style=" float:left;">叶智钒</p>
+							  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+						  </li>
+						  
+						</ul>
+					</div>
+					
+				
+				</div>
+			</div><!--孩子表现end-->
+			
+			
+		    <div style=" border-top:1px solid #D2DAE0;"><!--分析与调整start-->
+				<div  style=" margin-left:20px; margin-right:20px; text-align:center; margin-top:30px;">
+				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+					   <p>分析与调整</p>
+				   </div>	   
+				</div>
+				
+				<div class="fxtz-content">
+				   
+				   
+				</div>
+			</div><!--分析与调整end-->
+		</div>
+			
+    </div>
+        
+     
+</div>
+    <!--content_end-->
+    
+    
+
+    <script src="js/check-login.js" ></script>
+    <script src="js/activity-page.js"></script>
+    <script src="js/javaApi.js"></script>
+    <script src="java_js/javaApi.js"></script>
+	<script src="Content/Scripts/easydialog.min.js"></script>
+    <script type="text/javascript">
+    bhyf.checkLogin();
+    xhb.page.init();
+
+    var page_id = 0;     //页面索引初始值
+    var pageSize = 10;
+    
+	$('#allsel').click(function(){
+	   if(this.checked){
+	     $('.selname').prop("checked",true);
+	   } else{
+	     $('.selname').prop("checked",false);
+	   }
+	   
+	});
+	$('.selname').click(function(){
+	   if(this.checked == false){
+	     $('#allsel').prop("checked",false);
+	   }
+	});
+	
+    $(function () {
+        queryConfigCondition();
+    });
+	
+	J(function () {
+        J('#input1').calendar({ maxDate:'#input2'});
+        J('#input2').calendar({ minDate:'#input1'});
+    });
+
+    function opcal() {
+        J.calendar.Show();
+    }
+	
+    function CurentTime()
+    {
+        var now = new Date();
+
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+        var clock = year + "-";
+        if(month < 10)
+            clock += "0";
+        clock += month + "-";
+        if(day < 10)
+            clock += "0";
+        clock += day + " ";
+        return(clock);
+    };
+        
+    //翻页响应
+      function pageselectCallback(page_id, jq){
+          var current=document.getElementById("J-xl_activity").value;
+                initData_activity(page_id,current);
+                //return false;
+          
+     }
+   
+     function backhome(){
+		    window.location.href = 'Homepage.html';
+			localStorage.removeItem('pid');
+			localStorage.removeItem('gname');
+			localStorage.removeItem('tname');
+			localStorage.removeItem('picurl');
+     }
+     function checkClass(a){
+
+         if(a==1){
+//            document.getElementById("classInfoSelect").disabled=false;
+             $("#classInfoSelect").show();
+             $("#commonAreaAngle").hide();
+         }else{
+//             document.getElementById("classInfoSelect").disabled=true;
+             $("#classInfoSelect").hide();
+             $("#commonAreaAngle").show();
+         }
+     }
+	 
+	 //验证输入
+	 function checkinfo(){
+		   var areaName = $('#areaAngleName').val();
+           var areaType = $('#areaTypeSelect').val();
+		   var classInfo = $("#classInfoSelect").find("option:selected").text();;
+		   if(areaName.trim() == ''){
+				easyDialog.open({
+						container: {
+							content: '区角名称不能为空！',
+						},
+						autoClose: 2000
+					});
+					return false;
+			 }
+
+		  if(classInfo == '请选择班级名称'&&areaType==1){
+				easyDialog.open({
+				container: {
+					content: '班级名称不能为空！',
+				},
+				autoClose: 2000
+			});
+			return false;
+		  }
+			recordAreaAngleInfo(); 
+	}
+    </script>
+</body>
+</html>

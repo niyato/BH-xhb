@@ -309,7 +309,7 @@ a{ text-decoration:none;}
     pointer-events: auto;
 	margin-bottom:20px;
 	margin-top:30px;}
-.rightContentBox2 .carea p{color:black; width:500px;}
+.rightContentBox2 .carea p{color:black; width:500px; float:left;}
 .rightContentBox2 .carea .return{    width: 92px;
     height: 34px;
 	float:right;
@@ -329,6 +329,53 @@ a{ text-decoration:none;}
     opacity: 1;
     pointer-events: auto;
 	margin-top:-25px;}
+.rightContentBox2 .obrcod{
+    height: 33.75px;
+    left: 168.75px;
+    top: 86.25px;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 0px;
+    border-width: 0px;
+    line-height: 21px;
+    font-weight:bold;
+    font-style: normal;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+	margin-bottom:20px;
+	margin-top:30px;}
+.rightContentBox2 .obrcod p{color:black; width:120px; float:left;}
+.rightContentBox2 .obrcod span{ margin-left:20px; font-weight: normal; font-size:16px;}
+.rightContentBox2 .obrcod .return{    width: 92px;
+    height: 34px;
+	float:right;
+    color: #ffffff;
+    background-color: #787778;
+    border-color: ;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size: 14.0px;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;}
+.rightContentBox2 .obrcod .return a{ 
+    line-height:34px; 
+    color:#ffffff;
+    display: block;
+    width: 90px;
+    height: 30px;
+}
 .rightContentBox2 .carea .return a{ 
     line-height:34px; 
     color:#ffffff;
