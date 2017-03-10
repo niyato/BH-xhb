@@ -349,7 +349,7 @@ a{ text-decoration:none;}
     pointer-events: auto;
 	margin-bottom:20px;
 	margin-top:30px;}
-.rightContentBox2 .obrcod p{color:black; width:120px; float:left;}
+.rightContentBox2 .obrcod p{color:black; float:left;}
 .rightContentBox2 .obrcod span{ margin-left:20px; font-weight: normal; font-size:16px;}
 .rightContentBox2 .obrcod .return{    width: 92px;
     height: 34px;

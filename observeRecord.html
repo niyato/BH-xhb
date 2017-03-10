@@ -15,7 +15,6 @@
     <script src="Content/Scripts/lhgcore.min.js"></script>
     <script src="Content/Scripts/lhgcalendar.min.js"></script>
 
-
 	
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -61,7 +60,30 @@
 				opacity: 1;
 				pointer-events: auto;
 			}
+        .img-cont{ clear:both; margin:50px; margin-left:75px;}
+        .img-cont .xinforpic{ width:95px; height:93px;
+							border: 1px solid #cccccc;
+							position: relative;
+							margin-right:10px;
+							float: left;
+		}
+		.img-cont .file{width:95px; height:93px; margin-bottom:10px; background:url(Content/images/upfile.png); line-height:93px; float:left;}
+        .img-cont .xinforpic img{ width:95px; height:93px;}
+		  .img-cont .xinforpic .delete-btn{
+			height: 12px;
+			width: 12px;
+			background:url(images/delete.gif) no-repeat;
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			cursor: pointer;
+			z-index: 999999999;
+		  }
 
+
+		  .hide{
+			display: none !important;
+		  }
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
@@ -210,10 +232,16 @@
 				</div>
 				<br/>
 				<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
-					<p style=" float:left;">投放教材</p>
-					<div type="button" style=" width:95px; height:93px; background:url(Content/images/upfile.png);margin-left:75px; cursor:pointer;" onclick=''></div>
-					<p style=" float:left;margin-left: 180px;margin-top: -20px;">允许上传10张照片</P>
-					<textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px; margin-left:-220px;" placeholder="请简单描述下您在此区角投放的教材"></textarea>
+					<p style=" float:left; margin-right:20px;">投放教材</p>
+					<div class="img-cont">
+					   <div class="file">
+					      <input type="file" multiple onchange='PreviewImage(this)' style="width:95px; height:93px; opacity: 0; cursor:pointer;">
+					   </div>
+					</div>
+				</div>
+				<div style="margin-left:95px; clear:both;">
+				   <p class="warning" style=" margin-top: -20px;">允许上传10张照片</P>
+					<textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;" placeholder="请简单描述下您在此区角投放的教材"></textarea>
 				</div>
 			</div><!--环境创设end-->
 			
@@ -325,7 +353,7 @@
 				<br/>
 				<div style=" margin-top:100px; text-align:center;">
 					<div class="save" style="margin:0 auto;">
-					   <input type="button" id="" style=" width:80px; height:30px; margin-right:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="保存"  />
+					   <input type="submit" id="" style=" width:80px; height:30px; margin-right:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="保存"  />
 					   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
 					</div>
 				</div>
@@ -338,7 +366,7 @@
 </div>
     <!--content_end-->
     
-    
+
 
     <script src="js/check-login.js" ></script>
     <script src="js/activity-page.js"></script>
@@ -352,19 +380,82 @@
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
     
-	$('#allsel').click(function(){
-	   if(this.checked){
-	     $('.selname').prop("checked",true);
-	   } else{
-	     $('.selname').prop("checked",false);
-	   }
+	
+	//复选框begin 
+		$('#allsel').click(function(){
+		   if(this.checked){
+			 $('.selname').prop("checked",true);
+		   } else{
+			 $('.selname').prop("checked",false);
+		   }
+		   
+		});
+		$('.selname').click(function(){
+		   if(this.checked == false){
+			 $('#allsel').prop("checked",false);
+		   }
+		});
+	//复选框end
+	
+	//上传图片begin
+	    var id="1";
+	   function PreviewImage(imgFile){
 	   
-	});
-	$('.selname').click(function(){
-	   if(this.checked == false){
-	     $('#allsel').prop("checked",false);
+	      var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;
+		  if(!pattern.test(imgFile.value)){
+			easyDialog.open({
+							container: {
+								content: '仅支持jpg/jpeg/png/gif/bmp格式的照片！',
+							},
+							autoClose: 2000
+						});
+					return false;	
+			imgFile.focus();
+		  }else{
+		     //定义图片路径
+			 var path;
+			 id += 1;
+			 //添加显示图片的html元素
+			  if($(".xinforpic").length <10){ 
+				    $(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
+					 if(document.all){
+						//兼容IE
+						imgFile.select();
+						path = document.section.createRange().text;
+						document.getElementById(id).innerhtml ="";
+						//使用滤镜效果
+						document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
+						
+					 }else{
+						
+						//兼容其他浏览器
+						path = URL.createObjectURL(imgFile.files[0]);
+						console.log(path);
+						
+						//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
+						$("#" + id + " img").attr('src',path);		
+					 }
+				   
+				}else{
+				   easyDialog.open({
+							container: {
+								content: '最多只能上传10张！',
+							},
+							autoClose: 2000
+						});
+					return false;	
+				}
+			 
+		  }
+
 	   }
-	});
+	//上传图片end
+	
+	//删除图片begin
+	  function delpic(that){
+	     $(that).parent().remove();
+	  }     
+	//删除图片end
 	
     $(function () {
         queryConfigCondition();
@@ -411,6 +502,7 @@
 			localStorage.removeItem('tname');
 			localStorage.removeItem('picurl');
      }
+	 
      function checkClass(a){
 
          if(a==1){
@@ -424,32 +516,6 @@
          }
      }
 	 
-	 //验证输入
-	 function checkinfo(){
-		   var areaName = $('#areaAngleName').val();
-           var areaType = $('#areaTypeSelect').val();
-		   var classInfo = $("#classInfoSelect").find("option:selected").text();;
-		   if(areaName.trim() == ''){
-				easyDialog.open({
-						container: {
-							content: '区角名称不能为空！',
-						},
-						autoClose: 2000
-					});
-					return false;
-			 }
-
-		  if(classInfo == '请选择班级名称'&&areaType==1){
-				easyDialog.open({
-				container: {
-					content: '班级名称不能为空！',
-				},
-				autoClose: 2000
-			});
-			return false;
-		  }
-			recordAreaAngleInfo(); 
-	}
     </script>
 </body>
 </html>
