@@ -24,6 +24,13 @@
     <script src="js/services.js" ></script>
     <script src="js/graph.js" ></script>
     <script src="js/activity-zztu.js"></script>
+	
+    <script src="Content/Scripts/jquery.pagination.js"></script>
+    <!--导出word-->
+    <script src="js/FileSaver.min.js"></script>
+	<script src="js/jquery.wordexport.js"></script>
+	
+    
     <style type="text/css">
 	     .demo1{
             height:20px;
@@ -87,7 +94,8 @@
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
-    <script src="Content/Scripts/jquery.pagination.js"></script>
+	
+
 </head>
 
 <body class="theme-blue">
@@ -148,6 +156,9 @@
 					<li>
                         <a id="areaAnalysis" href="areaAngleAngalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区域活动分析&记录<span></a>
                     </li>
+					<li>
+                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -165,7 +176,7 @@
                 </div>
             </div>
 
-        <div>
+        <div id="exports">
             </br>
             <div style=" height:130px;background-color:#f0f0f0; padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
 					<div class="de" id="" style="">
@@ -203,7 +214,7 @@
 			   <label style="margin-left:20px; font-weight:bold;">请选择您要观察记录的学生：</label>
 			   <br/>
 			   <div class="allstu" style=" margin-right:50px;">
-					<div style=" width:800px;">
+					<div style=" width:800px; margin-left:20px;">
 						 <input class="selname" type="checkbox"><span>叶之凡</span>
 						 <input type="checkbox" id="allsel" style="margin-left:20px; margin-right:10px;">
 						 <span>全选</span>
@@ -279,7 +290,6 @@
 								</tbody>    
 							</table>
 							<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-							<input type="hidden" id="pagenum">
 					</div>	
 
 					<p style=" float:left; font-weight: bold; margin-bottom:20px; margin-top:50px;">学生活动的视频记录</p>
@@ -354,7 +364,7 @@
 				<div style=" margin-top:100px; text-align:center;">
 					<div class="save" style="margin:0 auto;">
 					   <input type="submit" id="" style=" width:80px; height:30px; margin-right:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="保存"  />
-					   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
+					   <input type="button" id="exptoword" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
 					</div>
 				</div>
 			</div><!--分析与调整end-->
@@ -457,6 +467,14 @@
 	  }     
 	//删除图片end
 	
+	//导出word
+	    jQuery(document).ready(function($) {
+			$("#exptoword").click(function(event) {
+				$("#exports").wordExport();
+			});
+		});
+	//导出word END
+	
     $(function () {
         queryConfigCondition();
     });
@@ -486,7 +504,10 @@
         clock += day + " ";
         return(clock);
     };
-        
+      
+
+
+	
     //翻页响应
       function pageselectCallback(page_id, jq){
           var current=document.getElementById("J-xl_activity").value;

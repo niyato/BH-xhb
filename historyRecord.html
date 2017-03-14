@@ -24,6 +24,11 @@
     <script src="js/services.js" ></script>
     <script src="js/graph.js" ></script>
     <script src="js/activity-zztu.js"></script>
+	
+    <!--excel下载导出-->
+	<script src="js/tableExport.js"></script>
+	<script src="js/jquery.base64.js"></script>
+	
     <style type="text/css">
 	     .demo1{
             height:20px;
@@ -38,7 +43,7 @@
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
             color: #fff;
         }
-
+        a{ cursor:pointer;}
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
@@ -103,6 +108,9 @@
 					<li>
                         <a id="areaAnalysis" href="areaAngleAngalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区域活动分析&记录<span></a>
                     </li>
+					<li>
+                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -156,10 +164,10 @@
 			
 			<div class="wq-content" style="border-top: 5px solid #f0f0f0; margin-top:50px;">
 			    <div class="applicationbox" style="margin-left:20px; margin-right:20px;">
-				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
+				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_m">
 								<thead >
 									<tr id="">
-									    <th scope="col"><input type="checkbox"></th>
+									    <th scope="col"><input id="allselect" type="checkbox"></th>
 										<th scope="col">年级</th>
 										<th scope="col">班级</th>
 										<th scope="col">记录名称</th>
@@ -170,25 +178,25 @@
 								</thead>
 								<tbody >
 									<tr>
-									      <td><input type="checkbox"></td>
+									      <td><input class="onesel" type="checkbox"></td>
 										  <td>小班</td>
 										  <td>豆豆1班</td>
 										  <td>4月第1周小1班区角活动记录</td>
 										  <td>2016-01-05</td>
 										  <td>周老师</td>
-										  <td><a>查看</a>&nbsp<a>编辑</a>&nbsp<a>下载导出</a></td>
+										  <td><a href="#">查看</a>&nbsp <a href="#">编辑</a>&nbsp <a onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });">下载导出</a></td>
 									</tr>								
 								</tbody>    
-							</table>
+					</table>
 					<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
 				</div>
 			</div>
 			
 			<div style=" margin-top:100px; text-align:center;">
 					<div class="" style="margin:0 auto;">
-					   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
+					   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });" value="下载并导出"  />
 					</div>
-				</div>
+			</div>
 		</div>
 			
     </div>
@@ -210,7 +218,21 @@
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
     
-	
+	//复选框begin 
+		$('#allselect').click(function(){
+		   if(this.checked){
+			 $('.onesel').prop("checked",true);
+		   } else{
+			 $('.onesel').prop("checked",false);
+		   }
+		   
+		});
+		$('.onesel').click(function(){
+		   if(this.checked == false){
+			 $('#allselect').prop("checked",false);
+		   }
+		});
+	//复选框end
 	
 	
     $(function () {
