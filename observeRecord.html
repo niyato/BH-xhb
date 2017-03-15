@@ -148,16 +148,16 @@
                         <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
                     </li>
 					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
+                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构</span></a>
                     </li>
 					<li>
-                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析<span></a>
+                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析</span></a>
                     </li>
 					<li>
-                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区域活动分析&记录<span></a>
+                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区域活动分析&记录</span></a>
                     </li>
 					<li>
-                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录</span></a>
                     </li>
                 </ul>
             </div>
@@ -408,7 +408,6 @@
 	//复选框end
 	
 	//上传图片begin
-	    var id="1";
 	   function PreviewImage(imgFile){
 	   
 	      var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;
@@ -424,38 +423,56 @@
 		  }else{
 		     //定义图片路径
 			 var path;
-			 id += 1;
 			 //添加显示图片的html元素
-			  if($(".xinforpic").length <10){ 
-				    $(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
-					 if(document.all){
-						//兼容IE
-						imgFile.select();
-						path = document.section.createRange().text;
-						document.getElementById(id).innerhtml ="";
-						//使用滤镜效果
-						document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
-						
-					 }else{
-						
-						//兼容其他浏览器
-						path = URL.createObjectURL(imgFile.files[0]);
-						console.log(path);
-						
-						//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
-						$("#" + id + " img").attr('src',path);		
-					 }
+			  if($(".xinforpic").length < 10){ 
+					var fileList =  imgFile.files;
+					var xinforpic = document.getElementById("xinforpic");
+					for(var i = 0 ; i<fileList.length;i++){
+						id = "img"+i;
+						if(fileList.length < 10){
+								$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
+								
+								if(document.all){
+								//兼容IE
+								imgFile.select();
+								path = document.section.createRange().text;
+								document.getElementById(id).innerhtml ="";
+								//使用滤镜效果
+								document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
+								
+							 }else{
+								
+								//兼容其他浏览器
+								path = URL.createObjectURL(imgFile.files[i]);
+								console.log(path);
+								
+								//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
+								$("#" + id + " img").attr('src',path);		
+							 }
+					   }else{
+					    easyDialog.open({
+							container: {
+								content: '一次最多只能上传10张图片！',
+							},
+							autoClose: 2000
+						});
+						return false
+					   }
+					    
+					   
+					 
+					}
 				   
 				}else{
 				   easyDialog.open({
 							container: {
-								content: '最多只能上传10张！',
+								content: '最多只能上传10张图片！',
 							},
 							autoClose: 2000
 						});
-					return false;	
+						
 				}
-			 
+			    return false;
 		  }
 
 	   }
