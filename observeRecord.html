@@ -246,7 +246,7 @@
 					<p style=" float:left; margin-right:20px;">投放教材</p>
 					<div class="img-cont">
 					   <div class="file">
-					      <input type="file" multiple onchange='PreviewImage(this)' style="width:95px; height:93px; opacity: 0; cursor:pointer;">
+					      <input type="file" id="doc" multiple onchange='PreviewImage(this)' style="width:95px; height:93px; opacity: 0; cursor:pointer;">
 					   </div>
 					</div>
 				</div>
@@ -389,7 +389,6 @@
 
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
-    
 	
 	//复选框begin 
 		$('#allsel').click(function(){
@@ -407,9 +406,11 @@
 		});
 	//复选框end
 	
+	
 	//上传图片begin
+	   var id ="img";
 	   function PreviewImage(imgFile){
-	   
+	      
 	      var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;
 		  if(!pattern.test(imgFile.value)){
 			easyDialog.open({
@@ -422,46 +423,50 @@
 			imgFile.focus();
 		  }else{
 		     //定义图片路径
-			 var path;
+			var path;
+            var fileList =  imgFile.files;
+			var xinforpic = document.getElementById("xinforpic");
+			var docObj = document.getElementById("doc");
+			var max = $(".xinforpic").length;
+			var min = 10 - $(".xinforpic").length;
+
 			 //添加显示图片的html元素
-			  if($(".xinforpic").length < 10){ 
-					var fileList =  imgFile.files;
-					var xinforpic = document.getElementById("xinforpic");
-					for(var i = 0 ; i<fileList.length;i++){
-						id = "img"+i;
-						if(fileList.length < 10){
-								$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
-								
-								if(document.all){
-								//兼容IE
-								imgFile.select();
-								path = document.section.createRange().text;
-								document.getElementById(id).innerhtml ="";
-								//使用滤镜效果
-								document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
-								
-							 }else{
-								
-								//兼容其他浏览器
-								path = URL.createObjectURL(imgFile.files[i]);
-								console.log(path);
-								
-								//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
-								$("#" + id + " img").attr('src',path);		
-							 }
-					   }else{
-					    easyDialog.open({
-							container: {
-								content: '一次最多只能上传10张图片！',
-							},
-							autoClose: 2000
-						});
-						return false
-					   }
-					    
-					   
+			if(max < 10 ){ 
+					if(fileList.length < 10 && fileList.length <= min){
+					   for(var i = 0 ; i<fileList.length;i++){
+						 id +=i;
+						$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
+						  if(document.all){
+									//兼容IE
+									imgFile.select();
+									path = document.section.createRange().text;
+									document.getElementById(id).innerhtml ="";
+									//使用滤镜效果
+									document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
+									
+								 }else{
+									
+									//兼容其他浏览器
+									path = URL.createObjectURL(imgFile.files[i]);
+									console.log(path);
+									
+									//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
+									$("#" + id + " img").attr('src',path);		
+									}					 
+						
+
+					   }						  
+					}else{
+							easyDialog.open({
+								container: {
+									content: '最多只能上传10张图片！',
+								},
+								autoClose: 2000
+							});
+							return false
+						   }      
 					 
-					}
+
 				   
 				}else{
 				   easyDialog.open({
@@ -473,8 +478,7 @@
 						
 				}
 			    return false;
-		  }
-
+		  } 
 	   }
 	//上传图片end
 	
