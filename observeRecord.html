@@ -428,56 +428,44 @@
 			var xinforpic = document.getElementById("xinforpic");
 			var docObj = document.getElementById("doc");
 			var max = $(".xinforpic").length;
-			var min = 10 - $(".xinforpic").length;
+			var min = 10 - max;
 
 			 //添加显示图片的html元素
-			if(max < 10 ){ 
-					if(fileList.length < 10 && fileList.length <= min){
-					   for(var i = 0 ; i<fileList.length;i++){
-						 id +=i;
-						$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
-						  if(document.all){
-									//兼容IE
-									imgFile.select();
-									path = document.section.createRange().text;
-									document.getElementById(id).innerhtml ="";
-									//使用滤镜效果
-									document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
-									
-								 }else{
-									
-									//兼容其他浏览器
-									path = URL.createObjectURL(imgFile.files[i]);
-									console.log(path);
-									
-									//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
-									$("#" + id + " img").attr('src',path);		
-									}					 
-						
+			if(fileList.length <= min){
+			   for(var i = 0 ; i<fileList.length;i++){
+				 id +=i;
+				$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
+				  if(document.all){
+							//兼容IE
+							imgFile.select();
+							path = document.section.createRange().text;
+							document.getElementById(id).innerhtml ="";
+							//使用滤镜效果
+							document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
+							
+						 }else{
+							
+							//兼容其他浏览器
+							path = URL.createObjectURL(imgFile.files[i]);
+							console.log(path);
+							
+							//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
+							  $("#" + id + " img").attr('src',path);
+							  
+							}					 
+				
 
-					   }						  
-					}else{
-							easyDialog.open({
-								container: {
-									content: '最多只能上传10张图片！',
-								},
-								autoClose: 2000
-							});
-							return false
-						   }      
-					 
+			   }						  
+			}else{
+					easyDialog.open({
+						container: {
+							content: '最多只能上传10张图片！',
+						},
+						autoClose: 2000
+					});
+					return false
+				   }      
 
-				   
-				}else{
-				   easyDialog.open({
-							container: {
-								content: '最多只能上传10张图片！',
-							},
-							autoClose: 2000
-						});
-						
-				}
-			    return false;
 		  } 
 	   }
 	//上传图片end
