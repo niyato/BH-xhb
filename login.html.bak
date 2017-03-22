@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header"><!--header-->
             <div class="top">
-                <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
+                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
                 <div class="fr signOut" hidden="hidden">
                 </div>
             </div>

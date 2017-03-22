@@ -47,14 +47,19 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header"><!--header-->
             <div class="top">
-                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
-                <div class="fr signOut">
-                     <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button>
-                    <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px">
-                    <span class="Gname"></span> -->
-					<img src="" width="30px" height="30px">
-                    <span class="Gname"></span> | <span class="Tname"></span>老师
-                    <a class="mL10" id="logout">退出</a>
+                <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
+				<div class='menu'>
+                   <p class="menuc" style="">
+                       <a href="daily-personal.html" style="background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生数据分析</a>
+                       <a href="areaAnalysis.html" style="color:#FFF; margin-left:20px;">学生区角分析</a>
+                   </p>
+                </div>
+                <div class="f1right">
+                    <div class="fr signOut">
+                        <img src="" width="30px" height="30px">
+                        <span class="Gname"></span> | <span class="Tname"></span>老师
+                        <a class="mL10" id="logout">退出</a>
+                    </div>
                 </div>
             </div>
             <!--header_end-->
@@ -68,44 +73,26 @@
         <div class="tab-content">
             <div class="leftMenu" id="leftMenu">
                 <ul id="menudiv" class="mT10">
-                    <li class="li_mo1" style="background-color:#999999; height:46px;">
-                        <a href="daily-personal.html" style="background-color:#999999; color:#ffffff;">学生活动数据分析</a>
-                    </li>
-                    <li>
-                        <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
+                    <li class="li_mo">
+                        <a id="move" href="daily-personal.html" ><img src="Content/images/yd.png"><span style="">运动强度/密度分析</span></a>
                     </li>
                     <li class="li_slp">
-                        <a id="sleep" href="sleep.html"><span>睡眠分析<span></a>
+                        <a id="sleep" href="sleep.html"><img src="Content/images/sm.png"><span>学生睡眠分析</span></a>
                     </li>
                      <li class="li_act">
-                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
+                        <a id="activity" href="activity.html"><img src="Content/images/hd.png"><span>体育活动分析</span></a>
                     </li>
                     <li class="li_eat">
-                        <a id="diet" href="diet.html"><span>饮食分析</span></a>
+                        <a id="diet" href="diet.html"><img src="Content/images/ys.png"><span>学生饮食分析</span></a>
                     </li>
-                     <li class="li_gym">
-                        <a id="gym" href="gym.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">体操分析</span></a>
+                     <li class="li_gym" style=" border-left:solid 6px #FF6700;">
+                        <a id="gym" href="gym.html" style="color:#000; font-size:18px;"><img src="Content/images/tc.png"><span>学生体操分析</span></a>
                     </li>
                     <li class="li_abn">
-                        <a id="abn" href="abnormal.html"><span>异常分析</span></a>
+                        <a id="abn" href="abnormal.html"><img src="Content/images/yc.png"><span>学生异常分析</span></a>
                     </li>
                     <li class="li_att">
-                        <a id="att" href="attendance.html"><span>安全考勤</span></a>
-                    </li>
-					<li class="li_mo1">
-                        <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
-                    </li>
-					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span>区域活动分析&记录<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                        <a id="att" href="attendance.html"><img src="Content/images/kq.png"><span>学生安全考勤</span></a>
                     </li>
                 </ul>
             </div>
@@ -114,26 +101,21 @@
 
 	<div style="overflow:hidden;">
 		<div class="rightContent">
-			<div class="rightContentBox2"> <!--学生体操分析列表内容-->
+		<div class="rightContentBox2"> <!--学生体操分析列表内容-->
 				<div>
 					<div class="fr1">
 						<p>学生做操分析</p>
-					</div>
-					<div class="lableinfo">
-						<p>本园学生做操时间段<span id="timeSec-gym"><span/></p>
+						<div style="float:right; margin-left:30px; padding-right: 30px;">
+						  <img src="Content/images/start.png"><span>本园睡眠时间段<span style="color:#F93;" id="timeSec-gym"></span></span>
+						</div>
 					</div>
 				</div>
 
-				<div>
-				</br>
+			<div class="tc-content">
 				<div class="demo1" id="gymCondition" >
-					<div class="mR25" id="gymDate">
-						<label>时间选择</label>
-						<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="J-xl-gym" readonly onchange="" value="" />
-					</div> 
-					<div class="mR25">    
-						<label>年级选择</label>
-						<select id="gymGrade" style="border-radius:10px; text-align:center">
+					
+					<div class="mR25">
+						<select id="gymGrade" style="border-radius:2px; text-align:center">
 							<option value="0">全部年级</option>
 							<option value="1">托班</option>
 							<option value="2">小班</option>
@@ -142,78 +124,65 @@
 						</select>
 					</div>
 					<div class="mR25">
-						<label>班级选择</label>
-						<select id="gymClass" style="border-radius:10px; text-align:center">
-							<option value="0">选择班级</option>
+						<select id="gymClass" style="border-radius:2px; text-align:center">
+							<option value="0">全部班级</option>
 
 						</select>
 					</div>
 					<div class="mR25">
-						<label>学生选择</label>
-						<select id="gymPersonId" style="border-radius:10px; text-align:center">
-							<option value="0">选择学生</option>
+						<select id="gymPersonId" style="border-radius:2px; text-align:center">
+							<option value="0">全部学生</option>
 
 						</select>
 					</div>
 					<div class="mR25">
-						<label>做操强度</label>
-						<select id="gymStatus" style="border-radius:10px; text-align:center"><option value="0">全部</option>
+						<select id="gymStatus" style="border-radius:2px; text-align:center"><option value="0">全部</option>
 							<option value="1">安静</option>
 							<option value="2">适中</option>
 							<option value="3">活泼</option>
 						</select>
-					</div>   
-					<div class="mR25" style="float:right">
-						<input type="button" id="select" style="border-radius:5px" onclick="onchangeGymDate(3)" value="查询"  />
+					</div>
+                    <div class="mR25" id="gymDate">
+						<input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="J-xl-gym" readonly onchange="" value="" />
+					</div> 					
+					<div class="mR25">
+						<input type="button" id="select" style="border-radius:2px" onclick="onchangeGymDate(3)" value="查询"  />
 					</div>   
 				</div>
+				
+				<div class="text">
+				  <img src="Content/images/aj.png">&nbsp<span style=" color:#F93;">安静</span> &nbsp <b>动作平缓，较为安静</b>&nbsp&nbsp&nbsp&nbsp
+				  <img src="Content/images/sz.png">&nbsp<span style=" color:#F93;">适中</span> &nbsp <b>动作适中，幅度适中</b>&nbsp&nbsp&nbsp&nbsp
+				  <img src="Content/images/hb.png">&nbsp<span style=" color:#F93;">活泼</span> &nbsp <b>动作灵活，较为活泼</b>
+				</div>
+				
+				<div class="applicationbox" style=" margin-top:10px;">
+					<table width="100%" border="0" cellspacing="0" class="accTabbox" id="tblist">
+						<thead >
+							<tr id="topic">
+								<th scope="col">年级名称</th>
+								<th scope="col">班级名称</th>
+								<th scope="col">学生名称</th>
+								<th scope="col">做操强度</th>
+							</tr>
+						</thead>
+						<tbody >        
+						</tbody>    
+					</table>
+					<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+					<input type="hidden" id="pagenum">
+				</div>
+				
+				<!--分页-->
+			    <div id="divpage" class="flickr" style="text-align:right"></div>
 			</div>
 
-			<div class="applicationbox" style="text-align:center;">
-				<table width="100%" border="0" cellspacing="0" class="accTabbox" id="tblist">
-					<thead >
-						<tr id="topic">
-							<th scope="col">年级名称</th>
-							<th scope="col">班级名称</th>
-							<th scope="col">学生名称</th>
-							<th scope="col">做操强度</th>
-						</tr>
-					</thead>
-					<tbody >        
-					</tbody>    
-				</table>
-				<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-				<input type="hidden" id="pagenum">
-			</div>
-			<!-- 日数据模态框（Modal） -->
-		   <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog" style="width:900px;">
-					<div class="modal-content" style=" height:800px;">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel">
-								睡眠曲线图
-							</h4>
-						</div>
-						<div class="modal-body">
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-							</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal -->
+			
+			
+		</div>
 		
-			<!--分页-->
-			<div id="divpage" class="flickr" style="text-align:right"></div>
-			<div class="text" style=" margin-left:50px">
-			  <p>安静——表示小企鹅，代表该学生的动作平缓，较为安静；</p>
-			  <p>适中——表示小兔子，代表该学生的动作适中，幅度适中；</p>
-			  <p>活泼——表示小猴子，代表该学生的动作灵活，较为活泼；</p>
-			</div>
+			
+			
 		<!--content_end-->
 		</div>
 	</div>	

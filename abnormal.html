@@ -47,14 +47,19 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header"><!--header-->
             <div class="top">
-                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
-                <div class="fr signOut">
-                     <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button>
-                    <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px">
-                    <span class="Gname"></span>  -->
-					<img src="" width="30px" height="30px">
-                    <span class="Gname"></span> | <span class="Tname"></span>老师
-                    <a class="mL10" id="logout">退出</a>
+                <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
+				<div class='menu'>
+                   <p class="menuc" style="">
+                       <a href="daily-personal.html" style="background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生数据分析</a>
+                       <a href="areaAnalysis.html" style="color:#FFF; margin-left:20px;">学生区角分析</a>
+                   </p>
+                </div>
+                <div class="f1right">
+                    <div class="fr signOut">
+                        <img src="" width="30px" height="30px">
+                        <span class="Gname"></span> | <span class="Tname"></span>老师
+                        <a class="mL10" id="logout">退出</a>
+                    </div>
                 </div>
             </div>
             <!--header_end-->
@@ -68,44 +73,26 @@
         <div class="tab-content">
             <div class="leftMenu" id="leftMenu">
                 <ul id="menudiv" class="mT10">
-                    <li class="li_mo1" style="background-color:#999999; height:46px;">
-                        <a href="daily-personal.html" style="background-color:#999999; color:#ffffff;">学生活动数据分析</a>
-                    </li>
-                    <li>
-                        <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
+                   <li class="li_mo">
+                        <a id="move" href="daily-personal.html" ><img src="Content/images/yd.png"><span style="">运动强度/密度分析</span></a>
                     </li>
                     <li class="li_slp">
-                        <a id="sleep" href="sleep.html"><span>睡眠分析<span></a>
+                        <a id="sleep" href="sleep.html"><img src="Content/images/sm.png"><span>学生睡眠分析</span></a>
                     </li>
                      <li class="li_act">
-                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
+                        <a id="activity" href="activity.html"><img src="Content/images/hd.png"><span>体育活动分析</span></a>
                     </li>
                     <li class="li_eat">
-                        <a id="diet" href="diet.html"><span>饮食分析</span></a>
+                        <a id="diet" href="diet.html"><img src="Content/images/ys.png"><span>学生饮食分析</span></a>
                     </li>
                      <li class="li_gym">
-                        <a id="gym" href="gym.html"><span>体操分析</span></a>
+                        <a id="gym" href="gym.html"><img src="Content/images/tc.png"><span>学生体操分析</span></a>
                     </li>
-                    <li class="li_abn">
-                        <a id="abn" href="abnormal.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">异常分析</span></a>
+                    <li class="li_abn" style=" border-left:solid 6px #FF6700;">
+                        <a id="abn" href="abnormal.html"  style="color:#000; font-size:18px;"><img src="Content/images/yc.png"><span>学生异常分析</span></a>
                     </li>
                     <li class="li_att">
-                        <a id="att" href="attendance.html"><span>安全考勤</span></a>
-                    </li>
-					<li class="li_mo1">
-                        <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
-                    </li>
-					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span>区域活动分析&记录<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                        <a id="att" href="attendance.html"><img src="Content/images/kq.png"><span>学生安全考勤</span></a>
                     </li>
                 </ul>
             </div>
@@ -118,21 +105,14 @@
                 <div class="fr1">
                     <p>学生异常分析</p>
                 </div>
-                <div class="lableinfo">
-                    
-                </div>
             </div>
 
-            <div>
+        <div class="yc-content">
             </br>
             <div class="demo1" id="abnormalCondition" >
-                <div class="mR25" id="abnormalDate">
-                    <label>时间选择</label>
-                    <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="J-xl-abnormal" readonly onchange="" value="" />
-                </div> 
-                <div class="mR25">    
-                    <label>年级选择</label>
-                    <select id="abnormalGrade" style="border-radius:10px; text-align:center">
+                 
+                <div class="mR25">
+                    <select id="abnormalGrade" style="border-radius:2px; text-align:center">
                         <option value="0">全部年级</option>
                         <option value="1">托班</option>
                         <option value="2">小班</option>
@@ -141,49 +121,60 @@
                     </select>
                 </div>
                 <div class="mR25">
-                    <label>班级选择</label>
-                    <select id="abnormalClass" style="border-radius:10px; text-align:center">
-                        <option value="0">选择班级</option>
+                    <select id="abnormalClass" style="border-radius:2px; text-align:center">
+                        <option value="0">全部班级</option>
 
                     </select>
                 </div>
                 <div class="mR25">
-                    <label>学生选择</label>
-                    <select id="abnormalPersonId" style="border-radius:10px; text-align:center">
-                        <option value="0">选择学生</option>
+                    <select id="abnormalPersonId" style="border-radius:2px; text-align:center">
+                        <option value="0">全部学生</option>
 
                     </select>
                 </div>
                 <div class="mR25">
-                    <label>异常情况</label>
-                    <select id="abnormalStatus" style="border-radius:10px; text-align:center"><option value="0">全部</option>
+                    <select id="abnormalStatus" style="border-radius:2px; text-align:center"><option value="0">全部</option>
                         <option value="1">正常</option>
                         <option value="2">需要留意</option>
                         <option value="3">特别关注</option>
                     </select>
-                </div>   
-                <div class="mR25" style="float:right">
-                    <input type="button" id="select" style="border-radius:5px" onclick="onchangeAbnormalDate(4)" value="查询"  />
+                </div>
+                <div class="mR25" id="abnormalDate">
+                    <input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="J-xl-abnormal" readonly onchange="" value="" />
+                </div>				
+                <div class="mR25">
+                    <input type="button" id="select" style="border-radius:2px" onclick="onchangeAbnormalDate(4)" value="查询"  />
                 </div>   
             </div>
+			
+			<div class="text">
+			    <span style=" color:#F93;">正常</span> &nbsp <b>表现与往常基本类似</b>&nbsp&nbsp&nbsp&nbsp
+				<span style=" color:#F93;">需要留意</span> &nbsp <b>在某些方面的表现有点不太一样,可以留心观察下</b>&nbsp&nbsp&nbsp&nbsp
+				<span style=" color:#F93;">特别关注</span> &nbsp <b>在情绪、动作方面有所区别,需要特别留心注意下</b>
+			</div>
+			
+			<div class="applicationbox" style="text-align:center;">
+				<table width="100%" border="0" cellspacing="0" class="accTabbox" id="tblist">
+					<thead >
+						<tr id="topic">
+							<th scope="col">年级名称</th>
+							<th scope="col">班级名称</th>
+							<th scope="col">学生名称</th>
+							<th scope="col">异常情况</th>
+						</tr>
+					</thead>
+					<tbody >        
+					</tbody>    
+				</table>
+				<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+				<input type="hidden" id="pagenum">
+			</div>
+			
+			<!--分页-->
+            <div id="divpage" class="flickr" style="text-align:right"></div>
         </div>
 
-        <div class="applicationbox" style="text-align:center;">
-            <table width="100%" border="0" cellspacing="0" class="accTabbox" id="tblist">
-                <thead >
-                    <tr id="topic">
-                        <th scope="col">年级名称</th>
-                        <th scope="col">班级名称</th>
-                        <th scope="col">学生名称</th>
-                        <th scope="col">异常情况</th>
-                    </tr>
-                </thead>
-                <tbody >        
-                </tbody>    
-            </table>
-            <span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-            <input type="hidden" id="pagenum">
-        </div>
+        
         <!-- 日数据模态框（Modal） -->
        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="width:900px;">
@@ -206,13 +197,8 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
-        <!--分页-->
-        <div id="divpage" class="flickr" style="text-align:right"></div>
-        <div class="text" style=" margin-left:250px;">
-            <p>正常——表示该学生今天的表现与往常基本类似；</p>
-            <p>需要留意——表示该学生今天在某些方面的表现有点不太一样，可以留心观察下。</p>
-            <p>特别关注——表示该学生今天在情绪、动作方面有所区别，需要特别留心注意下。</p>
-        </div>
+        
+        
     </div>
     <!--content_end-->
 

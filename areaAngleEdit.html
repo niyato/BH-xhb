@@ -49,11 +49,19 @@
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header"><!--header-->
         <div class="top">
-            <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
-            <div class="fr signOut">
-                <img src="" width="30px" height="30px">
-                <span class="Gname"></span> | <span class="Tname"></span>老师
-                <a class="mL10" id="logout">退出</a>
+            <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
+			<div class='menu'>
+                   <p class="menuc" style="">
+                       <a href="daily-personal.html" style="color:#FFF;">学生数据分析</a>
+                       <a href="areaAnalysis.html" style="margin-left:20px; background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生区角分析</a>
+                   </p>
+            </div>
+            <div class="f1right">
+				<div class="fr signOut">
+					<img src="" width="30px" height="30px">
+					<span class="Gname"></span> | <span class="Tname"></span>老师
+					<a class="mL10" id="logout">退出</a>
+				</div>
             </div>
         </div>
         <!--header_end-->
@@ -67,45 +75,18 @@
     <div class="tab-content">
         <div class="leftMenu" id="leftMenu">
             <ul id="menudiv" class="mT10">
-                <li class="li_mo1">
-                        <a href="daily-personal.html" id="move" style="color:#ffffff;">学生活动数据分析</a>
-                    </li>
-                    <li class="li_mo" >
-                        <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
-                    </li>
-                    <li class="li_slp">
-                        <a id="sleep" href="sleep.html"><span>睡眠分析</span></a>
-                    </li>
-                     <li class="li_act">
-                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
-                    </li>
-                    <li class="li_eat">
-                        <a id="diet" href="diet.html"><span>饮食分析</span></a>
-                    </li>
-                     <li class="li_gym">
-                        <a id="gym" href="gym.html"><span>体操分析</span></a>
-                    </li>
-                    <li class="li_abn">
-                        <a id="abn" href="abnormal.html"><span>异常分析</span></a>
-                    </li>
-                    <li class="li_att">
-                        <a id="att" href="attendance.html"><span>安全考勤</span></a>
-                    </li>
-					<li class="li_mo1">
-                        <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
-                    </li>
-					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区角建构</span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="participateRecord.html"><span>区角分析</span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span>区域活动分析&记录</span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录</span></a>
-                    </li>
+                <li style=" border-left:solid 6px #FF6700;">
+					<a id="areabuild" href="areaAnalysis.html" style="color:#000; font-size:18px;"><span><img src="Content/images/pz.png">区域配置<span></a>
+				</li>
+				<li>
+					<a id="areabuild" href="participateRecord.html"><span><img src="Content/images/pz.png">区域分析<span></a>
+				</li>
+				<li>
+					<a id="areaAnalysis" href="areaAngleAngalysis.html"><img src="Content/images/qyhd.png"><span>区域活动分析&记录<span></a>
+				</li>
+				<li>
+					<a id="areaAnalysis" href="developmentAanalysisRecord.html"><img src="Content/images/gtfzjl.png"><span>个体发展分析&记录<span></a>
+				</li>
             </ul>
         </div>
     </div>
@@ -113,53 +94,52 @@
 
 <div class="rightContent">
     <div class="rightContentBox2"> <!--学生体育活动列表内容-->
-        <div style="border-bottom:1px solid #D2DAE0;">
-            <div class="carea">
-                <p>修改区角配置</p>
-                <div class="return">
-                    <a class="" href="areaAnalysis.html">返回</a>
-                </div>
-            </div>
+        <div class="fr1">
+                    <p><b>新建区角配置</b></p>
+					<div class='return' style="float:right; margin-left:30px; padding-right: 30px;">
+					  <a style=' color:#FFAE77;' href="areaAnalysis.html">返回上一级</a>
+					</div>
         </div>
 
-        <div>
-            </br>
+        <div class='newpz-content'>
             <div class="configuration">
                 <div class="areaname">
-                    <label>区角名称</label>
-                    <input id="areaAngleName_edit" type="text" style=" width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; margin-left:30px;" value="" placeholder="请输入区角名称" />
-                    <input id="areaId_edit" type="hidden" style=" width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; margin-left:30px;" value="" placeholder="请输入区角名称" />
+                    <label><b>区角名称</b></label>
+                    <input id="areaAngleName_edit" type="text" style=" width:237px; height:36px;border:1px solid lightgrey; border-radius:2px; margin-left:30px;" value="" placeholder="请输入区角名称" />
+                    <input id="areaId_edit" type="hidden" style=" width:237px; height:36px;border:1px solid lightgrey; border-radius:2px; margin-left:30px;" value="" placeholder="请输入区角名称" />
                 </div>
                 <div class="areaBelongs">
                     <label>区角所属</label>
-                    <select id="areaTypeSelect_edit" onchange="checkClass(this.value)" style=" width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角"">
+                    <select id="areaTypeSelect_edit" onchange="checkClass(this.value)" style=" width:237px; height:36px; border-radius:2px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角"">
 
                     </select>
-                    <select id="classInfoSelect_edit" style=" width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; margin-left:98px; placeholder="教室区角"">
+                    <select id="classInfoSelect_edit" style=" width:237px; height:36px; border-radius:2px; border:1px solid lightgrey; margin-left:98px; placeholder="教室区角">
 
                     </select>
 
-                    <input id="commonAreaAngle_edit" type="text" style="display:none;width:300px; height:30px;border:1px solid lightgrey; border-radius:5px; margin-left:98px; margin-top:20px;" value="" placeholder="公共区角，请输入公共区角的名称" />
+                    <input id="commonAreaAngle_edit" type="text" style="display:none;width:300px; height:36px;border:1px solid lightgrey; border-radius:2px; margin-left:98px; margin-top:20px;" value="" placeholder="公共区角，请输入公共区角的名称" />
                 </div>
                 <div class="areatype">
                     <label>区角类型</label>
-                    <select id="angleTypeSelect_edit" style=" width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角"">
+                    <select id="angleTypeSelect_edit" style=" width:237px; height:36px; border-radius:2px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角">
 
                     </select>
-                    <input id="customType_edit" type="text" style="width:300px; height:30px;border:1px solid lightgrey; border-radius:5px; margin-left:98px; margin-top:20px;" value="" placeholder="自定义区角类型" />
+                    <input id="customType_edit" type="text" style="width:300px; height:36px;border:1px solid lightgrey; border-radius:2px; margin-left:98px; margin-top:20px;" value="" placeholder="自定义区角类型" />
                 </div>
                 <div  class="SelectEquipment">
                     <label>选择监控设备</label>
-                    <select id="baseStationSelect_edit" style=" width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角"">
+                    <select id="baseStationSelect_edit" style=" width:237px; height:36px; border-radius:2px; border:1px solid lightgrey; margin-left:30px; placeholder="教室区角">
 
                     </select>
                 </div>
-                <div class="areagenerate" style=" width:148px; height:38px;float:left; margin-top:50px; margin-left:30px; cursor:pointer;">
-                    <span style="display:block;width:148px; height:38px;" class="text" onclick="check_edit()">修改</span>
+<!--                 <div class="areagenerate" style=" width:148px; height:38px;float:left; margin-top:50px; margin-left:30px; cursor:pointer;">
+                    <span style="display:block;width:148px; height:38px;"  onclick="check_edit()">修改</span>
                 </div>
                 <div class="areacancel" style=" width:148px; height:38px;float:left;margin-top:50px; margin-left:30px; cursor:pointer;">
-                    <span style="display:block;width:148px; height:38px;" class="text" onclick="resetUpdate()">重置</span>
-                </div>
+                    <span style="display:block;width:148px; height:38px;"  onclick="resetUpdate()">重置</span>
+                </div> -->
+				<input type="button" onclick="check_edit()" value="修改" style="width:148px; height:38px; margin-top:50px; cursor:pointer; margin-right:50px; border-radius:5px; color:#FFF; background-color:#FF6700;">
+                <input type="button" value="重置" onclick="resetUpdate()" style="width:148px; height:38px; margin-top:50px; cursor:pointer;border-radius:5px; color:#FF6700; background-color:#fff; border-color:#FF6700;border: 1px solid;">
             </div>
         </div>
 

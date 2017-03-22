@@ -51,11 +51,19 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header"><!--header-->
             <div class="top">
-                <div class="f1"><a class="logo" href="">幼儿园科学保教（运动睡眠）大数据分析系统</a></div>
-                <div class="fr signOut">
-					<img src="" width="30px" height="30px">
-                    <span class="Gname"></span> | <span class="Tname"></span>老师
-                    <a class="mL10" id="logout">退出</a>
+                <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
+				<div class='menu'>
+                   <p class="menuc" style="">
+                       <a href="daily-personal.html" style="color:#FFF;">学生数据分析</a>
+                       <a href="areaAnalysis.html" style="margin-left:20px; background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生区角分析</a>
+                   </p>
+                </div>
+                <div class="f1right">
+                    <div class="fr signOut">
+                        <img src="" width="30px" height="30px">
+                        <span class="Gname"></span> | <span class="Tname"></span>老师
+                        <a class="mL10" id="logout">退出</a>
+                    </div>
                 </div>
             </div>
             <!--header_end-->
@@ -69,44 +77,17 @@
         <div class="tab-content">
             <div class="leftMenu" id="leftMenu">
                 <ul id="menudiv" class="mT10">
-                    <li class="li_mo1">
-                        <a href="daily-personal.html" style="color:#ffffff;">学生活动数据分析</a>
+                    <li>
+                        <a id="areabuild" href="areaAnalysis.html" ><span><img src="Content/images/pz.png">区域配置<span></a>
                     </li>
-                    <li class="li_mo" >
-                        <a id="move" href="daily-personal.html"><span>运动强度/密度分析</span></a>
-                    </li>
-                    <li class="li_slp">
-                        <a id="sleep" href="sleep.html"><span>睡眠分析</span></a>
-                    </li>
-                     <li class="li_act">
-                        <a id="activity" href="activity.html"><span>体育活动分析</span></a>
-                    </li>
-                    <li class="li_eat">
-                        <a id="diet" href="diet.html"><span>饮食分析</span></a>
-                    </li>
-                     <li class="li_gym">
-                        <a id="gym" href="gym.html"><span>体操分析</span></a>
-                    </li>
-                    <li class="li_abn">
-                        <a id="abn" href="abnormal.html"><span>异常分析</span></a>
-                    </li>
-                    <li class="li_att">
-                        <a id="att" href="attendance.html"><span>安全考勤</span></a>
-                    </li>
-					<li class="li_mo1">
-                        <a href="areaAnalysis.html" style="color:#ffffff;">学生区角数据分析</a>
+					<li style=" border-left:solid 6px #FF6700;">
+                        <a id="areabuild" href="participateRecord.html" style="color:#000; font-size:18px;"><span><img src="Content/images/pz.png">区域分析<span></a>
                     </li>
 					<li>
-                        <a id="areabuild" href="areaAnalysis.html"><span>区角建构<span></a>
+                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><img src="Content/images/qyhd.png"><span>区域活动分析&记录<span></a>
                     </li>
 					<li>
-                        <a id="areaAnalysis" href="participateRecord.html"><span style="padding-bottom:5px; border-bottom:1px solid #000;">区角分析<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="areaAngleAngalysis.html"><span>区域活动分析&记录<span></a>
-                    </li>
-					<li>
-                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><span>学生个体发展分析&记录<span></a>
+                        <a id="areaAnalysis" href="developmentAanalysisRecord.html"><img src="Content/images/gtfzjl.png"><span>个体发展分析&记录<span></a>
                     </li>
                 </ul>
             </div>
@@ -115,15 +96,15 @@
 
     <div class="rightContent">
         <div class="rightContentBox2" style="">
-            <div style="border-bottom:1px solid #D2DAE0;">
-                <div class="fr1" style=""><span style=" float:left;display:block; width:16px; height:20px; border-color:#fb8c00; background-color:#fb8c00;"></span><p style="float:left; margin-left:20px;">学生参与区角记录</p></div>
-				<div>
-					</br>
-					<div class="de" id="activityCondition" style="margin-bottom:50px;" >
+				<div class="fr1">
+					<p><b>学生参与区角记录</b></p>
+				</div>
+				
+				<div class="qyfx-content">
+					<div class="de" id="activityCondition" >
 					   
-						<div class="" style="float:left;">    
-							<label>年级选择</label>
-							<select id="activityGrade" onchange="queryClassInfoByGrade()" style="text-align:center; width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; ">
+						<div class="" style="float:left;">
+							<select id="activityGrade" onchange="queryClassInfoByGrade()" style="text-align:center;height:36px;border:1px solid lightgrey; border-radius:2px; ">
 								<option value="0">全部年级</option>
 								<option value="1">托班</option>
 								<option value="2">小班</option>
@@ -131,68 +112,64 @@
 								<option value="4">大班</option>
 							</select>
 						</div>
-						<div class="" style="float:left; margin-left:30px; margin-right:30px;">
-							<label>班级选择</label>
-							<select id="activityClass" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
-								<option value="0">选择班级</option>
+						<div class="" style="float:left;">
+							<select id="activityClass" style="height:36px; border-radius:2px; border:1px solid lightgrey; text-align:center; ">
+								<option value="0">全部班级</option>
 
 							</select>
 						</div>
-						<div class="" style="">
-							<label>学生姓名</label>
-							<input id="activityStudent" type="text" style=" width:237px; height:30px;border:1px solid lightgrey; border-radius:5px;" value="" placeholder="支持对姓名的模糊搜索" />
+						<div class="" style="float:left;">
+							<input id="activityStudent" type="text" style="height:36px;border:1px solid lightgrey; border-radius:2px;margin-left:10px;" value="" placeholder="支持对姓名的模糊搜索" />
 						</div>
-                        <br/>
-						<div class="" style="">
-							<label>区角选择</label>
-							<select id="activityStatus" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
+						<div class="" style="float:left;">
+							<select id="activityStatus" style="height:36px; border-radius:2px; border:1px solid lightgrey; text-align:center">
 								<option value="0">请选择区角类型</option>
 
 							</select>
 						</div>
-						 <div class="" id="activityDate" style=" margin-top:30px;">
-							<label>记录时间</label>
-							<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+						 <div class="" id="activityDate" style="clear:both; margin-left:5px; padding-top:20px;">
+							<input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF; margin-left:10px;" onclick="queryRecord()" value="查询"  />
 						</div>    
-						<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:right; margin-top: -30px;">
-							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="queryRecord()" value="搜索"  />
-						</div>   
 					</div>
+					
+					<div class="applicationbox" style="text-align:center;">
+						<table width="100%" border="0" cellspacing="0" class="accTabbox" id="studentAreaAngleRecord_table">
+							<thead >
+								<tr id="topic">
+									<th scope="col">年级名称</th>
+									<th scope="col">班级名称</th>
+									<th scope="col">学生名称</th>
+									<th scope="col">区角名称</th>
+									<th scope="col">进入时间</th>
+									<th scope="col">离开时间</th>
+									<th scope="col">停留时长</th>
+
+									<th scope="col">视频预览</th>
+								</tr>
+							</thead>
+							<tbody >  
+												
+							</tbody>
+							
+						</table>
+
+						<input type="hidden" id="pagenum">
+
+					</div>
+					<!--分页-->
+						<div id="divpage" class="flickr" style="text-align:right"></div>
+						<div style="text-align:center">
+							<span id="selectdata_record" hidden="hidden" style="font-size:18px;">没有满足条件的数据</span>
+						</div>
 				</div>
-            </div>
+
 
         
 
-        <div class="applicationbox" style="text-align:center;">
-            <table width="100%" border="0" cellspacing="0" class="accTabbox" id="studentAreaAngleRecord_table">
-                <thead >
-                    <tr id="topic">
-                        <th scope="col">年级名称</th>
-                        <th scope="col">班级名称</th>
-                        <th scope="col">学生名称</th>
-                        <th scope="col">区角名称</th>
-                        <th scope="col">进入时间</th>
-                        <th scope="col">离开时间</th>
-                        <th scope="col">停留时长</th>
+        
 
-                        <th scope="col">视频预览</th>
-                    </tr>
-                </thead>
-                <tbody >  
-                    				
-                </tbody>
-                
-            </table>
-
-            <input type="hidden" id="pagenum">
-
-        </div>
-
-        <!--分页-->
-        <div id="divpage" class="flickr" style="text-align:right"></div>
-        <div style="text-align:center">
-            <span id="selectdata_record" hidden="hidden" style="font-size:18px;">没有满足条件的数据</span>
-        </div>
+        
     </div>
     <!--content_end-->
 
