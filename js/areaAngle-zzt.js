@@ -12,25 +12,33 @@ var myChart = echarts.init(dom);
         data:['（小班）手工建构区角','（小1班）绘本阅读区角','（小2班）生活区','（小3班）数学区','（小4班）科学区'],
 		    width:'160px;',
 				height:'150px',
-				padding:[100,10,5,700,]
+				padding:[100,10,5,700],
+				left:'10%',
+				top:'-40px'
     },
     grid: {	
-    	  left:'5%',
-    	  right:'30%',
-        bottom: '5%',
-        containLabel: false
+		  left:'5%',
+		  right:'30%',
+		  bottom: '5%',
+		  containLabel: false
     },
     xAxis : [
         {
             type : 'category',
             data : [],
-            name:'区域名称'
+            name:'区域名称',
+			nameTextStyle:{
+				fontSize:'18'
+			}
         }
     ],
     yAxis : [
         {
             type : 'value',
-            name:'人次'
+            name:'人次',
+			nameTextStyle:{
+				fontSize:'18'
+			}
         }
     ],
     
