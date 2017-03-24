@@ -408,6 +408,7 @@ a{ text-decoration:none;}
     margin-top: 30px;
     padding-bottom: 30px;
 	}
+
 .rightContentBox2 .xsgtfx-content .de{
 	margin-top:20px; 
     padding-bottom:60px;
@@ -418,6 +419,22 @@ a{ text-decoration:none;}
 .rightContentBox2 .text{ clear:both; padding-top:30px; margin-left:30px;}
 .rightContentBox2 .applicationbox table tbody tr:hover{ background-color:#FF6700;}
 .rightContentBox2 .hd-content{
+	background-color: white;
+    box-shadow: 5px 5px 10px #E3EEF6;
+    margin-right: 30px;
+    margin-left: 50px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+	}
+.rightContentBox2 .gcjl-content{
+	background-color: white;
+    box-shadow: 5px 5px 10px #E3EEF6;
+    margin-right: 30px;
+    margin-left: 50px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+	}
+.rightContentBox2 .wqjl-content{
 	background-color: white;
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;

@@ -99,7 +99,13 @@
 
 <div class="rightContent">
     <div class="rightContentBox2"> <!---->
-            <div style="border-bottom:1px solid #D2DAE0;">
+	        <div class="fr1">
+                    <p><b>绘本阅读区域</b></p>
+					<div class='return' style="float:right; margin-left:30px; padding-right: 30px;">
+					  <a style=' color:#FFAE77;' href="areaAngleAngalysis.html">返回上一级</a>
+					</div>
+            </div>
+            <!-- <div style="border-bottom:1px solid #D2DAE0;">
                 <div class="obrcod">
                     <p>绘本阅读区域</p>
                     <span>往期记录</span>
@@ -107,43 +113,49 @@
                        <a class="" href="areaAngleAngalysis.html">返回</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-        <div>
-            </br>
-            <div style=" height:130px;background-color:#f0f0f0; padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
-					<div class="de" id="" style="">
-					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px;">
-							<label>时间段选择：</label>
-							<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+        <div class="wqjl-content">
+            <div style=" height:130px;padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
+			        <div style="margin-left:30px; padding-top:20px; padding-bottom:20px;">
+						 <img src="Content/images/gxjl.png"><span style="font-size:16px; margin-left:10px;"><b>往期观察记录</b></span>
+					</div>
+					<div class="de" id="" style=" background-color:#F5FCFF; margin-left:50px;">
+					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px; float:left;">
+						    
+								<input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+								
 						</div>
                         
 						<div class="" style="float:left; margin-left:20px;">
-                            <label>统计学生的年纪/班级选择：</label>						
-							<label>年级选择</label>
-							<select id="" onchange="" style="text-align:center; width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; ">
-								<option value="0">全部年级</option>
-								<option value="1">托班</option>
-								<option value="2">小班</option>
-								<option value="3">中班</option>
-								<option value="4">大班</option>
-							</select>
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">					
+								<label style="color:#FF6700;">年级选择</label>
+								<select id="" onchange="">
+									<option value="0">全部年级</option>
+									<option value="1">托班</option>
+									<option value="2">小班</option>
+									<option value="3">中班</option>
+									<option value="4">大班</option>
+								</select>
+							</div>
 						</div>
-						<div class="" style="float:left; margin-left:30px; margin-right:30px;">
-							<label>班级选择</label>
-							<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
-								<option value="0">选择班级</option>
+						<div class="" style="float:left; margin-left:20px;">
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+								<label style="color:#FF6700;">班级选择</label>
+								<select id="">
+									<option value="0">选择班级</option>
 
-							</select>
+								</select>
+							</div>
 						</div>
-						<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:right; margin-right:20px;">
-							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="查询"  />
+						<div class="" style="width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; float:left; margin-left:20px;">
+							<input type="button" id="select" style=" width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
 						</div>   
 
 					</div>
 			</div>	
 			
-			<div class="wq-content" style="border-top: 5px solid #f0f0f0; margin-top:50px;">
+			<div class="wq-content" style="margin-top:50px; margin-left:80px; margin-right:80px;">
 			    <div class="applicationbox" style="margin-left:20px; margin-right:20px;">
 				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_m">
 								<thead >
@@ -165,7 +177,7 @@
 										  <td>4月第1周小1班区角活动记录</td>
 										  <td>2016-01-05</td>
 										  <td>周老师</td>
-										  <td><a href="#">查看</a>&nbsp <a href="#">编辑</a>&nbsp <a onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });">下载导出</a></td>
+										  <td><a href="#">查看</a>&nbsp <a href="#" >编辑</a>&nbsp <a style="color:#2baf2b;" onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });">下载导出</a></td>
 									</tr>								
 								</tbody>    
 					</table>

@@ -91,6 +91,22 @@
 		  .hide{
 			display: none !important;
 		  }
+		  
+		  .tabs {
+				overflow: hidden;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		  .tabs li {
+				float: left;
+				margin: 0 15px 0 0;
+				width:300px;
+			}
+		  .tabs a{ color:#2F3757;}
+		  
+
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
@@ -147,208 +163,266 @@
 
 <div class="rightContent">
     <div class="rightContentBox2"> <!---->
-            <div style="border-bottom:1px solid #D2DAE0; ">
-                <div class="obrcod" style="">
-                    <p>绘本阅读区域</p>
-                    <span>观察记录</span>
-                    <div class="return">
-                       <a class="" href="areaAngleAngalysis.html">返回</a>
-                    </div>
-                </div>
+	        <div class="fr1">
+                    <p><b>绘本阅读区域</b></p>
+					<div class='return' style="float:right; margin-left:30px; padding-right: 30px;">
+					  <a style=' color:#FFAE77;' href="areaAngleAngalysis.html">返回上一级</a>
+					</div>
             </div>
 
         <div id="exports">
-            </br>
-            <div style=" height:130px;background-color:#f0f0f0; padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
-					<div class="de" id="" style="">
-					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px;">
-							<label>时间段选择：</label>
-							<input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:10px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+            <div class="gcjl-content">
+			        <div style="margin-left:30px; padding-top:20px; padding-bottom:20px;">
+						 <img src="Content/images/gxjl.png"><span style="font-size:16px; margin-left:10px;"><b>观察记录</b></span>
+					</div>
+					<div class="de" id="" style=" background-color:#F5FCFF; margin-left:50px;">
+					    
+					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px; float:left;">
+						    
+								<input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+								
 						</div>
                         
 						<div class="" style="float:left; margin-left:20px;">
-                            <label>统计学生的年纪/班级选择：</label>						
-							<label>年级选择</label>
-							<select id="" onchange="" style="text-align:center; width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; ">
-								<option value="0">全部年级</option>
-								<option value="1">托班</option>
-								<option value="2">小班</option>
-								<option value="3">中班</option>
-								<option value="4">大班</option>
-							</select>
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">					
+								<label style="color:#FF6700;">年级选择</label>
+								<select id="" onchange="">
+									<option value="0">全部年级</option>
+									<option value="1">托班</option>
+									<option value="2">小班</option>
+									<option value="3">中班</option>
+									<option value="4">大班</option>
+								</select>
+							</div>
 						</div>
-						<div class="" style="float:left; margin-left:30px; margin-right:30px;">
-							<label>班级选择</label>
-							<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
-								<option value="0">选择班级</option>
+						<div class="" style="float:left; margin-left:20px;">
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+								<label style="color:#FF6700;">班级选择</label>
+								<select id="">
+									<option value="0">选择班级</option>
 
-							</select>
+								</select>
+							</div>
 						</div>
-						<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:right; margin-right:20px;">
-							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="查询"  />
-						</div>   
-
+						<!-- <div class="" style="width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; margin-left:20px; float:left;">
+							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+						</div>  -->  
+                        
+						
+						<div style=" height:130px;margin-bottom:50px; padding-top:10px; margin-top:10px; margin-left:20px; margin-right:20px; clear:both; ">
+						   <label style="margin-left:20px; color:#5F7487;">请选择您要观察记录的学生：</label>
+						   <div class="allstu" style=" margin-right:50px;">
+								<div class="checkname" style=" margin-left:20px;">
+								    <input type="checkbox" id="allsel" style="margin-left:20px; margin-right:10px;"><span>全选</span>
+									<input class="selname" type="checkbox"><span>叶之凡</span>
+									
+									 
+								</div> 
+								<input type="button" id="select" style=" width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; margin-left:20px; float:left; margin-top:20px; color:#FFF;" onclick="" value="确定"  />
+						   </div>
+						</div>
 					</div>
-			</div>
-			
-			<div style=" height:130px;margin-bottom:50px; background-color:#f0f0f0; padding-top:10px; margin-top:10px; margin-left:20px; margin-right:20px; ">
-			   <label style="margin-left:20px; font-weight:bold;">请选择您要观察记录的学生：</label>
-			   <br/>
-			   <div class="allstu" style=" margin-right:50px;">
-					<div style=" width:800px; margin-left:20px;">
-						 <input class="selname" type="checkbox"><span>叶之凡</span>
-						 <input type="checkbox" id="allsel" style="margin-left:20px; margin-right:10px;">
-						 <span>全选</span>
-					</div> 
-					    <input type="button" id="select" style=" width:60px; height:25px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF; float:right;" onclick="" value="确定"  />
-			   </div>
-			</div>
-			
-			<div style="border-top:1px solid #D2DAE0;"><!--环境创设start -->
-				<div  style=" margin-left:20px; margin-right:20px; text-align:center;">
-				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
-					   <p>环境创设</p>
-				   </div>
-				   
-				</div>
-				<div class="hjcs-content" style=" margin-left:20px; margin-top:20px; color:black; margin-top">
-					  <p style=" float:left;">记录名称</p>
-					  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请描述下该记录的名称，例如：4月小班的绘本阅读区角活动观察记录"></textarea>
-					  <p style="color:red; margin-left:20px;">必填</p>				  
-				</div>
-				<br/>
-				<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
-					<p style=" float:left;">建构目的</p>
-					  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请简要说明设置此区角的目的"></textarea>  
-					  <p style=" color:red;">必填</p>	
-				</div>
-				<br/>
-				<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
-					<p style=" float:left; margin-right:20px;">投放教材</p>
-					<div class="img-cont">
-					   <div class="file">
-					      <input type="file" id="doc" multiple onchange='PreviewImage(this)' style="width:95px; height:93px; opacity: 0; cursor:pointer;">
-					   </div>
-					</div>
-				</div>
-				<div style="margin-left:95px; clear:both;">
-				   <p class="warning" style=" margin-top: -20px;">允许上传10张照片</P>
-					<textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;" placeholder="请简单描述下您在此区角投放的教材"></textarea>
-				</div>
-			</div><!--环境创设end-->
-			
-			<div style="border-top:1px solid #D2DAE0; margin-top:50px;"><!--孩子表现start-->
-				<div  style=" margin-left:20px; margin-right:20px; text-align:center; margin-top:30px;">
-				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
-					   <p>孩子表现</p>
-				   </div>
-				   
-				</div>
-				
-				<div class="hzbx-content" style=" margin-left:20px; margin-top:20px; color:black; float:clear; ">
-					  <p style=" float:left; font-weight: bold; margin-bottom:20px;">活动数据记录</p>
-					<div class="applicationbox" id="" style=" text-align:center;">
-							<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
-								<thead >
-									<tr id="">
-										<th scope="col">学生名称</th>
-										<th scope="col">参与次数</th>
-										<th scope="col">个人平均运动量</th>
-										<th scope="col">与班级平均值比较</th>
-										<th scope="col">个人停留时间</th>
-										<th scope="col">与班级平均值比较</th>
-									</tr>
-								</thead>
-								<tbody >
-									<tr>
-										  <td>叶之凡</td>
-										  <td>60</td>
-										  <td>60</td>
-										  <td><p>低于</p>60%</td>
-										  <td>20</td>
-										  <td><p style="color:red;">高于</p>20%</td>
-									</tr>								
-								</tbody>    
-							</table>
-							<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-					</div>	
+					
+				<div style=" height:44px; margin-left:50px; margin-right:20px; background-color:#F5FCFF; text-align:center;line-height: 44px;">
+				    <ul class="tabs">
 
-					<p style=" float:left; font-weight: bold; margin-bottom:20px; margin-top:50px;">学生活动的视频记录</p>
-					<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center;margin-top:50px; float:right;">
-						<option value="0">请选择学生</option>
-						<option value="1">叶之凡</option>
-					</select>
-					<div class="applicationbox" id="" style=" text-align:center;">
-						<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
-							<thead >
-								<tr id="">
-									<th scope="col">学生名称</th>
-									<th scope="col">进入时间</th>
-									<th scope="col">离开时间</th>
-									<th scope="col">停留时长</th>
-									<th scope="col">活动量</th>
-									<th scope="col">操作</th>
-								</tr>
-							</thead>
-							<tbody >
-								<tr>
-									  <td>叶之凡</td>
-									  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
-									  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
-									  <td>5分</td>
-									  <td>150</td>
-									  <td><p style="color:#5677fc;">预览</p></td>
-								</tr>								
-							</tbody>    
-						</table>
-						<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-						<input type="hidden" id="pagenum">
+						<li style="background-color:#FF6700;"><a style="color:#fff;"><img src="Content/images/pz1.png">   环境创设</a></li>
+
+						<li class="secondli"><a><img src="Content/images/bz.png">     孩子表现</a></li>
+
+						<li><a><img src="Content/images/bz.png">     分析与调整</a></li>       
+
+					</ul>
+				</div>	
+			    
+				<div class="content-gcjl" style=" margin-left:100px; margin-top:50px;">
+
+					<div class="tab2_1">
+
+						<div style="clear:both; margin-left:50px;"><!--环境创设start -->
+							<!-- <div  style=" margin-left:20px; margin-right:20px; text-align:center;">
+							   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+								   <p>环境创设</p>
+							   </div>
+							   
+							</div> -->
+							<div class="hjcs-content" style=" margin-left:20px; margin-top:20px; color:black; margin-top;">
+								  <p style=" float:left;">记录名称</p>
+								  <textarea class="recdname" style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请描述下该记录的名称，例如：4月小班的绘本阅读区角活动观察记录"></textarea>
+								  <p style="color:#FF6700; margin-left:20px;">必填项</p>				  
+							</div>
+							<br/>
+							<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
+								<p style=" float:left;">记录目的</p>
+								  <textarea class="recdpurpose" style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;" placeholder="请简要说明设置此区角的目的"></textarea>  
+								  <p style=" color:#FF6700;">必填项</p>	
+							</div>
+							<br/>
+							<div style=" margin-left:20px; margin-top:20px; color:black; margin-top">
+								<p style=" float:left; margin-right:20px;">场景还原</p>
+								<div class="img-cont">
+								   <div class="file">
+									  <input type="file" id="doc" multiple onchange='PreviewImage(this)' style="width:95px; height:93px; opacity: 0; cursor:pointer;">
+								   </div>
+								</div>
+							</div>
+							<div style="margin-left:95px; clear:both;">
+							   <p class="warning" style=" margin-top: -20px; color:#FF6700;">允许上传最多10张照片</P>
+								<textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;" placeholder="请简单描述下您在此区角投放的素材"></textarea>
+							</div>
+						</div><!--环境创设end-->
+                        <div class="next" style="margin:0 auto;text-align: center; margin-top:20px;">
+						   <input type="button" id="exptoword" style=" width:80px; height:36px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="nextTab()" value="下一步"  />
+						</div>
+					</div>
+
+					<div class="tab2_2" hidden="hidden">
+
+						<div style="margin-top:50px;"><!--孩子表现start-->
+							<!-- <div  style=" margin-left:20px; margin-right:20px; text-align:center; margin-top:30px;">
+							   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+								   <p>孩子表现</p>
+							   </div>
+							   
+							</div> -->
 							
+							<div class="hzbx-content" style=" margin-left:20px; margin-top:20px; color:black; float:clear; ">
+								<b style="color:#FF6700;">>></b><span style=" padding-left:10px; font-weight: bold; margin-bottom:20px;">幼儿活动数据记录</span>
+								<div class="applicationbox" id="" style=" text-align:center; padding-bottom: 20px;">
+										<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
+											<thead >
+												<tr id="">
+													<th scope="col">学生名称</th>
+													<th scope="col">参与次数</th>
+													<th scope="col">个人平均运动量</th>
+													<th scope="col">与班级平均值比较</th>
+													<th scope="col">个人停留时间</th>
+													<th scope="col">与班级平均值比较</th>
+												</tr>
+											</thead>
+											<tbody >
+												<tr>
+													  <td>叶之凡</td>
+													  <td>60</td>
+													  <td>60</td>
+													  <td><p>低于</p>60%</td>
+													  <td>20</td>
+													  <td><p style="color:red;">高于</p>20%</td>
+												</tr>								
+											</tbody>    
+										</table>
+										<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+								</div>	
+
+								<b style="color:#FF6700;">>></b><span style=" padding-left:10px; padding-top:20px; font-weight: bold; margin-bottom:20px;">幼儿活动的视频记录</span>
+								
+								<div class="applicationbox" id="" style=" text-align:center;">
+									<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="">
+										<thead >
+											<tr id="">
+												<th scope="col">学生名称</th>
+												<th scope="col">进入时间</th>
+												<th scope="col">离开时间</th>
+												<th scope="col">停留时长</th>
+												<th scope="col">活动量</th>
+												<th scope="col">操作</th>
+											</tr>
+										</thead>
+										<tbody >
+											<tr>
+												  <td>叶之凡</td>
+												  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
+												  <td><p>2016-02-06&nbsp;</p><p>18:00:12</p></td>
+												  <td>5分</td>
+												  <td>150</td>
+												  <td><p style="color:#5677fc;">预览</p></td>
+											</tr>								
+										</tbody>    
+									</table>
+									<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
+									<input type="hidden" id="pagenum">
+										
+								</div>
+								
+								<div class="record-entry" style="margin-top: 20px;">
+									<b style="color:#FF6700;">>></b><span style=" padding-left:10px; font-weight: bold; margin-bottom:20px; margin-top:0px;  margin-right:20px;">老师对幼儿活动的观察录入</span>
+									<span style=" color:#FF6700; margin-top:50px;">必填项</span>
+									<ul class="teacherExp" style=" margin-left:20px;">
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									</ul>
+								</div>
+								
+							
+							</div>
+						</div><!--孩子表现end-->
+                        <div style=" margin-top:100px; text-align:center;">
+							<div class="save" style="margin:0 auto;">
+							   <input type="submit" id="" style=" width:80px; height:36px; margin-right:30px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="upTab1()" value="上一步"  />
+							   <input type="button" id="exptoword" style=" width:80px; height:36px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="nextTab1()" value="下一步"  />
+							</div>
+						</div>
 					</div>
-					
-					<div class="record-entry">
-						<p style=" float:left; font-weight: bold; margin-bottom:20px; margin-top:0px;  margin-right:20px;">学生活动的观察录入</p>
-						<p style=" color:red; margin-top:50px;">下述内容为必填项</p>
-						<br/>
-						<ul style=" float:left; margin-left:20px;">
-						   <li>
-							  <p style=" float:left;">叶智钒</p>
-							  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
-						  </li>
-						  
-						</ul>
-					</div>
-					
-				
-				</div>
-			</div><!--孩子表现end-->
+
+					<div class="tab2_3" hidden="hidden">
+
+						<div style="clear:both; "><!--分析与调整start-->
 			
-			
-		    <div style=" border-top:1px solid #D2DAE0; clear:both;  margin-top:100px;"><!--分析与调整start-->
-				<div style=" margin-left:20px; margin-right:20px; text-align:center;">
-				   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
-					   <p>分析与调整</p>
-				   </div>	   
-				</div>
-				
-				<div class="fxtz-content" style=" margin-left:20px;">
-				   <p style=" color:red; margin-top:20px;">下述内容为必填项</p>
-				   <ul style=" float:left; margin-left:20px;">
-						   <li>
-							  <p style=" float:left;">叶智钒</p>
-							  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
-						  </li>
-						  
-				   </ul>
-				</div>
-				<br/>
-				<div style=" margin-top:100px; text-align:center;">
-					<div class="save" style="margin:0 auto;">
-					   <input type="submit" id="" style=" width:80px; height:30px; margin-right:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="保存"  />
-					   <input type="button" id="exptoword" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
+							<!-- <div style=" margin-left:20px; margin-right:20px; text-align:center;">
+							   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
+								   <p>分析与调整</p>
+							   </div>	   
+							</div> -->
+							
+							<div class="fxtz-content" style=" margin-left:20px;">
+							   <p style=" color:#FF6700; margin-top:20px;">必填项</p>
+							   <ul style=" margin-left:20px;">
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									   <li>
+										  <span style="color:#FF6700;">叶智钒</span><br/>
+										  <textarea style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-right:20px;" placeholder="请描述下孩子在活动中的表现，可以在注意力、参与度、情绪态度、同伴交往等维度进行记录"></textarea>
+									   </li>
+									  
+							   </ul>
+							</div>
+							<div style=" margin-top:100px; text-align:center;">
+								<div class="save" style="margin:0 auto;">
+								   <input type="submit" id="" style=" width:80px; height:36px; margin-right:30px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="" value="保存"  />
+								   <input type="button" id="exptoword" style=" width:80px; height:36px; border-radius:2px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
+								</div>
+							</div>
+						</div><!--分析与调整end-->
+
 					</div>
+
 				</div>
-			</div><!--分析与调整end-->
+			
+			</div>
 		</div>
 			
     </div>
@@ -371,10 +445,14 @@
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
 	
+	var issave = false;
+	
 	//复选框begin 
 		$('#allsel').click(function(){
 		   if(this.checked){
 			 $('.selname').prop("checked",true);
+			 $('.checkname #allsel').css({"border":"solid 1px #FF6700","color":"#FF6700"});
+			 
 		   } else{
 			 $('.selname').prop("checked",false);
 		   }
@@ -527,6 +605,65 @@
          }
      }
 	 
+	 
+	function nextTab(){
+	  var recname = $(".recdname").val();
+	  var recdpurpose = $(".recdpurpose").val();
+	   if(recname !='' && recdpurpose!=''){
+	      $(".tab2_1").attr("hidden","hidden");
+		   $(".tab2_2").removeAttr("hidden");
+		   $(".tabs li:first").css({"background-color":"#F5FCFF"});
+		   $(".tabs li:first a ").css({"color":"#2F3757"});
+		   $(".tabs li:first a img").attr("src","Content/images/wc.png");
+		   $(".tabs .secondli").css({"background-color":"#FF6700"});
+		   $(".tabs .secondli a ").css({"color":"#fff"});
+		   $(".tabs .secondli a img").attr("src","Content/images/pz1.png");
+	      
+	   }else{
+	      easyDialog.open({
+				container: {
+					content: '请填写记录名称和目的！',
+				},
+				autoClose: 2000
+			});
+			return false
+	   }
+	   
+	}
+	
+	function upTab1(){
+	  $(".tab2_1").removeAttr("hidden");
+	  $(".tab2_2").attr("hidden","hidden");
+	  $(".tabs li:first").css({"background-color":"#FF6700"});
+	  $(".tabs .secondli").attr("style","");
+	  $(".tabs li:first a img").attr("src","Content/images/pz1.png");
+	  $(".tabs .secondli a ").css({"color":"#2F3757"});
+	  $(".tabs li:first a ").css({"color":"#fff"});
+	  $(".tabs .secondli a img").attr("src","Content/images/bz.png");
+	}
+	
+	function nextTab1(){
+	  var teacherExp = $(".teacherExp li textarea").val();
+	    
+		   if(teacherExp !=''){
+			   $(".tab2_2").attr("hidden","hidden");
+			   $(".tabs .secondli").attr("style","");
+			   $(".tab2_3").removeAttr("hidden");
+			   $(".tabs .secondli a ").css({"color":"#2F3757"});
+			   $(".tabs .secondli a img").attr("src","Content/images/wc.png");
+			   $(".tabs li:last").css({"background-color":"#FF6700"});
+			   $(".tabs li:last a ").css({"color":"#fff"});
+			   $(".tabs li:last a img").attr("src","Content/images/pz1.png")
+		  }else{
+			 easyDialog.open({
+					container: {
+						content: '请填写录入内容！',
+					},
+					autoClose: 2000
+				});
+				return false
+		  }  
+	}
     </script>
 </body>
 </html>
