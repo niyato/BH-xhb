@@ -120,33 +120,45 @@
 
         <div class="sm-content">
             <div class="demo1" id="sleepCondition" >
-                <div class="mR25">    
-                    <select id="sleepGrade" style="border-radius:2px; text-align:center; height:36px;">
-                        <option value="0">全部年级</option>
-                        <option value="1">托班</option>
-                        <option value="2">小班</option>
-                        <option value="3">中班</option>
-                        <option value="4">大班</option>
-                    </select>
+                <div class="mR25">
+                    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+                        <label>年级</label>					
+						<select id="sleepGrade" style="border-radius:2px; text-align:center;">
+							<option value="0">全部</option>
+							<option value="1">托班</option>
+							<option value="2">小班</option>
+							<option value="3">中班</option>
+							<option value="4">大班</option>
+						</select>
+					</div>
                 </div>
                 <div class="mR25">
-                    <select id="sleepClass" style="border-radius:2px; text-align:center; height:36px;">
-                        <option value="0">全部班级</option>
+				    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+						<label>班级</label>
+						<select id="sleepClass" style="border-radius:2px; text-align:center;">
+							<option value="0">全部</option>
 
-                    </select>
+						</select>
+					</div>	
                 </div>
                 <div class="mR25">
-                    <select id="sleepPersonId" style="border-radius:2px; text-align:center; height:36px;">
-                        <option value="0">全部学生</option>
+				    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+						<label>学生</label>
+						<select id="sleepPersonId" style="border-radius:2px; text-align:center; ">
+							<option value="0">全部</option>
 
-                    </select>
+						</select>
+					</div>	
                 </div>
                 <div class="mR25">
-                    <select id="sleepStatus" style="border-radius:2px; text-align:center; height:36px;"><option value="">睡眠状态</option>
-                        <option value="少">睡眠较少</option>
-                        <option value="正常">睡眠正常</option>
-                        <option value="多">睡眠较多</option>
-                    </select>
+				    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; line-height:36px; height:36px; text-align: center;">
+						<label>睡眠状态</label>
+						<select id="sleepStatus" style="border-radius:2px; text-align:center; "><option value="">全部状态</option>
+							<option value="少">睡眠较少</option>
+							<option value="正常">睡眠正常</option>
+							<option value="多">睡眠较多</option>
+						</select>
+					</div>	
                 </div>
                 <div class="mR25" id="sleepDate">
                     <input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" placeholder="时间" id="J-xl" readonly onchange="" value="" />

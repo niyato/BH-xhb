@@ -31,6 +31,7 @@ option = {
             type:'line',
             stack: '总量',
             data:[10, 12, 11, 14, 9, 20, 10]
+			
         },
         {
             name:'手工建构区',
@@ -42,7 +43,8 @@ option = {
             name:'生活区',
             type:'line',
             stack: '总量',
-            data:[15, 23, 20, 15, 19, 33, 41]
+            data:[15, 23, 20, 15, 19, 33, 41],
+			barwidth:10
         },
     ]
 };

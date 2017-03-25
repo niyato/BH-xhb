@@ -607,6 +607,8 @@ function queryStudentAreaAnlgeRecord(pageindx){
 			if(pageSize==0){
 				$("#selectdata_record").show();
 
+			}else{
+				$("#selectdata_record").hide();
 			}
 			for(var i in resultData){
 
@@ -752,7 +754,7 @@ function queryClassInfoByGrade(){
 			obj_area.length=0;
 			//根据id查找对象，班级
 			var obj1=document.getElementById('activityClass');
-			obj1.add(new Option("请选择班级",0));
+			obj1.add(new Option("全部",0));
 			for(var i in classInfo){
 
 				//添加一个选项

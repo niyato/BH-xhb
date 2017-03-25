@@ -115,32 +115,48 @@
 				<div class="demo1" id="gymCondition" >
 					
 					<div class="mR25">
-						<select id="gymGrade" style="border-radius:2px; text-align:center">
-							<option value="0">全部年级</option>
-							<option value="1">托班</option>
-							<option value="2">小班</option>
-							<option value="3">中班</option>
-							<option value="4">大班</option>
-						</select>
+					    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+							<label>年级</label>					
+							<select id="gymGrade" style="border-radius:2px; text-align:center">
+								<option value="0">全部</option>
+								<option value="1">托班</option>
+								<option value="2">小班</option>
+								<option value="3">中班</option>
+								<option value="4">大班</option>
+							</select>
+						</div>
+						
 					</div>
 					<div class="mR25">
-						<select id="gymClass" style="border-radius:2px; text-align:center">
-							<option value="0">全部班级</option>
+					    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+							<label>班级</label>
+							<select id="gymClass" style="border-radius:2px; text-align:center">
+								<option value="0">全部</option>
 
-						</select>
+							</select>
+						</div>
+						
 					</div>
 					<div class="mR25">
-						<select id="gymPersonId" style="border-radius:2px; text-align:center">
-							<option value="0">全部学生</option>
+						<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+							<label>学生</label>
+							<select id="gymPersonId" style="border-radius:2px; text-align:center">
+								<option value="0">全部</option>
 
-						</select>
+							</select>
+						</div>
+						
 					</div>
 					<div class="mR25">
-						<select id="gymStatus" style="border-radius:2px; text-align:center"><option value="0">全部</option>
-							<option value="1">安静</option>
-							<option value="2">适中</option>
-							<option value="3">活泼</option>
-						</select>
+					    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; line-height:36px; height:36px; text-align: center;">
+							<label>体操强度</label>
+							<select id="gymStatus" style="border-radius:2px; text-align:center"><option value="0">全部</option>
+								<option value="1">安静</option>
+								<option value="2">适中</option>
+								<option value="3">活泼</option>
+							</select>
+						</div>
+						
 					</div>
                     <div class="mR25" id="gymDate">
 						<input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="J-xl-gym" readonly onchange="" value="" />

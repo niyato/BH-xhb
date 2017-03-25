@@ -33,7 +33,7 @@
         }
         fillSelector(classS, cs.map(function(c) {
             return [c.classid, c.classname];
-        }), '全部班级');
+        }), '全部');
     };
 
     var fillStudentS = function () {

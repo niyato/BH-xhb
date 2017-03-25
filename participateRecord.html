@@ -104,28 +104,39 @@
 					<div class="de" id="activityCondition" >
 					   
 						<div class="" style="float:left;">
-							<select id="activityGrade" onchange="queryClassInfoByGrade()" style="text-align:center;height:36px;border:1px solid lightgrey; border-radius:2px; ">
-								<option value="0">全部年级</option>
-								<option value="1">托班</option>
-								<option value="2">小班</option>
-								<option value="3">中班</option>
-								<option value="4">大班</option>
-							</select>
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
+								<label>年级</label>						
+								<select id="activityGrade" onchange="queryClassInfoByGrade()" >
+									<option value="0">全部</option>
+									<option value="1">托班</option>
+									<option value="2">小班</option>
+									<option value="3">中班</option>
+									<option value="4">大班</option>
+								</select>
+							</div>
+							
 						</div>
 						<div class="" style="float:left;">
-							<select id="activityClass" style="height:36px; border-radius:2px; border:1px solid lightgrey; text-align:center; ">
-								<option value="0">全部班级</option>
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center; margin-left:10px;">
+								<label>班级</label>						
+								<select id="activityClass">
+									<option value="0">全部</option>
 
-							</select>
+								</select>
+							</div>
+							
 						</div>
 						<div class="" style="float:left;">
 							<input id="activityStudent" type="text" style="height:36px;border:1px solid lightgrey; border-radius:2px;margin-left:10px;" value="" placeholder="支持对姓名的模糊搜索" />
 						</div>
 						<div class="" style="float:left;">
-							<select id="activityStatus" style="height:36px; border-radius:2px; border:1px solid lightgrey; text-align:center">
-								<option value="0">请选择区角类型</option>
+						    <div style="border:1px solid lightgrey; border-radius:2px; height:36px; line-height:36px; text-align: center; margin-left:10px;padding-left: 20px;">
+								<label>区角类型</label>
+								<select id="activityStatus">
+									<option value="0">全部</option>
 
-							</select>
+								</select>
+							</div>	
 						</div>
 						 <div class="" id="activityDate" style="clear:both; margin-left:5px; padding-top:20px;">
 							<input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
