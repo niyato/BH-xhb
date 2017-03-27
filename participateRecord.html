@@ -374,6 +374,7 @@
                 }
                 $('#fancy_div').append(currentPlayer);
                 $('#fancy_div').append(nextPlayer);
+                var ulDiv=$('<div style="width:100px;float:right;height:360px;overflow-y:auto;"></div>');
                 var $ul = $('<ul  style="padding-left: 50px;margin-top: -300px;cursor: pointer; float:right; color:#000;"></ul>');
                 for (var i=0; i < video_list.length; i++) {
                     var $li = $('<li class="videoLl" data-url="' + video_list[i] + '">视频' + i + '</li>');
@@ -388,7 +389,8 @@
                     })(i));
                     $ul.append($li);
                 }
-                $('#fancy_div').append($ul);
+                 ulDiv.append($ul);
+                $('#fancy_div').append(ulDiv);
                 $('.videoLl').css('background','white');
                 $('.videoLl').eq(currentIndex).css('background','blue');
                 currentPlayer.attr("src", video_list[currentIndex]);

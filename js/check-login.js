@@ -32,3 +32,14 @@
         }
     });
 })();
+
+//体感页面跳转
+function switchMSPage(){
+    var job=localStorage.getItem('job');
+    var personId=localStorage.getItem('pid');
+    var gid=localStorage.getItem('gid');
+    var username=localStorage.getItem('username');
+    window.location.href = "http://sail.youjiaoyun.net/v1/redirect?area=tg&personid="+personId+"&job="+job+"&username="+username;
+    //window.location.href = "http://192.168.1.232:10829/v1/redirect?area=tg&personid=1&job=sd";
+
+};

@@ -82,7 +82,8 @@
     <script type="text/javascript">
         J(function () {
             $('#check-login').on('submit', function (event) {
-                var username = $("#UserName").val();
+                var user = $("#UserName").val();
+                var username = $.trim(user);
                 var password = $("#Password").val();
 			    //if( username == 'admin' && password == '123456')
 				//{
@@ -119,7 +120,12 @@
                     var pid = dataresult.userid;
                     localStorage.setItem("pid",pid);
                     
-					
+					//取到job并存储
+                    var job = dataresult.job;
+                    localStorage.setItem("job",job);
+                    
+                    localStorage.setItem("username",Tname);
+                    
                     window.location.href = 'daily-personal.html';
                 }).catch(function(data) {
                     var dataresult = data.data.LoginInfo;

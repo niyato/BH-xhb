@@ -58,7 +58,7 @@ function queryAreaAngleInfo(page){
 								"<td>"+baseName+"</td>"+
 							   
 							   "<td>"+"<a id='edit_a' class='ca' onclick='store("+resultData[i].areaId+")' href='#'><span class='edit_opt' style='color:#FFAE77;'>编辑</span></a>"+"&nbsp;&nbsp;&nbsp;"+
-					"<a class='ca' onclick='removeAreaAngleRecord("+resultData[i].areaId+")' href='#'><span class='edit_opt' style='color:#efb205;'>删除</span></a>"+"&nbsp;&nbsp;&nbsp;"+
+//					"<a class='ca' onclick='removeAreaAngleRecord("+resultData[i].areaId+")' href='#'><span class='edit_opt' style='color:#efb205;'>删除</span></a>"+"&nbsp;&nbsp;&nbsp;"+
 					"<a class='ca'onclick='turnRecord("+resultData[i].areaId+",\""+resultData[i].areaName+"\",\""+typeName+"\")'  href='#'><span class='edit_opt' style='color:#178BF6;'>查看配置历史</span></a>"+"</td>"+
 								"</tr>" );
 			}
