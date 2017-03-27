@@ -751,16 +751,16 @@ pointer-events: auto;}
 .rightContentBox2 .dar-content .modal .modal-header{ border-bottom:0 ; margin-left:50px;}
 .rightContentBox2 .dar-content .modal .modal-footer{ border-top:0  ; margin-top:-130px;}
 .rightContentBox2 .dar-content .modal .modal-body .dar-container{margin-left:-215px; margin-top:-200px;}
-.rightContentBox2 .dar-content .modal .modal-body .leftpage{ background-image:url(../Content/images/left.png); background-repeat:no-repeat;margin-left: -270px;
-    margin-top: -150px; width:55px; height:66px;}
-.rightContentBox2 .dar-content .modal .modal-body .leftpage a{display:block; width:55px; height:66px;}
-.rightContentBox2 .dar-content .modal .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:600px;
-    margin-top:-60px; width:55px; height:66px;}
-.rightContentBox2 .dar-content .modal .modal-body .rightpage a{display:block; width:55px; height:66px;}
+.rightContentBox2 .dar-content .modal .modal-body .leftpage{ background-image:url(../Content/images/left.png); background-repeat:no-repeat;margin-left: -390px;
+    margin-top: -200px; width:85px; height:85px;}
+.rightContentBox2 .dar-content .modal .modal-body .leftpage a{display:block; width:85px; height:85px;}
+.rightContentBox2 .dar-content .modal .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:700px;
+    margin-top:-80px; width:85px; height:85px;}
+.rightContentBox2 .dar-content .modal .modal-body .rightpage a{display:block; width:85px; height:85px;}
 .rightContentBox2 .dar-content #myModalvideodata .modal-footer{border-top:0  ; margin-top:-160px;}
 .rightContentBox2 .dar-content #myModalteacherRec .modal-footer{border-top:0  ; margin-top:-60px;}
-.rightContentBox2 .dar-content #myModalteacherRec .modal-body .leftpage{ background-image:url(../Content/images/left.png); background-repeat:no-repeat;margin-left: -270px;
-    margin-top: -150px; width:55px; height:66px;}
-	.rightContentBox2 .dar-content #myModalteacherRec .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:600px;
-    margin-top:-60px; width:55px; height:66px;}
+.rightContentBox2 .dar-content #myModalteacherRec .modal-body .leftpage{ background-image:url(../Content/images/left.png); background-repeat:no-repeat;margin-left: -390px;
+    margin-top: -150px; width:85px; height:85px;}
+	.rightContentBox2 .dar-content #myModalteacherRec .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:700px;
+    margin-top:-80px; width:85px; height:85px;}
 	

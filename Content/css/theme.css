@@ -726,6 +726,7 @@ a.panel-heading:hover,
 }
 .modal .modal-body {
   padding: 20em;
+ 
 }
 #myModal1 .modal-dialog .modal-body{
 	padding: 20em;
@@ -895,4 +896,4 @@ table.table.list tr:first-child td {
   background-color: #f0f7fd;
   border-color: #d0e3f0;
 }
-.btn-group-lg>.btn, .btn-lg{ width:32px; height:29px;}
+.btn-group-lg>.btn, .btn-lg{ width:41px; height:41px;}
