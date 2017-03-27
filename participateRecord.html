@@ -319,7 +319,7 @@
                 var player, player2;
 
                 var video_list = data.videoPathList;
-
+                $("#fancy_outer").css({"width":"785px","height":"475px"});
                 var player = $('<video id="idle_video" style="float:left;"></video>');
                 var player2 = $('<video id="idle_video2" style="float:left;display:none"></video>');
 
@@ -375,7 +375,7 @@
                 }
                 $('#fancy_div').append(currentPlayer);
                 $('#fancy_div').append(nextPlayer);
-                var $ul = $('<ul  style="padding-left: 50px;margin-top: -300px;cursor: pointer; float:right; color:#000;"></ul>');
+                var $ul = $('<ul  style="padding-left: 50px;margin-top: -330px;cursor: pointer; float:right; color:#000;overflow: auto;height: 300px;width: 130px;"></ul>');
                 for (var i=0; i < video_list.length; i++) {
                     var $li = $('<li class="videoLl" data-url="' + video_list[i] + '">视频' + i + '</li>');
                     $li.click((function (index) {

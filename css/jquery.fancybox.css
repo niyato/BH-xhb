@@ -58,6 +58,7 @@ div#fancy_outer {
 	overflow: hidden;
 	background: transparent;
 	display: none;
+	width:785px;
 }
 div#fancy_inner {
 	position: relative;
