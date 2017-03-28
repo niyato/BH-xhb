@@ -235,12 +235,14 @@ a{ text-decoration:none;}
 #att_1 table tbody tr td .btn{background-image:url(../Content/css/images/jsr.png); border:none;}
 .rightContentBox2{ padding:20px 0px;}
 .rightContentBox2 .fr1{
+	width: 100%;
     height: 60px;
+	position: fixed;
 	background-color:#FFF;
 	line-height:60px;
 	font-size:18px;
 	margin-top: -10px;
-    margin-left: -15px;
+    margin-left: 20px;
     }
 .rightContentBox2 .fr1 p{ margin-left:60px; float:left;}	
 .rightContentBox2 .fr2{
@@ -268,7 +270,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .ys-content{
@@ -276,7 +278,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .tc-content{
@@ -284,7 +286,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .kq-content{
@@ -292,7 +294,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .yc-content{
@@ -300,7 +302,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .pz-content{
@@ -308,7 +310,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	padding-top: 10px;
 	}
@@ -317,7 +319,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	text-align:center;
 	}
@@ -326,7 +328,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .qyfx-content{
@@ -334,7 +336,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .qyfx-content .de{
@@ -361,7 +363,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .ynqypm-content .tab-pm-hz{
@@ -407,7 +409,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 
@@ -425,7 +427,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .gcjl-content{
@@ -433,7 +435,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .wqjl-content{
@@ -441,7 +443,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}	
 .rightContentBox2 .create_area{    
