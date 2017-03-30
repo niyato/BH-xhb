@@ -122,7 +122,7 @@
 						<div class="" style="margin-left:20px; float:left;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 							    <label>年级</label>
-								<select id="" onchange="" >
+								<select id="activityGrade" onchange="queryClassInfoByGrade()" >
 									<option value="0">全部</option>
 									<option value="1">托班</option>
 									<option value="2">小班</option>
@@ -134,8 +134,8 @@
 						<div class="" style="margin-left:20px;float:left;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 							    <label>班级</label>
-								<select id="">
-									<option value="0">全部</option>
+								<select id="activityClass">
+									
 
 								</select>
 							</div>	
@@ -143,27 +143,23 @@
 						<div class="" style="clear:both; margin-left:20px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:36px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
-								<select id="" >
-									<option value="0">教室区角</option>
-									<option value="1">公共区域</option>
+								<select id="areaTypeSelect" >
+									<option value="1">教室区角</option>
+									<option value="2">公共区域</option>
 								</select>
 							    |
-								<select id="" >
-									<option value="0">全部</option>
-									<option value="1">托班</option>
-									<option value="2">小班</option>
-									<option value="3">中班</option>
-									<option value="4">大班</option>
+								<select id="all_class" >
+									
 								</select>
 							</div>
 							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center; float:left; margin-left:20px;">
 							    <label>区域类型</label>
-								<select id="" >
+								<select id="activityStatus" >
 									<option value="0">全部</option>
 								</select>
 							</div>
 						   <div class="" style="width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700;margin-right:20px; float:left; margin-left:20px;">
-								<input type="button" id="select" style=" width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+								<input type="button" id="select" style=" width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisOrder()" value="查询"  />
 							</div> 
 						</div>
 						  
@@ -174,11 +170,11 @@
 						<div class="modal-body" style=" width:1080px; height:400px; margin-top:50px;">
 							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:150px;">						
 									<label style="font-size:14px;">排名排序</label>
-									<select id="" style="color:#F90;">
-										<option value="0">参与人数</option>
+									<select id="areaAngleAngalysis_order" style="color:#F90;">
 										<option value="1">参与人次</option>
-										<option value="2">人均停留时长</option>
-										<option value="3">人均活动量</option>
+										<option value="2">参与人数</option>
+										<option value="3">人均停留时长</option>
+										<option value="4">人均活动量</option>
 									</select>
 								</div>
 
@@ -195,28 +191,24 @@
 						<div class="dd" style="margin-left:20px;">
 							<div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:38px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
-								<select id="" >
-									<option value="0">教室区角</option>
-									<option value="1">公共区域</option>
+								<select id="collect_areaTypeSelect" >
+									<option value="1">教室区角</option>
+									<option value="2">公共区域</option>
 								</select>
 							    |
-								<select id="" >
-									<option value="0">全部</option>
-									<option value="1">托班</option>
-									<option value="2">小班</option>
-									<option value="3">中班</option>
-									<option value="4">大班</option>
+								<select id="all_class_2" >
+									
 								</select>
 							</div>
 							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:38px; line-height:36px; text-align: center; float:left; margin-left:20px;">
 							    <label>区域类型</label>
-								<select id="" >
+								<select id="activityStatus_2" >
 									<option value="0">全部</option>
 								</select>
 							</div>
 							<div style="border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:left; margin-left:20px; text-align:center;">
 								<label>区域名称</label>
-								<input type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
+								<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
 							</div>
 							<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:20px;">
 								<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
@@ -330,7 +322,11 @@
     $(function () {        
 	    queryAllAreaAngleType();
         queryClassInfoByGrade();
-
+		queryAllClassInfoByGrade();
+		queryAllAreaAngleType2();
+		var day=CurentTime();
+		document.getElementById("input1").value=day;
+		document.getElementById("input2").value=day;
     });
     
 	var videopath = "";
@@ -389,62 +385,5 @@
 	}
 	
 	
-    //预览视频的绑定事件
-    function bindingHover(){
-        var videoclip='';
-        var player='';
-        var swfplayer = "videos/flowplayer-3.1.1.swf";
-        $(".video_link").hover(function(){
-                    videoclip=$(this).attr('href');
-                    $(this).attr({"href":"#video_box"});
-                },
-
-                function(){
-                    $(this).attr({"href":""+videoclip+""});
-                });
-        $(".video_link").fancybox({
-            'hideOnContentClick':false,
-            'overlayOpacity' :0.6,
-            'zoomSpeedIn'    :400,
-            'zoomSpeedOut'   :400,
-            'easingIn'		 : 'easeOutBack',
-            'easingOut'		 : 'easeInBack',
-            'callbackOnShow' :function(){
-                player = $f("fancy_div",swfplayer,{
-                    play:{opacity:0},
-                    clip:{
-                        autoPlay:true,
-                        autoBuffering:true,
-                        url:videopath+videoclip+'',
-                        onStart:function(clip){
-                            var wrap=jQuery(this.getParent());
-                            var clipwidth = clip.metaData.width;
-                            var clipheight= clip.metaData.height;
-                            var pos = $.fn.fancybox.getViewport();
-                            $("#fancy_outer").css({width:clipwidth,height:clipheight});
-                            $("#fancy_outer").css('left', ((clipwidth + 36) > pos[0] ? pos[2] : pos[2] + Math.round((pos[0] - clipwidth	- 36)	/ 2)));
-                            $("#fancy_outer").css('top',  ((clipheight + 50) > pos[1] ? pos[3] : pos[3] + Math.round((pos[1] - clipheight - 50)	/ 2)));
-                        },
-                        onFinish:function(){
-                            $('#fancy_close').trigger('click');
-                        }
-                    }
-                });
-                player.load();
-                $('#fancy_close').click(function(){
-                    $("#fancy_div_api").remove();
-                });
-            },
-            'callbackOnClose':function(){
-                $("#fancy_div_api").remove();
-            }
-        });
-    }
-    function backhome(){
-        window.location.href = 'Homepage.html';
-        localStorage.removeItem('pid');
-        localStorage.removeItem('gname');
-        localStorage.removeItem('tname');
-        localStorage.removeItem('picurl');
-    }
+    
 </script>

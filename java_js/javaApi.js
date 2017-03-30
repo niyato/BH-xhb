@@ -778,6 +778,58 @@ function queryClassInfoByGrade(){
 	});
 };
 
+//查询幼儿园所有班级条件信息
+function queryAllClassInfoByGrade(){
+
+	var gardenId=localStorage.getItem('gid');
+	//var gradeNum=document.getElementById('activityGrade').value;
+
+
+	$.ajax({
+		url : "http://"+url+"areaAngle/queryClassInfoByGrade?jsoncallback=?",
+		dataType : 'jsonp',
+		data : {gardenId:gardenId,gradeNum:0},
+		jsonp : 'jsoncallback',
+		async: false,
+
+		success : function(result) {
+			console.log(result);
+
+			var classInfo = result.classInfo;
+
+
+			//根据id查找对象，班级
+			var obj1=document.getElementById('all_class');
+			obj1.length=0;
+			obj1.add(new Option("请选择班级",0));
+
+			var obj2=document.getElementById('all_class_2');
+			obj2.length=0;
+			obj2.add(new Option("请选择班级",0));
+			for(var i in classInfo){
+
+				//添加一个选项
+				obj1.add(new Option(classInfo[i].className,classInfo[i].classId));
+				obj2.add(new Option(classInfo[i].className,classInfo[i].classId));
+			}
+
+		},
+		error: function (XMLHttpReuqest, textStautus, errothrown) {
+			console.log(XMLHttpRequest.status);
+			console.log(XMLHttpReuqest.readyState);
+			console.log(XMLHttpRequest.responseText);
+			console.log(textStautus);
+			console.log(errothrown);
+		},
+		statusCode: {
+			404: function() {
+				alert("page not found");
+			}
+		}
+
+	});
+};
+
 //查询区角类型条件信息
 function queryAllAreaAngleType(){
 
@@ -800,6 +852,51 @@ function queryAllAreaAngleType(){
 
 			//根据id查找对象，区角类型
 			var obj2=document.getElementById('activityStatus');
+			for(var i in areaAngleType){
+
+				//添加一个选项
+				obj2.add(new Option(areaAngleType[i].angleType,areaAngleType[i].angleTypeId));
+			}
+
+
+		},
+		error: function (XMLHttpReuqest, textStautus, errothrown) {
+			console.log(XMLHttpRequest.status);
+			console.log(XMLHttpReuqest.readyState);
+			console.log(XMLHttpRequest.responseText);
+			console.log(textStautus);
+			console.log(errothrown);
+		},
+		statusCode: {
+			404: function() {
+				alert("page not found");
+			}
+		}
+
+	});
+};
+
+//查询区角类型条件信息2
+function queryAllAreaAngleType2(){
+	//alert(1);
+	//var gardenId=localStorage.getItem('gid');
+	$.ajax({
+		url :"http://"+url+"areaAngle/queryAllAreaAngleType?jsoncallback=?" ,
+		dataType : 'jsonp',
+		data : {},
+		jsonp : 'jsoncallback',
+		async: false,
+
+		success : function(result) {
+			console.log(result);
+
+
+			var areaAngleType = result.areaAngleType;
+
+
+
+			//根据id查找对象，区角类型
+			var obj2=document.getElementById('activityStatus_2');
 			for(var i in areaAngleType){
 
 				//添加一个选项
