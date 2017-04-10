@@ -59,7 +59,7 @@
                 <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
 				<div class='menu'>
                    <p class="menuc" style="">
-                       <a href="daily-personal.html" style="color:#FFF;">学生数据分析</a>
+                       <a href="daily-personal.html" style="color:#326BCC;">学生数据分析</a>
                        <a href="areaAnalysis.html" style="margin-left:20px; background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生区角分析</a>
                    </p>
                 </div>
@@ -141,7 +141,7 @@
 							</div>	
 						</div>
 						<div class="" style="clear:both; margin-left:20px;">
-						    <div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:36px; line-height:36px; text-align: center; float:left;">
+						    <div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:36px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
 								<select id="areaTypeSelect" >
 									<option value="1">教室区角</option>
@@ -165,12 +165,12 @@
 						  
 				    </div>
 					
-					<div class="angalysis-content" style=" height:430px;text-align: -webkit-center;">						
+					<div class="angalysis-content" style=" height:430px;<!-- text-align: -webkit-center; -->">						
 						<!--柱状图-->
 						<div class="modal-body" style=" width:1080px; height:400px; margin-top:50px;">
-							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:150px;">						
+							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:850px;">						
 									<label style="font-size:14px;">排名排序</label>
-									<select id="areaAngleAngalysis_order" style="color:#F90;">
+									<select id="areaAngleAngalysis_order" style="color:#F90;" onChange="areaAnalysisOrder()">
 										<option value="1">参与人次</option>
 										<option value="2">参与人数</option>
 										<option value="3">人均停留时长</option>
@@ -189,7 +189,7 @@
 				
 				<div class="ynqyzhfx-content" id="ynqyzhfx-content" hidden="hidden">
 						<div class="dd" style="margin-left:20px;">
-							<div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:38px; line-height:36px; text-align: center; float:left;">
+							<div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:38px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
 								<select id="collect_areaTypeSelect" >
 									<option value="1">教室区角</option>
@@ -211,75 +211,14 @@
 								<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
 							</div>
 							<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:20px;">
-								<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+								<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisCollect()" value="查询"  />
 							</div>  
 						</div>
-						<div class="area-content" style="height:500px; margin-top:30px;">
-							<div class="content-left" style=" width:500px; margin-left:20px; float:left;">
-							   <div class="title-left" style=" float:left; margin-bottom:20px;" >
-								 <p style="font-weight: bold;font-style: normal; color:black; float:left; font-size:18px;">绘本阅读区角</p><span style=" float:left;color:#B4BEC7;">（公共区角-特色主题室）</span>
-							   </div>
-								<table width="500px" border="0" cellspacing="0" style="box-shadow: 5px 5px 10px #E3EEF6;" class="area-left" id="">
-									<thead style="border:1px solid lightgrey; background-color:#F5FCFF; color:black;font-weight: bold;">
-										<tr id="" >
-											<th scope="col">时间</th>
-											<th scope="col">人数</th>
-											<th scope="col">人次</th>
-											<th scope="col">人均停留时长</th>
-											<th scope="col">人均活动量</th>
-										</tr>
-									</thead>
-									<tbody >  
-										<tr>
-										  <td>昨日</td>
-										  <td>20</td>
-										  <td>100</td>
-										  <td>52分</td>
-										  <td>50</td>
-										</tr>				
-									</tbody>   
-								</table>
-								<span id="" hidden="hidden" style="font-size:18px;">暂无数据</span>
-								<div class="observe-btn" style=" width:130px; height:30px; background-color:#089BFF; text-align:center; line-height:28px; margin-left:40px; margin-bottom:30px; margin-top:20px; float:left;">
-								   <a style=" display:block; width:118px; height:28px; color:#FFF; cursor:pointer;" href="observeRecord.html">观察记录</a>
-								</div>
-								<div class="history-btn" style=" width:130px; height:30px; background-color:#00D200; text-align:center; line-height:28px; margin-left:50px; margin-bottom:30px; margin-top:20px; float:left;">
-								   <a style=" display:block; width:118px; height:28px; color:#FFF; cursor:pointer;" href="historyRecord.html">往期记录</a>
-								</div>
-							</div>
-							<div class="content-right" style=" width:500px; margin-left:20px; float:left;">
-							   <div class="title-right" style=" float:left; margin-bottom:20px;" >
-								 <p style="font-weight: bold;font-style: normal; color:black; float:left;font-size:18px;">手工构建区角</p><span style=" float:left;color:#B4BEC7;">（公共区角-特色主题室）</span>
-							   </div>
-								<table width="500px" border="0" cellspacing="0" style="box-shadow: 5px 5px 10px #E3EEF6;" class="area-left" id="">
-									<thead style="border:1px solid lightgrey; background-color:#F5FCFF; color:black;font-weight: bold;">
-										<tr id="" >
-											<th scope="col">时间</th>
-											<th scope="col">人数</th>
-											<th scope="col">人次</th>
-											<th scope="col">人均停留时长</th>
-											<th scope="col">人均活动量</th>
-										</tr>
-									</thead>
-									<tbody >  
-										<tr>
-										  <td>昨日</td>
-										  <td>20</td>
-										  <td>100</td>
-										  <td>52分</td>
-										  <td>50</td>
-										</tr>				
-									</tbody>   
-								</table>
-								<span id="" hidden="hidden" style="font-size:18px;">暂无数据</span>
-								<div class="observe-btn" style=" width:130px; height:30px; background-color:#089BFF; text-align:center; line-height:28px; margin-left:40px; margin-bottom:30px; margin-top:20px; float:left;">
-								   <a style=" display:block; width:118px; height:28px; color:#FFF; cursor:pointer;" href="observeRecord.html">观察记录</a>
-								</div>
-								<div class="history-btn" style=" width:130px; height:30px; background-color:#00D200; text-align:center; line-height:28px; margin-left:50px; margin-bottom:30px; margin-top:20px; float:left;">
-								   <a style=" display:block; width:118px; height:28px; color:#FFF; cursor:pointer;" href="historyRecord.html">往期记录</a>
-								</div>
-							</div>
-						</div>		
+
+						<div id="areaAngle_list" class="area-content" style="height:500px; margin-top:30px; overflow: auto;">
+                             
+						</div>
+
 				</div>
 			</div>	
 								

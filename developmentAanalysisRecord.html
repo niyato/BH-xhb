@@ -67,7 +67,7 @@
                 <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
 				<div class='menu'>
                    <p class="menuc" style="">
-                       <a href="daily-personal.html" style="color:#FFF;">学生数据分析</a>
+                       <a href="daily-personal.html" style="color:#326BCC;">学生数据分析</a>
                        <a href="areaAnalysis.html" style="margin-left:20px; background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生区角分析</a>
                    </p>
                 </div>
@@ -122,7 +122,7 @@
 						<div class="" style="float:left; margin-left:20px;">
                             <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 								<label>年级</label>
-								<select id="" onchange="">
+								<select id="activityGrade" onchange="queryClassInfoByGrade()">
 									<option value="0">全部</option>
 									<option value="1">托班</option>
 									<option value="2">小班</option>
@@ -134,7 +134,7 @@
 						<div class="" style="float:left; margin-left:20px;">
 							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 							    <label>班级</label>
-								<select id="">
+								<select id="activityClass" onchange="queryStudentInfoByClassId()">
 									<option value="0">全部</option>
 								</select>
 							</div>	
@@ -142,7 +142,7 @@
 						<div class="" style="float:left; margin-left:20px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 								<label>学生</label>
-								<select id="">
+								<select id="activityStudent">
 									<option value="0">全部</option>
 
 								</select>
@@ -151,33 +151,33 @@
 						<div class="" style="margin-left:20px; clear:both;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center; float:left; margin-top:20px;">
 							    <label>区域类型</label>
-								<select id="">
+								<select id="activityStatus">
 									<option value="0">全部</option>
-									<option value="1">社会类</option>
+									<!--<option value="1">社会类</option>
 									<option value="2">健康类</option>
 									<option value="3">科学类</option>
 									<option value="4">语言类</option>
 									<option value="5">艺术类</option>
-									<option value="6">其他类</option>
+									<option value="6">其他类</option>-->
 								</select>
 							</div>
 							<div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:36px; line-height:36px; text-align: center; float:left;margin-top:20px; margin-left:20px;">
 							    <label>区域所属</label>
-								<select  id="" >
-									<option value="0">教室区角</option>
-									<option value="1">公共区域</option>
+								<select  id="areaTypeSelect" >
+									<option value="1">教室区角</option>
+									<option value="2">公共区域</option>
 								</select>
 							    |
-								<select id="" >
+								<select id="area_Class">
 									<option value="0">全部</option>
-									<option value="1">托班</option>
+									<!--<option value="1">托班</option>
 									<option value="2">小班</option>
 									<option value="3">中班</option>
-									<option value="4">大班</option>
+									<option value="4">大班</option>-->
 								</select>
 							</div>
                             <div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08;float:left; margin-left:20px; margin-top:20px;">
-							      <input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+							      <input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="queryStudentDevelopmenRecordAndAnalysisInfo(0)" value="查询"  />
 						    </div>							
 						</div>
 						   
@@ -186,35 +186,47 @@
 			</div>	
 			
 			<div class="dar-content" style=" margin-top:30px;">
+			    <div style="border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:right; margin-right:50px; margin-bottom:30px; text-align:center;">
+					<label style="color:#FF6700">区域名称</label>
+					<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
+				</div>
 			    <div class="applicationbox" style="margin-left:50px; margin-right:50px; margin-top:50px;">
 				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_m">
 								<thead >
-									<tr id="">
-										<th scope="col">年级名称</th>
-										<th scope="col">班级名称</th>
+									<tr class="getifazhan" style="border-right:0px solid #D2DAE0;border-left:0px solid #D2DAE0;">
+										<th scope="col">区域名称</th>
 										<th scope="col">学生名称</th>
-										<th scope="col">绘本阅读区角（参与次数）</th>
-										<th scope="col">手工构建区角（参与次数）</th>
-										<th scope="col">日数据图</th>
-										<th scope="col">视频数据</th>
+										<th scope="col" class="huoyuedu" style="border-right:0px;"><p style="font-size:18px;">活跃度</p><span style="margin-left:20px;">平均活动量</span></th>
+										<th scope="col" style="text-align:left; width:150px;padding: 0px;"><span style="display:block;margin-left: -60px; margin-top: 22px;">|  与班级平均值比</span></th>
+										<th scope="col" style="border-right:0px;"><p style="font-size:18px;">兴趣度</p><span style="margin-left:10px;margin-right: -20px;">平均停留时间</span></th>
+										<th scope="col" style="text-align:left;border-right:0px;padding: 0px;"><span style="display:block;margin-left:-30px; margin-top: 22px;">| 与班级平均值比</span></th>
+										<th scope="col" style="text-align:left;border-right:0px;padding: 0px;width: 100px;"><span style="display:block;margin-left: -70px; margin-top: 23px;">| 参与次数</span></th>
+										<th scope="col" style="text-align:left;padding: 0px;"><span style="display:block;margin-left: -90px; margin-top: 23px;">| 日数据图</span></th>
+										<th scope="col">视频呈现</th>
 										<th scope="col">老师观察记录</th>
 									</tr>
 								</thead>
+								
 								<tbody >
 									<tr>
-										  <td>小班</td>
+<!-- 										  <td>区角</td>
 										  <td>豆豆1班</td>
-										  <td>叶之凡</td>
-										  <td>20</td>
-										  <td>20</td>
-										  <td><button class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModaldata'></button></td>
+										  <td style="padding: 0px;border-right: 0px;">叶之凡</td>
+										  <td style="text-align:left; width:150px;padding: 0px;">20</td>
+										  <td style="padding: 0px;border-right: 0px;">20</td>
+										  <td style="padding: 0px;border-right: 0px;text-align: left;">20</td>
+										   <td style="padding: 0px;border-right: 0px;text-align: left;"><span style="display:block;margin-left: -40px;">20</span></td>
+										  <td style="padding: 0px;text-align: left;"><button style="display:block;margin-left: -70px;" class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModaldata'></button></td>
                                           <td><button data-toggle='modal' data-target='#myModalvideodata' style="background-color:#fff;"><a>详情</a></button></td>
-                                          <td><button data-toggle='modal' data-target='#myModalteacherRec' style="background-color:#fff;"><a>详情</a></button></td>
+                                          <td><button data-toggle='modal' data-target='#myModalteacherRec' style="background-color:#fff;"><a>详情</a></button></td> -->
 									</tr>								
 								</tbody>    
-							</table>
+					</table>
+					<!--分页-->
+					<div id="divpage" class="flickr" style="text-align:right"></div>
 					<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
 				</div>
+				
 				
 				<!-- 日数据模态框（Modal） -->
 					<div class="modal fade" id="myModaldata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -357,7 +369,7 @@
 															</tr>
 														</thead>
 														<tbody >
-															<tr>
+															<!--<tr>
 															  <td>绘本阅读区域</td>
 															  <td>专注力还可以，但是与人沟通一般</td>
 															  <td>后续加强培养孩子的沟通能力</td>
@@ -396,11 +408,14 @@
 															  <td>2016-02-01</td>
 															  <td>周老师</td>
 															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>
+															</tr>-->
 														</tbody>    
 											</table>
+											<input type="hidden" id="pagenum">
 										</div>
+										
 									 </div>
+									 
 									 <!-- <div style=" margin-top:-50px; margin-left:-550px; text-align:center;">
 											<div class="" style="margin:0 auto;">
 											   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="$('#tb_doc_teacherRec').tableExport({ type: 'excel', separator: ';', escape: 'false' });" value="批量下载"  />
@@ -418,61 +433,7 @@
 				
 			</div>
 			
-			<!-- <div class="de" style=" margin-top:50px; height:80px; margin-left:20px; margin-right:50px;">
-			    
-				<div class="" style="float:left; margin-left:20px; margin-top:20px;">
-                            <label>区域所属类型选择：</label>						
-							<label>区角所属</label>
-							<select id="" onchange="" style="text-align:center; width:237px; height:30px;border:1px solid lightgrey; border-radius:5px; ">
-								<option value="0">教室区角</option>
-							</select>
-				</div>
-				<div class="" style="float:left; margin-left:30px; margin-right:30px; margin-top:20px;">
-					<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
-						<option value="0">小1班</option>
-					</select>
-				</div>
-				<div class="" style="float:left; margin-left:20px; margin-right:30px; margin-top:20px;">
-					<label>区域类型</label>
-					<select id="" style="width:237px; height:30px; border-radius:5px; border:1px solid lightgrey; text-align:center">
-						<option value="0">所有类型</option>
-						<option value="0">社会类</option>
-						<option value="1">健康类</option>
-						<option value="2">科学类</option>
-						<option value="3">语言类</option>
-						<option value="4">艺术类</option>
-						<option value="5">其他类</option>
-					</select>
-				</div>	
-			</div> -->
 			
-			<div class="wq-content" style=" margin-top:30px;">
-			    <div class="applicationbox" style="margin-left:50px; margin-right:50px;">
-				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_m">
-								<thead >
-									<tr id="">
-										<th scope="col">班级名称</th>
-										<th scope="col">学生名称</th>
-										<th scope="col">个人平均运动量</th>
-										<th scope="col">与班级平均值比较</th>
-										<th scope="col">个人停留时间</th>
-										<th scope="col">与班级平均值比较</th>
-									</tr>
-								</thead>
-								<tbody >
-									<tr>
-										  <td>豆豆1班</td>
-										  <td>叶之凡</td>
-										  <td>60</td>
-										  <td><span>低于</span>60%</td>
-										  <td>20</td>
-                                          <td><span>高于</span>20%</td>
-									</tr>								
-								</tbody>    
-							</table>
-					<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
-				</div>
-			</div>
 		</div>
 			
     </div>
@@ -484,13 +445,14 @@
 
 
     <script src="js/check-login.js" ></script>
-    <script src="js/activity-page.js"></script>
+    <!--<script src="js/activity-page.js"></script>-->
     <script src="java_js/javaApi.js"></script>
+    <script src="java_js/developmentAanalysisRecord.js"></script>
 	<script src="Content/Scripts/easydialog.min.js"></script>
 	<script type="text/javascript" src="java_js/dar-zdt.js"></script>
     <script type="text/javascript">
     bhyf.checkLogin();
-    xhb.page.init();
+//  xhb.page.init();
 
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
@@ -513,7 +475,13 @@
 	
 	
     $(function () {
-        queryConfigCondition();
+        queryClassInfoByGrade();
+        queryClassInfoByGrade2();
+        queryAllAreaAngleType();
+//      queryAllClassInfoByGrade();
+		var day=CurentTime();
+		document.getElementById("input1").value=day;
+		document.getElementById("input2").value=day;
     });
 	
 	J(function () {
@@ -546,8 +514,8 @@
 	
     //翻页响应
       function pageselectCallback(page_id, jq){
-          var current=document.getElementById("J-xl_activity").value;
-                initData_activity(page_id,current);
+//        var current=document.getElementById("J-xl_activity").value;
+                queryStudentDevelopmenRecordAndAnalysisInfo(page_id);
                 //return false;
           
      }

@@ -778,6 +778,53 @@ function queryClassInfoByGrade(){
 	});
 };
 
+//查询班级条件信息
+function queryClassInfoByGrade2(){
+
+	var gardenId=localStorage.getItem('gid');
+//	var gradeNum=document.getElementById('activityGrade').value;
+
+
+	$.ajax({
+		url : "http://"+url+"areaAngle/queryClassInfoByGrade?jsoncallback=?",
+		dataType : 'jsonp',
+		data : {gardenId:gardenId,gradeNum:0},
+		jsonp : 'jsoncallback',
+		async: false,
+
+		success : function(result) {
+			console.log(result);
+
+			var classInfo = result.classInfo;
+
+			var obj_area=document.getElementById('area_Class');
+			obj_area.length=0;
+			//根据id查找对象，班级
+//			var obj1=document.getElementById('activityClass');
+			obj_area.add(new Option("全部",0));
+			for(var i in classInfo){
+
+				//添加一个选项
+				obj_area.add(new Option(classInfo[i].className,classInfo[i].classId));
+			}
+
+		},
+		error: function (XMLHttpReuqest, textStautus, errothrown) {
+			console.log(XMLHttpRequest.status);
+			console.log(XMLHttpReuqest.readyState);
+			console.log(XMLHttpRequest.responseText);
+			console.log(textStautus);
+			console.log(errothrown);
+		},
+		statusCode: {
+			404: function() {
+				alert("page not found");
+			}
+		}
+
+	});
+};
+
 //查询幼儿园所有班级条件信息
 function queryAllClassInfoByGrade(){
 
@@ -829,6 +876,8 @@ function queryAllClassInfoByGrade(){
 
 	});
 };
+
+
 
 //查询区角类型条件信息
 function queryAllAreaAngleType(){

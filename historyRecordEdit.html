@@ -25,12 +25,10 @@
     <script src="js/graph.js" ></script>
     <script src="js/activity-zztu.js"></script>
 	
-    <script src="Content/Scripts/jquery.pagination.js"></script>
-    <!--导出word-->
-    <script src="js/FileSaver.min.js"></script>
-	<script src="js/jquery.wordexport.js"></script>
+    <!--excel下载导出-->
+	<script src="js/tableExport.js"></script>
+	<script src="js/jquery.base64.js"></script>
 	
-    
     <style type="text/css">
 	     .demo1{
             height:20px;
@@ -45,6 +43,8 @@
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
             color: #fff;
         }
+        a{ cursor:pointer;}
+		
 		.hjcs{width: 100px;
 				height: 30px;
 				left: 551.4999999999998px;
@@ -104,15 +104,13 @@
 				margin: 0 15px 0 0;
 				width:300px;
 				font-weight:bold;
+				font-family:normal;
 			}
 		  .tabs a{ color:#2F3757;}
-		  
-
     </style>
     <!--分页-->
     <link rel="stylesheet" type="text/css" href="Content/css/pagination.css">
-	
-
+    <script src="Content/Scripts/jquery.pagination.js"></script>
 </head>
 
 <body class="theme-blue">
@@ -146,7 +144,7 @@
         <div class="tab-content">
             <div class="leftMenu" id="leftMenu">
                 <ul id="menudiv" class="mT10">
-                    <li>
+                   <li>
                         <a id="areabuild" href="areaAnalysis.html" ><span><img src="Content/images/pz.png">区域配置<span></a>
                     </li>
 					<li>
@@ -171,58 +169,33 @@
 					  <a href="areaAngleAngalysis.html">返回上一级</a>
 					</div>
             </div>
+            
 
-        <div id="exports">
-            <div class="gcjl-content">
+        <div class="wqjl-content">
+            <div style=" height:100px;padding-top:10px; margin-top:20px; margin-left:20px; margin-right:20px;">
 			        <div style="margin-left:30px; padding-top:20px; padding-bottom:20px;">
-						 <img src="Content/images/gxjl.png"><span style="font-size:16px; margin-left:10px;"><b>观察记录</b></span>
+						 <img src="Content/images/wqjl.png"><span style="font-size:16px; margin-left:10px;"><b>往期记录</b></span>
 					</div>
-					<div class="de" id="" style=" background-color:#F5FCFF; margin-left:50px;">
-					    
-					    <div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px; float:left;">
-						    
-								<input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; height:36px; text-align:center;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
+			</div>
+			
+            <div class="de" id="" style=" background-color:#F5FCFF; margin-left:50px;margin-right: 30px;border-bottom: 1px solid lightgray;">
+			    <div style="width:300px;height:185px; margin:20px; background-image:url(Content/images/date.png);background-repeat:no-repeat;text-align: -webkit-center;">
+				  <p style="color:#886E95; font-size:16px; padding-top:50px;padding-right: 30px;font-weight:bold;"><span id="startTime"></span></p>
+				  <span style="color:#886E95;padding-right: 30px;font-weight:bold;">—</span>
+                  <p style="color:#886E95; font-size:16px;padding-right: 30px;font-weight:bold;"><span id="endTime"></span></p>				  
+				</div>
+				<div style="width:860px;;height:185px; margin-top:-200px; margin-left:340px; margin-right:30px; clear:both;">
+					   <label style="margin-left:20px; color:#F9C099;"><span id="gradeName"></span></label><span style="margin-left:10px; color:#F9C099;" id="className"></span>
+					   <div class="allstu" style=" margin-right:50px;">
+							<div id="checkname" class="checkname" style=" margin-left:20px;">
+								<!--<input type="checkbox" id="allsel" style="margin-left:20px; margin-right:10px;"><span>全选</span>-->
 								
-						</div>
-                        
-						<div class="" style="float:left; margin-left:20px;">
-						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">					
-								<label style="color:#FF6700;">年级</label>
-								<select id="activityGrade" onchange="queryClassInfoByGrade()">
-									<!--<option value="0">全部</option>-->
-									<option value="1">托班</option>
-									<option value="2">小班</option>
-									<option value="3">中班</option>
-									<option value="4">大班</option>
-								</select>
-							</div>
-						</div>
-						<div class="" style="float:left; margin-left:20px;">
-						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
-								<label style="color:#FF6700;">班级</label>
-								<select id="activityClass" >
-
-								</select>
-							</div>
-						</div>
-					    <div class="" style="width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; margin-left:20px; float:left;">
-							<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="queryObserveRecord()" value="查询"  />
-						</div> 
-                        
-						
-						<div style="margin-bottom:50px; padding-top:10px; margin-top:10px; margin-left:20px; margin-right:20px; clear:both; ">
-						   <label style="margin-left:20px; color:#5F7487;">请选择您要观察记录的学生：</label>
-						   <div class="allstu" style=" margin-right:50px;">
-								<div class="checkname" style=" margin-left:20px;">
-								    
-									
-								</div> 
-								<input type="button" id="select" style=" width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; margin-left:20px;margin-top:20px; color:#FFF;" onClick="queryAreaObserveRecordAnalysisInfo()" value="确定"  />
-						   </div>
-						</div>
-					</div>
-					
-				<div style=" height:44px; margin-left:50px; margin-right:20px; background-color:#F5FCFF; text-align:center;line-height: 44px;">
+							</div> 
+					   </div>
+				</div>
+			</div>
+            
+			<div style=" height:44px; margin-left:50px; margin-right:20px; margin-top:20px; background-color:#F5FCFF; text-align:center;line-height: 44px;">
 				    <ul class="tabs">
 
 						<li style="background-color:#FF6700;"><a style="color:#fff;"><img src="Content/images/pz1.png">   环境创设</a></li>
@@ -232,9 +205,9 @@
 						<li><a><img src="Content/images/bz.png">     分析与调整</a></li>       
 
 					</ul>
-				</div>	
-			    
-				<div class="content-gcjl" style=" margin-left:100px; margin-top:50px;">
+			</div>
+			
+            <div class="content-gcjl" style=" margin-left:100px; margin-top:50px;">
 
 					<div class="tab2_1">
 
@@ -267,7 +240,7 @@
 							</div>
 							<div style="margin-left:95px; clear:both;">
 							   <p class="warning" style=" margin-top: -20px; color:#FF6700;">允许上传最多10张照片</P>
-								<textarea id="pictureDes" style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;" placeholder="请简单描述下您在此区角投放的素材"></textarea>
+								<textarea  id="pictureDes" style="padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;" placeholder="请简单描述下您在此区角投放的素材"></textarea>
 							</div>
 						</div><!--环境创设end-->
                         <div class="next" style="margin:0 auto;text-align: center; margin-top:20px;">
@@ -288,14 +261,12 @@
 							<div class="hzbx-content" style=" margin-left:20px; margin-top:20px; color:black; float:clear; ">
 								<b style="color:#FF6700;">>></b><span style=" padding-left:10px; font-weight: bold; margin-bottom:20px;">幼儿活动数据记录</span>
 								<div class="applicationbox" id="content1" style=" text-align:center; padding-bottom: 20px;">
-										
 										<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
 								</div>	
 
 								<b style="color:#FF6700;">>></b><span style=" padding-left:10px; padding-top:20px; font-weight: bold; margin-bottom:20px;">幼儿活动的视频记录</span>
 								
 								<div class="applicationbox" id="content2" style=" text-align:center;">
-									
 									<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
 									<input type="hidden" id="pagenum">
 										
@@ -305,7 +276,6 @@
 									<b style="color:#FF6700;">>></b><span style=" padding-left:10px; font-weight: bold; margin-bottom:20px; margin-top:0px;  margin-right:20px;">老师对幼儿活动的观察录入</span>
 									<span style=" color:#FF6700; margin-top:50px;">必填项</span>
 									<ul id="observeAnalyUl" class="teacherExp" style=" margin-left:20px;">
-									   
 									</ul>
 								</div>
 								
@@ -324,32 +294,24 @@
 
 						<div style="clear:both; "><!--分析与调整start-->
 			
-							<!-- <div style=" margin-left:20px; margin-right:20px; text-align:center;">
-							   <div class="hjcs" style="margin:0 auto; margin-top:30px; line-height:30px;">
-								   <p>分析与调整</p>
-							   </div>	   
-							</div> -->
 							
 							<div class="fxtz-content" style=" margin-left:20px;">
 							   <p style=" color:#FF6700; margin-top:20px;">必填项</p>
 							   <ul id="analyAdjustUl" style=" margin-left:20px;">
-									   
 									  
 							   </ul>
 							</div>
 							<div style=" margin-top:100px; text-align:center;">
 								<div class="save" style="margin:0 auto;">
-								   <input type="submit" id="" style=" width:80px; height:36px; margin-right:30px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="recordObserveRecordAnalysisInfo()" value="保存"  />
-								   <input type="button" id="exptoword" style=" width:80px; height:36px; border-radius:2px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />
+								   <input type="submit" id="" style=" width:80px; height:36px; margin-right:30px; border-radius:2px; background-color:#089BFF; border-color:#089BFF; color:#FFF;" onclick="updateEnteringObserveRecordInfo()" value="修改"  />
+<!--								   <input type="button" id="exptoword" style=" width:80px; height:36px; border-radius:2px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="" value="下载并导出"  />-->
 								</div>
 							</div>
 						</div><!--分析与调整end-->
 
 					</div>
 
-				</div>
-			
-			</div>
+			</div>			
 		</div>
 			
     </div>
@@ -361,24 +323,95 @@
 
 
     <script src="js/check-login.js" ></script>
-	<script src="java_js/javaApi.js"></script>
+    <script src="js/activity-page.js"></script>
+    <script src="java_js/javaApi.js"></script>
     <script src="java_js/observeRecord.js"></script>
 	<script src="Content/Scripts/easydialog.min.js"></script>
-	
     <script type="text/javascript">
     bhyf.checkLogin();
-    //xhb.page.init();
+    xhb.page.init();
 
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
+    
+	//复选框begin 
+		$('#allselect').click(function(){
+		   if(this.checked){
+			 $('.onesel').prop("checked",true);
+		   } else{
+			 $('.onesel').prop("checked",false);
+		   }
+		   
+		});
+		$('.onesel').click(function(){
+		   if(this.checked == false){
+			 $('#allselect').prop("checked",false);
+		   }
+		});
+	//复选框end
 	
-	var issave = false;
 	
-	var areaid = localStorage.getItem('areaid');	
-	var areaname = localStorage.getItem('areaname');
+    $(function () {
+    	var areaAngleName = localStorage.getItem('areaAngleName');
+    	$('.area-name').html(areaAngleName);	
+    	queryEnteringObserveRecordInfo();
+//      queryConfigCondition();
+    });
 	
+	J(function () {
+        J('#input1').calendar({ maxDate:'#input2'});
+        J('#input2').calendar({ minDate:'#input1'});
+    });
 
+    function opcal() {
+        J.calendar.Show();
+    }
 	
+    function CurentTime()
+    {
+        var now = new Date();
+
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+        var clock = year + "-";
+        if(month < 10)
+            clock += "0";
+        clock += month + "-";
+        if(day < 10)
+            clock += "0";
+        clock += day + " ";
+        return(clock);
+    };
+        
+    //翻页响应
+      function pageselectCallback(page_id, jq){
+          var current=document.getElementById("J-xl_activity").value;
+                initData_activity(page_id,current);
+                //return false;
+          
+     }
+   
+     function backhome(){
+		    window.location.href = 'Homepage.html';
+			localStorage.removeItem('pid');
+			localStorage.removeItem('gname');
+			localStorage.removeItem('tname');
+			localStorage.removeItem('picurl');
+     }
+	 
+     function checkClass(a){
+
+         if(a==1){
+//            document.getElementById("classInfoSelect").disabled=false;
+             $("#classInfoSelect").show();
+             $("#commonAreaAngle").hide();
+         }else{
+//             document.getElementById("classInfoSelect").disabled=true;
+             $("#classInfoSelect").hide();
+             $("#commonAreaAngle").show();
+         }
+     }
 	
 
 	  //上传图片begin
@@ -453,85 +486,8 @@
 	  }     
 	//删除图片end
 	
-	//导出word
-  	   // jQuery(document).ready(function($) {
-		//	$("#exptoword").click(function(event) {
-			//	$("#exports").wordExport();
-			//});
-		//});
-	//导出word END
 	
-    $(function () {
-        //queryConfigCondition();
-        queryClassInfoByGrade();
-		var day=CurentTime();
-		document.getElementById("input1").value=day;
-		document.getElementById("input2").value=day;
-        $('.area-name').html(areaname);		
-	    $('.area-name').html(name.name);
-	    
-    });
-	
-	J(function () {
-        J('#input1').calendar({ maxDate:'#input2'});
-        J('#input2').calendar({ minDate:'#input1'});
-    });
-
-    function opcal() {
-        J.calendar.Show();
-    }
-	
-    function CurentTime()
-    {
-        var now = new Date();
-
-        var year = now.getFullYear();       //年
-        var month = now.getMonth() + 1;     //月
-        var day = now.getDate();            //日
-        var clock = year + "-";
-        if(month < 10)
-            clock += "0";
-        clock += month + "-";
-        if(day < 10)
-            clock += "0";
-        clock += day + " ";
-        return(clock);
-    };
-      
-
-
-	
-    //翻页响应
-      function pageselectCallback(page_id, jq){
-          var current=document.getElementById("J-xl_activity").value;
-                initData_activity(page_id,current);
-                //return false;
-          
-     }
-   
-     function backhome(){
-		    window.location.href = 'Homepage.html';
-			localStorage.removeItem('pid');
-			localStorage.removeItem('gname');
-			localStorage.removeItem('tname');
-			localStorage.removeItem('picurl');
-     }
-	 
-     function checkClass(a){
-
-         if(a==1){
-//            document.getElementById("classInfoSelect").disabled=false;
-             $("#classInfoSelect").show();
-             $("#commonAreaAngle").hide();
-         }else{
-//             document.getElementById("classInfoSelect").disabled=true;
-             $("#classInfoSelect").hide();
-             $("#commonAreaAngle").show();
-         }
-     }
-	 
-	 
-	function nextTab(){
+function nextTab(){
 	  var recname = $(".recdname").val();
 	  var recdpurpose = $(".recdpurpose").val();
 	   if(recname !='' && recdpurpose!=''){
@@ -588,7 +544,7 @@
 				});
 				return false
 		  }  
-	}
+	}	
     </script>
 </body>
 </html>

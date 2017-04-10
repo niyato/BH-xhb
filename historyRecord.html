@@ -57,7 +57,7 @@
                 <div class="f1"><a class="logo" href=""><img src="Content/images/top.png"></a></div>
 				<div class='menu'>
                    <p class="menuc" style="">
-                       <a href="daily-personal.html" style="color:#FFF;">学生数据分析</a>
+                       <a href="daily-personal.html" style="color:#326BCC;">学生数据分析</a>
                        <a href="areaAnalysis.html" style="margin-left:20px; background-color:#FFF; color:#222222; border-bottom:solid 6px #FF6700;">学生区角分析</a>
                    </p>
                 </div>
@@ -101,7 +101,7 @@
 <div class="rightContent">
     <div class="rightContentBox2"> <!---->
 	        <div class="fr1">
-                    <p><b>绘本阅读区域</b></p>
+                    <p><span style="font-weight: bold;font-style: normal;color: black" class =" area-name"></span></p>
 					<div class='return' style="float:right; margin-left:30px; padding-right: 30px;">
 					  <a style=' color:#FFAE77;' href="areaAngleAngalysis.html">返回上一级</a>
 					</div>
@@ -131,7 +131,7 @@
 						<div class="" style="float:left; margin-left:20px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">					
 								<label style="color:#FF6700;">年级选择</label>
-								<select id="" onchange="">
+								<select id="activityGrade" onchange="queryClassInfoByGrade()">
 									<option value="0">全部年级</option>
 									<option value="1">托班</option>
 									<option value="2">小班</option>
@@ -143,14 +143,14 @@
 						<div class="" style="float:left; margin-left:20px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 								<label style="color:#FF6700;">班级选择</label>
-								<select id="">
+								<select id="activityClass">
 									<option value="0">选择班级</option>
 
 								</select>
 							</div>
 						</div>
 						<div class="" style="width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; float:left; margin-left:20px;">
-							<input type="button" id="select" style=" width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+							<input type="button" id="select" style=" width:123px; height:38px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="queryAreaObserveRecordName()" value="查询"  />
 						</div>   
 
 					</div>
@@ -161,7 +161,7 @@
 				    <table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_m">
 								<thead >
 									<tr id="">
-									    <th scope="col"><input id="allselect" type="checkbox"></th>
+									    <!-- <th scope="col"><input id="allselect" type="checkbox"></th> -->
 										<th scope="col">年级</th>
 										<th scope="col">班级</th>
 										<th scope="col">记录名称</th>
@@ -171,7 +171,7 @@
 									</tr>
 								</thead>
 								<tbody >
-									<tr>
+									<!--<tr>
 									      <td><input class="onesel" type="checkbox"></td>
 										  <td>小班</td>
 										  <td>豆豆1班</td>
@@ -179,7 +179,7 @@
 										  <td>2016-01-05</td>
 										  <td>周老师</td>
 										  <td><a href="#">查看</a>&nbsp <a href="#" >编辑</a>&nbsp <a style="color:#2baf2b;" onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });">下载导出</a></td>
-									</tr>								
+									</tr>								-->
 								</tbody>    
 					</table>
 					<span id="selectdata" hidden="hidden" style="font-size:18px;">暂无数据</span>
@@ -188,7 +188,7 @@
 			
 			<div style=" margin-top:100px; text-align:center;">
 					<div class="" style="margin:0 auto;">
-					   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });" value="下载并导出"  />
+					   <!-- <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="$('#tb_doc_m').tableExport({ type: 'excel', separator: ';', escape: 'false' });" value="下载并导出"  /> -->
 					</div>
 			</div>
 		</div>
@@ -202,12 +202,13 @@
 
 
     <script src="js/check-login.js" ></script>
-    <script src="js/activity-page.js"></script>
+    <!--<script src="js/activity-page.js"></script>-->
     <script src="java_js/javaApi.js"></script>
+    <script src="java_js/observeRecord.js"></script>
 	<script src="Content/Scripts/easydialog.min.js"></script>
     <script type="text/javascript">
     bhyf.checkLogin();
-    xhb.page.init();
+//  xhb.page.init();
 
     var page_id = 0;     //页面索引初始值
     var pageSize = 10;
@@ -228,9 +229,17 @@
 		});
 	//复选框end
 	
+	var areaid = localStorage.getItem('areaid');	
+	var areaname = localStorage.getItem('areaname');
 	
     $(function () {
-        queryConfigCondition();
+    	queryClassInfoByGrade()
+//      queryConfigCondition();
+		$('.area-name').html(areaname);		
+	    $('.area-name').html(name.name);
+		var day=CurentTime();
+		document.getElementById("input1").value=day;
+		document.getElementById("input2").value=day;
     });
 	
 	J(function () {

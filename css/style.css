@@ -1,4 +1,4 @@
-/* CSS Document */
+﻿/* CSS Document */
 /* CSS重置 */  
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}  
 body{ font-size:14px; line-height:24px; font-family: Arial,"微软雅黑"; background:#EFF4F9; color:#5f5f5f; -webkit-text-size-adjust:100%;}  
@@ -63,10 +63,13 @@ a{ text-decoration:none;}
 	line-height:60px;
 	font-size:18px;
 	margin-top: -10px;
-    margin-left: -15px;
+    left: 260px;
+	width: 100%;
+	position: fixed;
+	z-index: 999999;
     }
 
-.rightContentBox1 .fr1 p{ margin-left:60px;}	
+.rightContentBox1 .fr1 p{ margin-left:60px;font-weight: bold;}	
 .rightContentBox1 .lableinfo_density{ margin-top:20px; margin-left:30px;width: 13.5px;
     height: 18px;
     left: 168.75px;
@@ -228,7 +231,7 @@ a{ text-decoration:none;}
 	.rightContentBox1 .demo1 label{ color:#F60;}
 .rightContentBox1 .demo1 .mR25 #select{ width:90px; height:26px; background-color:#26a69a; border-color:#26a69a; color:#fff;}
 .applicationbox-midu{box-shadow: 0 0px 5px #ddd; margin-top: 50px; margin-left: 50px;}
-.applicationbox th,.applicationbox td{ padding:10px; border-bottom:1px solid #D2DAE0; border-right:1px solid #D2DAE0;border-left:1px solid #D2DAE0;text-align:center;}
+.applicationbox th,.applicationbox td{ padding:10px; border-bottom:1px solid #D2DAE0; border-right:1px solid #D2DAE0;border-left:0px solid #D2DAE0;text-align:center;}
 .applicationbox th{ background:#EFF4F9; font-weight:bold; text-align:center;}
 /*.applicationbox td a{color:#5677fc;}*/
 .rightContentBox2 .applicationbox table tbody tr td .btn{background-image:url(../Content/css/images/button_icon.png); border:none; background-color:#FFF;}
@@ -240,9 +243,11 @@ a{ text-decoration:none;}
 	line-height:60px;
 	font-size:18px;
 	margin-top: -10px;
-    margin-left: -15px;
+    left: 260px;
+    width: 100%;;
+    position: fixed;
     }
-.rightContentBox2 .fr1 p{ margin-left:60px; float:left;}	
+.rightContentBox2 .fr1 p{ margin-left:60px; float:left; font-weight: bold;}	
 .rightContentBox2 .fr2{
     height: 33.75px;
     left: 168.75px;
@@ -268,7 +273,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .ys-content{
@@ -276,7 +281,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .tc-content{
@@ -284,7 +289,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .kq-content{
@@ -292,7 +297,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .yc-content{
@@ -300,7 +305,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .pz-content{
@@ -308,7 +313,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	padding-top: 10px;
 	}
@@ -317,7 +322,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	text-align:center;
 	}
@@ -326,7 +331,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .qyfx-content{
@@ -334,7 +339,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .qyfx-content .de{
@@ -361,7 +366,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .ynqypm-content .tab-pm-hz{
@@ -399,7 +404,7 @@ a{ text-decoration:none;}
 	background-color: white;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .xsgtfx-content{
@@ -407,7 +412,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 
@@ -425,7 +430,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .gcjl-content{
@@ -433,7 +438,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}
 .rightContentBox2 .wqjl-content{
@@ -441,7 +446,7 @@ a{ text-decoration:none;}
     box-shadow: 5px 5px 10px #E3EEF6;
     margin-right: 30px;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding-bottom: 30px;
 	}	
 .rightContentBox2 .create_area{    
@@ -685,7 +690,7 @@ pointer-events: auto;}
 	box-shadow: 5px 5px 10px #E3EEF6;
 	margin-right:30px;
 	margin-left:50px;
-	margin-top:30px;
+	margin-top:60px;
 	padding-bottom:30px;
 }
 .rightContentBox1 .sport_midu{ 
@@ -763,4 +768,5 @@ pointer-events: auto;}
     margin-top: -150px; width:85px; height:85px;}
 	.rightContentBox2 .dar-content #myModalteacherRec .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:700px;
     margin-top:-80px; width:85px; height:85px;}
+.fr1 .return a{color:#FF6700;}
 	

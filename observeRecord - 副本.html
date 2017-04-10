@@ -31,6 +31,11 @@
 	<script src="js/jquery.wordexport.js"></script>
 	
     
+	<!--预览视频-->
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="css/lanrenzhijia.css">
+
+	
     <style type="text/css">
 	     .demo1{
             height:20px;
@@ -362,9 +367,16 @@
 
     <script src="js/check-login.js" ></script>
 	<script src="java_js/javaApi.js"></script>
+	
     <script src="java_js/observeRecord.js"></script>
 	<script src="Content/Scripts/easydialog.min.js"></script>
 	
+
+<!-- 	<script src="js/jquery-1.3.2.min.js"></script>
+	<script src="js/flowplayer-3.1.1.min.js"></script>
+	<script src="js/jquery.fancybox-1.2.1.pack.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/fancyplayer.js"></script> -->
     <script type="text/javascript">
     bhyf.checkLogin();
     //xhb.page.init();
@@ -380,12 +392,72 @@
 
 	
 	
-
+	//上传图片begin
 	  //上传图片begin
 	   var id ="img";
 	   
 	   function PreviewImage(imgFile){
 	      
+	    /*var pattern = /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/;
+		  if(!pattern.test(imgFile.value)){
+			easyDialog.open({
+							container: {
+								content: '仅支持jpg/jpeg/png/gif/bmp格式的照片！',
+							},
+							autoClose: 2000
+						});
+					return false;	
+			imgFile.focus();
+		  }else{
+		     //定义图片路径
+			var path;
+            var fileList =  imgFile.files;
+			var xinforpic = document.getElementById("xinforpic");
+			var docObj = document.getElementById("doc");
+			var max = $(".xinforpic").length;
+			var min = 10 - max;
+
+			 //添加显示图片的html元素
+			if(fileList.length <= min){
+			   for(var i = 0 ; i<fileList.length;i++){
+				 id +=i;
+				$(".img-cont .file").before("<div id='"+id+"' class='xinforpic'><img src='' ><a onclick='delpic(this)' class='delete-btn'></a></div>");
+				  if(document.all){
+							//兼容IE
+							imgFile.select();
+							path = document.section.createRange().text;
+							document.getElementById(id).innerhtml ="";
+							//使用滤镜效果
+							document.getElementById(id).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\""+ path + "\")";
+							
+						 }else{
+							
+							//兼容其他浏览器
+							path = URL.createObjectURL(imgFile.files[i]);
+							console.log(path);
+							
+							//$("#" + id).innerHTML = "<img src='"+path+"' width='30' height='20'>";
+							  $("#" + id + " img").attr('src',path);
+							  
+							  //pics.push($("#" + id + " img").attr('src'));
+							  console.log(pics);
+							  
+							   
+							}					 
+				
+
+			   }						  
+			}else{
+					easyDialog.open({
+						container: {
+							content: '最多只能上传10张图片！',
+						},
+						autoClose: 2000
+					});
+					return false
+				   }      
+
+		  }*/
 		    var fileList =  imgFile.files;
         	var formData = new FormData();
         	formData.append('file', $('#doc')[0].files[0]);
@@ -445,7 +517,6 @@
 	   }
 	   
 	//上传图片end
-	
 	
 	//删除图片begin
 	  function delpic(that){
@@ -589,6 +660,138 @@
 				return false
 		  }  
 	}
+	
+
+	//预览视频的绑定事件
+    function bindingHover(){
+	
+        var videoclip='';
+        var player='';
+        var player2='';
+        var data;
+        var currentPlayer, nextPlayer;
+        var swfplayer = "videos/flowplayer-3.1.1.swf";
+        $(".video_link").hover(function(){
+                    var $link = $(this);
+                    data = $link.parents('tr').data('entity');
+                    videoclip=$(this).attr('href');
+                    $(this).attr({"href":"#video_box"});
+                },
+
+                function(){
+                    $(this).attr({"href":""+videoclip+""});
+                });
+
+        $(".video_link").fancybox({
+            'hideOnContentClick':false,
+            'overlayOpacity' :0.6,
+            'zoomSpeedIn'    :400,
+            'zoomSpeedOut'   :400,
+            'easingIn'		 : 'easeOutBack',
+            'easingOut'		 : 'easeInBack',
+            'callbackOnShow' :function(){
+                console.log(data.videoPathList);
+                console.log("body loaded");
+                var currentIndex = 0;
+                var player, player2;
+
+                var video_list = data.videoPathList;
+                $("#fancy_outer").css({"width":"785px","height":"475px"});
+                var player = $('<video id="idle_video" style="float:left;"></video>');
+                var player2 = $('<video id="idle_video2" style="float:left;display:none"></video>');
+
+                play();
+                currentPlayer.get(0).onended = function() {
+                    currentIndex++;
+                    play();
+                };
+                nextPlayer.get(0).onended = function() {
+                    currentIndex++;
+                    play();
+                };
+                currentPlayer .mouseout(function() {
+                    $(this).removeAttr('controls');
+                });
+                currentPlayer .mouseover(function() {
+                    $(this).attr('controls', 'controls');
+                });
+                nextPlayer .mouseout(function() {
+                    $(this).removeAttr('controls');
+                });
+                nextPlayer .mouseover(function() {
+                    $(this).attr('controls', 'controls');
+                });
+
+                function play() {
+                    if (currentIndex >= video_list.length) {
+                        return;
+                    }
+                    if (currentIndex === 0) {
+                        currentPlayer = player;
+                        nextPlayer = player2;
+                        currentPlayer.attr('src', video_list[currentIndex]);
+                    } else {
+                        var temp = currentPlayer;
+                        currentPlayer = nextPlayer;
+                        nextPlayer = temp;
+                    }
+                    nextPlayer.hide();
+                    currentPlayer.get(0).play();
+                    //currentPlayer.removeAttr('controls');
+                    currentPlayer.show();
+                    $('.videoLl').css('background','white');
+                    $('.videoLl').eq(currentIndex).css('background','blue');
+                    // setTimeout(function() {
+                    //     currentPlayer.attr('controls', 'controls');
+                    // }, 200);
+                    console.log('currentIndex', currentIndex);
+                    console.log('current video', currentPlayer.attr('src'));
+                    if (currentIndex + 1 < video_list.length) {
+                        nextPlayer.attr('src', video_list[currentIndex + 1]);
+                    }
+                }
+                $('#fancy_div').append(currentPlayer);
+                $('#fancy_div').append(nextPlayer);
+
+                var $ul = $('<ul  style="padding-left: 50px;margin-top: -330px;cursor: pointer; float:right; color:#000;overflow: auto;height: 300px;width: 130px;"></ul>');
+
+                for (var i=0; i < video_list.length; i++) {
+                    var $li = $('<li class="videoLl" data-url="' + video_list[i] + '">视频' + i + '</li>');
+                    $li.click((function (index) {
+                        return function () {
+                            $('.videoLl').css('background','white');
+                            $(this).css('background','blue');
+                            currentIndex = index;
+                            currentPlayer.attr("src", video_list[index]);
+                            currentPlayer.get(0).play();
+                        }
+                    })(i));
+                    $ul.append($li);
+                }
+                $('#fancy_div').append($ul);
+                $('.videoLl').css('background','white');
+                $('.videoLl').eq(currentIndex).css('background','blue');
+                currentPlayer.attr("src", video_list[currentIndex]);
+                currentPlayer.get(0).play();
+
+
+//                $('videoUl').get(currentIndex).css('background','blue');
+
+//                $('#fancy_close').click(function(){
+////                    currentPlayer.get(0).removeEventListener;
+//
+//                    $("#fancy_div_api").remove();
+//                });
+
+            },
+            'callbackOnClose':function(){
+                currentPlayer.get(0).pause();
+                currentPlayer.attr("src", null);
+                currentPlayer.attr("src", null);
+                $("#fancy_div_api").remove();
+            }
+        });
+    }
     </script>
 </body>
 </html>

@@ -189,7 +189,7 @@ label {
 }
 /*头部*/
 .navbar-header{position: fixed;right: 0;left: 0;z-index: 1030;margin-bottom: 0;}
-.top{ background-color:#ADF2F7; color:#FFF; font-family:normal;/*min-width:1040px;*/ width:100%; height:60px;}
+.top{ background-color:#ADF2F7; color:#326BCC; font-family:normal;/*min-width:1040px;*/ width:100%; height:60px;}
 .top .f1{width:500px; line-height: 60px;}
 .top .f1right{position:absolute; right:0; height:60px; top:0;}
 .top .f1right button{ margin-right:10px;}

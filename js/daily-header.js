@@ -37,7 +37,7 @@
             return bhyf.sumByLine(container, options);
         }
         options.category = 'person';
-		options.str = ' 小时';
+		options.str = ' 分钟';
         if (personId) options.personId = personId;
         if (classId) options.classId = classId;
         // options.classId = 17704;
