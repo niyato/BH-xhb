@@ -775,6 +775,7 @@ pointer-events: auto;}
 	.rightContentBox2 .dar-content #myModalteacherRec .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:700px;
     margin-top:-80px; width:85px; height:85px;}
 .fr1 .return a{color:#FF6700;}
+<<<<<<< HEAD
 .ynqyzhfx-content .jianrong .quyu {border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:left; margin-left:10px; text-align:center;}	
 .content-gcjl .tab2_1 .hjcs-content textarea {padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;}
 .content-gcjl .tab2_1 .jilumd textarea{padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;}
@@ -975,3 +976,4 @@ pointer-events: auto;}
         height:24px;}
 .Ginfo .Gname:hover{ cursor:pointer;}        
 }                       
+

@@ -46,9 +46,9 @@ function areaAnalysisOrder(){
 		//每页显示数据数
 //		var pageSize = resultData.length;
 		//alert(pageSize);
-		
 		//页数
 //		var page_Count = result.pageCount;
+
 			
 			var strName="";
 			if(order==1){
@@ -61,6 +61,105 @@ function areaAnalysisOrder(){
 				strName="人均活动量";
 			}
 			option = {
+				tooltip : {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow',
+						label: {
+							show: true
+						}
+					}
+				},
+				calculable : true,
+				legend: {
+					data:[resultData.map(function (item) {
+							return item.areaName})],
+					width:'160px;',
+					height:'150px',
+/* 					padding:[10,10,5,10],
+					top:0,
+					left:0 */
+				},
+				grid: {
+					  left:'0%',
+					  right:'4%',
+					  bottom: '3%',
+					  containLabel: true
+				},
+				xAxis: [
+					{
+			            type : 'category',
+			            data : resultData.map(function (item) {
+								return item.areaName}),
+			            name:'区域'+'\n'+'名称',
+			            axisTick: {
+			            	show:true,
+			                alignWithLabel: true,
+			                interval:0
+			            },
+			            axisLabel:{
+			            	show:true,
+							interval: 0
+			            },
+						nameTextStyle:{
+							fontSize:'14'
+						}
+			        }
+				],
+				yAxis: [
+					{
+			            type : 'value',
+			            name:'人次',
+						nameTextStyle:{
+							fontSize:'14'
+						}
+			        }
+				],
+				dataZoom: [
+					{
+						show: true,
+						start: 0,
+						end: 100
+					},
+					{
+						type: 'inside',
+						start: 0,
+						end: 100
+					},
+					{
+						show: true,
+						yAxisIndex: 0,
+						filterMode: 'empty',
+						width: 30,
+						height: '80%',
+						showDataShadow: false,
+						left: '93%'
+					}
+				],
+				series : [
+				{
+					type: 'bar',
+					barWidth:50,
+					barGap:'50%',
+					data: resultData.map(function (item) {
+								return item.time}),
+					itemStyle:{
+			            	   normal:{
+			            	   	   color:'#ffa726'
+			            	   	}
+			            	},
+		            lable:{
+		            	normal:{
+		            		  show:true,
+		            		  position:['50%', '50%']
+		            		}
+		            }			
+				}
+
+					
+				]
+			};
+			/* option = {
 				color: ['#3398DB'],
 			    tooltip : {
 			        trigger: 'axis',
@@ -73,8 +172,13 @@ function areaAnalysisOrder(){
 								return item.areaName}),
 					    width:'160px;',
 						height:'150px',
+<<<<<<< HEAD
 						padding:[100,10,5,10],
 						left:'10%',
+=======
+						padding:[100,10,5,-100],
+						left:'1%',
+>>>>>>> 4ca3bda0f49a6f0e2a2d306d46e078205962d56e
 						top:'-40px'
 			    },
 			    grid: {	
@@ -153,7 +257,7 @@ function areaAnalysisOrder(){
 			    
 			    
 			   
-			};
+			}; */
 			myChart.setOption(option);
 		
 				  

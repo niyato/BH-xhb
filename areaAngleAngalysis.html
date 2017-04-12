@@ -145,8 +145,10 @@
 								</select>
 							</div>	
 						</div>
+						
 						<div class="" style="clear:both; margin-left:10px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:36px; line-height:36px; text-align: center; float:left;">
+
 							    <label>区域所属</label>
 								<select id="areaTypeSelect" onChange="jinyong()">
 									<option value="1">教室区角</option>
@@ -174,6 +176,7 @@
 						<!--柱状图-->
 						<div class="modal-body" style="width:1080px; height:500px; margin-top:50px;">
 							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:650px;">						
+
 									<label style="font-size:14px;">排名排序</label>
 									<select id="areaAngleAngalysis_order" style="color:#F90;" onChange="areaAnalysisOrder()">
 										<option value="1">参与人次</option>
@@ -183,7 +186,8 @@
 									</select>
 								</div>
 
-							<div id="areaActivityContainer" style="height:400px;width: 1080px;"></div>
+							<div id="areaActivityContainer" style=" width:1280px; height:400px;"></div>
+
 						</div>
 						
 								
@@ -193,8 +197,8 @@
 				
 				
 				<div class="ynqyzhfx-content" id="ynqyzhfx-content" hidden="hidden">
-						<div class="dd" style="margin-left:10px;">
-							<div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:38px; line-height:36px; text-align: center; float:left;">
+						<div class="dd" style="margin-left:20px;">
+							<div style="border:1px solid lightgrey; border-radius:2px; width:295px; height:38px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
 								<select id="collect_areaTypeSelect" onchange="jinyong1()">
 									<option value="1">教室区角</option>
@@ -211,10 +215,49 @@
 									<option value="0">全部</option>
 								</select>
 							</div>
+
 							<div class="jianrong">
 								<div class="quyu" style="">
 									<label>区域名称</label>
 									<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
+                                </div>
+							<div style="border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:left; margin-left:20px; text-align:center;">
+								<label>区域名称</label>
+								<input id="areaAngleName" type="text" style="padding-left:20px; width:200px;" placeholder="支持对区域名称的模糊检索">	
+							</div>
+							<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:20px;">
+								<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="" value="查询"  />
+							</div>  
+						</div>
+						<div class="area-content" style="height:500px; margin-top:30px;">
+							<div class="content-left" style=" width:500px; margin-left:20px; float:left;">
+							   <div class="title-left" style=" float:left; margin-bottom:20px;" >
+								 <p style="font-weight: bold;font-style: normal; color:black; float:left; font-size:18px;">绘本阅读区角</p><span style=" float:left;color:#B4BEC7;">（公共区角-特色主题室）</span>
+							   </div>
+								<table width="500px" border="0" cellspacing="0" style="box-shadow: 5px 5px 10px #E3EEF6;" class="area-left" id="">
+									<thead style="border:1px solid lightgrey; background-color:#F5FCFF; color:black;font-weight: bold;">
+										<tr id="" >
+											<th scope="col">时间</th>
+											<th scope="col">人数</th>
+											<th scope="col">人次</th>
+											<th scope="col">人均停留时长</th>
+											<th scope="col">人均活动量</th>
+										</tr>
+									</thead>
+									<tbody >  
+										<tr>
+										  <td>昨日</td>
+										  <td>20</td>
+										  <td>100</td>
+										  <td>52分</td>
+										  <td>50</td>
+										</tr>				
+									</tbody>   
+								</table>
+								<span id="" hidden="hidden" style="font-size:18px;">暂无数据</span>
+								<div class="observe-btn" style=" width:130px; height:30px; background-color:#089BFF; text-align:center; line-height:28px; margin-left:40px; margin-bottom:30px; margin-top:20px; float:left;">
+								   <a style=" display:block; width:118px; height:28px; color:#FFF; cursor:pointer;" href="observeRecord.html">观察记录</a>
+
 								</div>
 								<div class="chaxun" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:10px;">
 									<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisCollect()" value="查询"  />
