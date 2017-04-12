@@ -1,7 +1,7 @@
 ﻿/* CSS Document */
 /* CSS重置 */  
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}  
-body{ font-size:14px; line-height:24px; font-family: Arial,"微软雅黑"; background:#EFF4F9; color:#5f5f5f; -webkit-text-size-adjust:100%;}  
+body{ font-size:14px; line-height:24px; font-family: Arial,"微软雅黑"; background:#EFF4F9; color:#5f5f5f; -webkit-text-size-adjust:100%;min-width: 1280px;}  
 table { border-collapse:collapse; border-spacing:0;}
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{ vertical-align:middle;}
 fieldset,img { border:0;}  
@@ -22,10 +22,16 @@ i, em, strong { font-style:normal;}
 .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden;}  
 .clearfix{ display:inline-block;}  
 .clear{clear:both; height: 0; line-height: 0; font-size: 0}
+.top{min-width:1024px;}
 .fl{ float:left;}
 .fr{ float:right;}
 .fr img{ border-radius:50%;}
-.signOut{ margin-right: 50px; font-size:16px; vertical-align:middle; line-height:60px;}
+.signOut{font-size:16px; vertical-align:middle; margin-top: -60px;margin-right:10px;}
+.Ginfo{float:left;margin-top:5px;}
+.Gname{ display:block; 
+	      font-size:14px;
+	      }
+.Tname{display:block;}
 .signOut a:hover{ color:#FFF;}
 .green{color:#95c72c;}
 a{ text-decoration:none;}
@@ -35,7 +41,7 @@ a{ text-decoration:none;}
 .fr a:hover{cursor:pointer;}
 .mR15{ margin-right:15px;}
 .mR25{ margin-right:10px; float:left;}
-.mL10{ margin-left:10px; color:#03a9f4;}
+.mL10{ margin-left:10px; color:#F60;}
 .mL20{ margin-left:20px;}
 .mT20{ margin-top:20px;}
 .mT10{ margin-top:0;}
@@ -43,7 +49,7 @@ a{ text-decoration:none;}
 .mB20{ margin-bottom:20px;}
 
 
-.leftMenu{ width:250px;height:100%;position:fixed;box-sizing: border-box; border-style:solid; border-width:0px; margin-top:6px; background:#FFF; box-shadow:5px 5px 5px #E3EEF6;}
+.leftMenu{ width:250px;height:100%;position:fixed;box-sizing: border-box; border-style:solid; border-width:0px; margin-top:10px; background:#FFF; box-shadow:5px 5px 5px #E3EEF6;z-index: 999999999;}
 .leftMenu ul{ padding:0;}
 .leftMenu li a{ text-decoration:none; color:#ABB0BC; font-size:16px; cursor:pointer;text-align: center;}
 .leftMenu li img{ margin-left:-20px;}
@@ -394,7 +400,7 @@ a{ text-decoration:none;}
 	background-color:#F5FCFF;}
 .rightContentBox2 .ynqypm-content .ynqyzhfx-content .dd{
 	margin-top:20px; 
-    padding-bottom:50px;
+    padding-bottom:60px;
     margin-left: 50px;
 	background-color:#F5FCFF;}
 .rightContentBox2 .ynqypm-content .de .desel select{color:#F90;border-radius:2px; /*border:1px solid lightgrey;*/ text-align:center}
@@ -769,4 +775,203 @@ pointer-events: auto;}
 	.rightContentBox2 .dar-content #myModalteacherRec .modal-body .rightpage{ background-image:url(../Content/images/right.png); background-repeat:no-repeat;margin-left:700px;
     margin-top:-80px; width:85px; height:85px;}
 .fr1 .return a{color:#FF6700;}
-	
+.ynqyzhfx-content .jianrong .quyu {border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:left; margin-left:10px; text-align:center;}	
+.content-gcjl .tab2_1 .hjcs-content textarea {padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;}
+.content-gcjl .tab2_1 .jilumd textarea{padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-left:20px; margin-right:20px; float:left;}
+.content-gcjl .tab2_1 .chuantu textarea{padding:3px 6px; width:648px; height:50px;border:1px solid lightgrey; margin-top:20px;}
+@media screen and (max-width: 1024px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 1280px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 1366px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 1400px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 1440px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 1152px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}
+@media screen and (max-width: 800px) { 
+.angalysis-content .modal-body {max-width:900px;overflow: scroll;} 
+}   
+
+@media screen and (max-width: 1024px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+}
+@media screen and (max-width: 1366px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+}
+@media screen and (max-width: 1280px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+}
+@media screen and (max-width: 1360px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+}
+@media screen and (max-width: 800px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+} 
+@media screen and (max-width: 1152px) { 
+.ynqyzhfx-content .jianrong {clear:both;}
+.ynqyzhfx-content .jianrong .quyu { margin-left:0px;margin-top:10px;}
+.ynqyzhfx-content .jianrong .chaxun { margin-left:0px;margin-top:10px;}  
+}    
+
+
+@media screen and (max-width: 800px) { 
+.gcjl-content .tabs li {width:200px;}
+.content-gcjl .tab2_1 .hjcs-content textarea { width:400px;}
+.content-gcjl .tab2_1 .jilumd textarea{ width:400px;}
+.content-gcjl .tab2_1 .chuantu textarea{width:400px;}
+} 
+@media screen and (max-width: 1024px) { 
+.gcjl-content .tabs li {width:200px;}
+.content-gcjl .tab2_1 .hjcs-content textarea { width:400px;}
+.content-gcjl .tab2_1 .jilumd textarea{ width:400px;}
+.content-gcjl .tab2_1 .chuantu textarea{width:400px;}
+}
+@media screen and (max-width: 1152px) { 
+.gcjl-content .tabs li {width:200px;}
+.content-gcjl .tab2_1 .hjcs-content textarea { width:400px;}
+.content-gcjl .tab2_1 .jilumd textarea{ width:400px;}
+.content-gcjl .tab2_1 .chuantu textarea{width:400px;}
+} 
+@media screen and (max-width: 1280px) { 
+.gcjl-content .tabs li {width:200px;}
+.content-gcjl .tab2_1 .hjcs-content textarea { width:400px;}
+.content-gcjl .tab2_1 .jilumd textarea{ width:400px;}
+.content-gcjl .tab2_1 .chuantu textarea{width:400px;}
+}
+
+@media screen and (max-width: 1024px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}
+}
+@media screen and (max-width: 1152px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}
+} 
+@media screen and (max-width: 1280px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}
+@media screen and (max-width: 1360px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}
+@media screen and (max-width: 1366px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}
+@media screen and (max-width: 1400px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}
+@media screen and (max-width: 1440px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:130px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}
+@media screen and (max-width: 1600px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:70px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}
+}
+@media screen and (max-width: 1680px) { 
+.menu a{ width:100px;}
+.top .f1right{left: 730px; width:163px;}
+.Ginfo .Gname{ display:block; 
+	      font-size:14px;
+	      overflow: hidden; 
+        text-overflow: ellipsis; 
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        width:70px;
+        height:24px;}
+.Ginfo .Gname:hover{ cursor:pointer;}        
+}                       

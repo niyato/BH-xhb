@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="Content/css/theme.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="Content/css/lhgcalendar.css">
+	
     <script src="Content/Scripts/lhgcore.min.js"></script>
     <script src="Content/Scripts/lhgcalendar.min.js"></script>
 
@@ -22,6 +23,7 @@
     <script src="js/underscore-min.js" ></script>
     <script src="js/services.js" ></script>
     <script src="js/graph.js" ></script>
+	
     <style type="text/css">
         #line-chart {
             height: 300px;
@@ -56,15 +58,21 @@
                 </div>
 				<div class="f1right">
 				    <button onClick="switchMSPage()" style="width:163px; height:45px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; margin-top: 8px; background-image:url(Content/images/tigan.png); background-repeat:no-repeat;"></button>
-					<div class="fr signOut" hidden="hidden">
-						 <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button> -->
-						<!-- <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px"> -->
-						
-						<img src="" width="30px" height="30px">
-                        <span class="Gname"></span> | <span class="Tname"></span>老师
-						<a class="mL10" id="logout">退出</a>
+					
+				</div>
+                <div class="fr signOut">
+					 <!-- <button onClick="backhome()" id="backhome" style="width:123px; height:33px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; color:#000; font-weight: normal; font-size:12px;">切换到首页</button> -->
+					<!-- <img class="p-pic" src="Content/css/images/raw_1479018045.jpeg" width="30px" height="30px"> -->
+					
+					<!-- <img src="" width="30px" height="30px"> -->
+					<div class="Ginfo">
+						<span class="Tname"></span>
+						<span class="Gname"></span>
 					</div>
-				</div>	
+					<div style="float:left; padding-top:15px;">
+					    <a class="mL10" id="logout">退出</a>
+					</div>  
+				</div>				
             </div>
             <!--header_end-->
         </div>

@@ -63,12 +63,17 @@
                 </div>
                 <div class="f1right">
 				    <button onClick="switchMSPage()" style="width:163px; height:45px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; margin-top: 8px; background-image:url(Content/images/tigan.png); background-repeat:no-repeat;"></button>
-                    <div class="fr signOut">
-                        <img src="" width="30px" height="30px">
-                        <span class="Gname"></span> | <span class="Tname"></span>老师
-                        <a class="mL10" id="logout">退出</a>
-                    </div>
+                    
                 </div>
+				<div class="fr signOut">
+					<div class="Ginfo">
+						<span class="Tname"></span>
+						<span class="Gname"></span>
+					</div>
+					<div style="float:left; padding-top:15px;">
+					    <a class="mL10" id="logout">退出</a>
+					</div>
+				</div>
             </div>
             <!--header_end-->
         </div>
@@ -102,8 +107,8 @@
     <div class="rightContentBox2"> <!---->
 	        <div class="fr1">
                     <p><span style="font-weight: bold;font-style: normal;color: black" class =" area-name"></span></p>
-					<div class='return' style="float:right; margin-left:30px; padding-right: 30px;">
-					  <a style=' color:#FFAE77;' href="areaAngleAngalysis.html">返回上一级</a>
+					<div class='return' style="float:right; margin-right:300px;">
+					  <a style=' color:#FFAE77;' onclick="reback()" href="#">返回上一级</a>
 					</div>
             </div>
             <!-- <div style="border-bottom:1px solid #D2DAE0;">
@@ -297,6 +302,13 @@
          }
      }
 	 
+	 
+	 function reback(){
+		
+		localStorage.setItem("flag",1);
+		
+		window.location.href = 'areaAngleAngalysis.html';
+	}
     </script>
 </body>
 </html>

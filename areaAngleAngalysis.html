@@ -65,12 +65,17 @@
                 </div>
                 <div class="f1right">
 				    <button onClick="switchMSPage()" style="width:163px; height:45px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; margin-top: 8px; background-image:url(Content/images/tigan.png); background-repeat:no-repeat;"></button>
-                    <div class="fr signOut">
-                        <img src="" width="30px" height="30px">
-                        <span class="Gname"></span> | <span class="Tname"></span>老师
-                        <a class="mL10" id="logout">退出</a>
-                    </div>
+                    
                 </div>
+				<div class="fr signOut">
+					<div class="Ginfo">
+						<span class="Tname"></span>
+						<span class="Gname"></span>
+					</div>
+					<div style="float:left; padding-top:15px;">
+					    <a class="mL10" id="logout">退出</a>
+					</div>
+				</div>
             </div>
             <!--header_end-->
         </div>
@@ -115,11 +120,11 @@
 				
 				<div class="de" id="activityCondition">
 				    <div class="desel" style="margin-left:30px;">
-						<div class="" id="activityDate" style="margin-bottom:20px; margin-left:20px; float:left;">
+						<div class="" id="activityDate" style="margin-bottom:20px; margin-left:10px; float:left;">
 							<input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="input1" readonly onchange="" value="" placeholder="开始时间" /> -- <input type="text" style="border:1px solid lightgrey; border-radius:2px; text-align:center; height:36px;" id="input2" readonly onchange="" value="" placeholder="结束时间" />
 						</div>
 						
-						<div class="" style="margin-left:20px; float:left;">
+						<div class="" style="margin-left:10px; float:left;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 							    <label>年级</label>
 								<select id="activityGrade" onchange="queryClassInfoByGrade()" >
@@ -131,7 +136,7 @@
 								</select>
 							</div>
 						</div>
-						<div class="" style="margin-left:20px;float:left;">
+						<div class="" style="margin-left:10px;float:left;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center;">
 							    <label>班级</label>
 								<select id="activityClass">
@@ -140,10 +145,10 @@
 								</select>
 							</div>	
 						</div>
-						<div class="" style="clear:both; margin-left:20px;">
+						<div class="" style="clear:both; margin-left:10px;">
 						    <div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:36px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
-								<select id="areaTypeSelect" >
+								<select id="areaTypeSelect" onChange="jinyong()">
 									<option value="1">教室区角</option>
 									<option value="2">公共区域</option>
 								</select>
@@ -152,13 +157,13 @@
 									
 								</select>
 							</div>
-							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center; float:left; margin-left:20px;">
+							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:36px; line-height:36px; text-align: center; float:left; margin-left:10px;">
 							    <label>区域类型</label>
 								<select id="activityStatus" >
 									<option value="0">全部</option>
 								</select>
 							</div>
-						   <div class="" style="width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700;margin-right:20px; float:left; margin-left:20px;">
+						   <div class="" style="width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700;margin-right:20px; float:left; margin-left:10px;">
 								<input type="button" id="select" style=" width:123px; height:36px; border-radius:2px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisOrder()" value="查询"  />
 							</div> 
 						</div>
@@ -167,8 +172,8 @@
 					
 					<div class="angalysis-content" style=" height:430px;<!-- text-align: -webkit-center; -->">						
 						<!--柱状图-->
-						<div class="modal-body" style=" width:1080px; height:400px; margin-top:50px;">
-							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:850px;">						
+						<div class="modal-body" style="width:1080px; height:500px; margin-top:50px;">
+							   <div style="border:1px solid lightgrey; border-radius:2px; width:200px; height:36px; line-height:36px; text-align: center;margin-left:650px;">						
 									<label style="font-size:14px;">排名排序</label>
 									<select id="areaAngleAngalysis_order" style="color:#F90;" onChange="areaAnalysisOrder()">
 										<option value="1">参与人次</option>
@@ -178,7 +183,7 @@
 									</select>
 								</div>
 
-							<div id="areaActivityContainer" style=" width:1080px; height:400px;"></div>
+							<div id="areaActivityContainer" style="height:400px;width: 1080px;"></div>
 						</div>
 						
 								
@@ -188,10 +193,10 @@
 				
 				
 				<div class="ynqyzhfx-content" id="ynqyzhfx-content" hidden="hidden">
-						<div class="dd" style="margin-left:20px;">
+						<div class="dd" style="margin-left:10px;">
 							<div style="border:1px solid lightgrey; border-radius:2px; width:345px; height:38px; line-height:36px; text-align: center; float:left;">
 							    <label>区域所属</label>
-								<select id="collect_areaTypeSelect" >
+								<select id="collect_areaTypeSelect" onchange="jinyong1()">
 									<option value="1">教室区角</option>
 									<option value="2">公共区域</option>
 								</select>
@@ -200,19 +205,21 @@
 									
 								</select>
 							</div>
-							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:38px; line-height:36px; text-align: center; float:left; margin-left:20px;">
+							<div style="border:1px solid lightgrey; border-radius:2px; width:172px; height:38px; line-height:36px; text-align: center; float:left; margin-left:10px;">
 							    <label>区域类型</label>
 								<select id="activityStatus_2" >
 									<option value="0">全部</option>
 								</select>
 							</div>
-							<div style="border:1px solid lightgrey; border-radius:2px; width:272px; height:38px; line-height:36px; float:left; margin-left:20px; text-align:center;">
-								<label>区域名称</label>
-								<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
-							</div>
-							<div class="" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:20px;">
-								<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisCollect()" value="查询"  />
-							</div>  
+							<div class="jianrong">
+								<div class="quyu" style="">
+									<label>区域名称</label>
+									<input id="areaAngleName" type="text" style="padding-left:20px;" placeholder="支持对区域名称的模糊检索">	
+								</div>
+								<div class="chaxun" style="width:123px; height:38px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; float:left; margin-left:10px;">
+									<input type="button" id="select" style=" width:123px; height:38px; border-radius:5px; background-color:#FF6700; border-color:#FF6700; color:#FFF;" onclick="areaAnalysisCollect()" value="查询"  />
+								</div>
+                            </div>							
 						</div>
 
 						<div id="areaAngle_list" class="area-content" style="height:500px; margin-top:30px; overflow: auto;">
@@ -266,6 +273,14 @@
 		var day=CurentTime();
 		document.getElementById("input1").value=day;
 		document.getElementById("input2").value=day;
+		
+		var flag=localStorage.getItem("flag");
+		if(flag==1){
+			document.getElementById("collect_areaTypeSelect").value=localStorage.getItem("areaType");
+			selfx();
+			areaAnalysisCollect();
+			localStorage.removeItem("flag");
+		}
     });
     
 	var videopath = "";
@@ -308,6 +323,28 @@
 
     }
 	
+	function jinyong(){
+	   var option = $("#areaTypeSelect option:selected");
+		if(option.val()==2){
+		   $("#all_class").attr("disabled","disabled");
+           $("#all_class").css({"color":"#B8B8B8"});			   
+		}else{
+		   $("#all_class").removeAttr("disabled");
+           $("#all_class").css({"color":"#F90"});		   
+		}
+	}
+	
+	
+	function jinyong1(){
+	   var option = $("#collect_areaTypeSelect option:selected");
+		if(option.val()==2){
+		   $("#all_class_2").attr("disabled","disabled");
+           $("#all_class_2").css({"color":"#B8B8B8"});		   
+		}else{
+		   $("#all_class_2").removeAttr("disabled");
+           $("#all_class_2").css({"color":"#F90"});		   
+		}
+	}
 	//菜单切换
 	function selpm(){
 		      $("#activityCondition").removeAttr("hidden");

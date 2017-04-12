@@ -1,4 +1,5 @@
-﻿var url_ceshi="192.168.1.153:8081/BflMark/";
+﻿//var url_ceshi="192.168.1.153:8081/BflMark/";
+var url_ceshi="truelove.youjiaoyun.net/";
 //查询观察记录
 function queryObserveRecord(){
 	var gardenId=localStorage.getItem('gid');
@@ -194,7 +195,7 @@ function queryAreaObserveRecordAnalysisInfo(){
 											
 			}
 			content2 += "</tbody>"    +"</table>";
-			bindingHover();
+			//bindingHover();
 			
 			for(var i =0;i<resultdata.students.length;i++){
 				
@@ -311,6 +312,9 @@ function recordObserveRecordAnalysisInfo(){
                     autoClose: 2000,
 					callback:function(){
 //						   window.location.href = 'areaAngleAngalysis.html';
+                           localStorage.setItem("flag",1);
+		
+						window.location.href = 'areaAngleAngalysis.html';
 						}
                 });
                 return false;
@@ -729,6 +733,9 @@ function updateEnteringObserveRecordInfo(){
                     autoClose: 2000,
 					callback:function(){
 //						   window.location.href = 'areaAngleAngalysis.html';
+                            localStorage.setItem("flag",1);
+		
+						window.location.href = 'areaAngleAngalysis.html';
 						}
                 });
                 return false;

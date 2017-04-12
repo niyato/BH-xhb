@@ -1,4 +1,5 @@
-var url_ceshi="192.168.1.153:8081/BflMark/";
+//var url_ceshi="192.168.1.153:8081/BflMark/";
+var url_ceshi="truelove.youjiaoyun.net/";
 //查询幼儿园所有学生条件信息
 function queryStudentInfoByClassId(){
 
@@ -107,20 +108,54 @@ function queryStudentDevelopmenRecordAndAnalysisInfo(pageindx){
 				$("#selectdata").hide();
 			}
 			
+			
+			var data=JSON.stringify(resultData);
+			localStorage.setItem("data",data);
 			for(var i in resultData){
+				var pid = resultData[i].personId;
+				var pname = resultData[i].studentName;
+				//alert(pname);
+				var amountCompara = parseInt(resultData[i].amountCompara);
+			    var dateCompara = parseInt(resultData[i].dateCompara);
+				if(amountCompara > 0){
+					amountCompara = '高于' + amountCompara + '%';
+					console.log(amountCompara);
+					//$('.amC').css({"color":"#44DE44"});
+				}else if(amountCompara < 0){
+					amountCompara = '低于' + Math.abs(amountCompara) + '%';
+					console.log(amountCompara);
+					//$('.amC').css({"color":"#FE3A33"});
+				}else if(amountCompara == 0){
+					amountCompara = '持平';
+					//$('.amC').css({"color":"#089BFF"});
+				}
+				
+				if(dateCompara > 0){
+					dateCompara = '高于' + dateCompara + '%';
+					console.log(dateCompara);
+					//$('.Dc').css({"color":"#00D200"});
+				}else if(dateCompara < 0){
+					dateCompara = '低于' + Math.abs(dateCompara) + '%';
+					console.log(dateCompara);
+					//$('.Dc').css({"color":"#FE3A33"});
+				}else if(dateCompara==0){
+					dateCompara = '持平';
+					//$('.Dc').css({"color":"#089BFF"});
+				}
+				
 				var $a = $("<tr>"+
 
 					"<td>"+resultData[i].areaAngleName+"</td>"+
 					"<td>"+resultData[i].studentName+"</td>"+
 					"<td style='padding: 0px;border-right: 0px;'>"+resultData[i].aveAmount+"</td>"+
 
-					'<td style="text-align:left; width:150px;padding: 0px;">'+resultData[i].amountCompara+"</td>"+
+					'<td style="padding: 0px;">'+'<span class="amC">'+amountCompara+'</span>'+"</td>"+
 					'<td style="padding: 0px;border-right: 0px;">'+resultData[i].date+"</td>"+
-					'<td style="padding: 0px;border-right: 0px;text-align: left;">'+resultData[i].dateCompara+"</td>"+
-					'<td style="padding: 0px;border-right: 0px;text-align: left;"><span style="display:block;margin-left: -40px;">'+resultData[i].time+"</td>"+
-					'<td style="padding: 0px;text-align: left;"><button style="display:block;margin-left: -70px;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModaldata"></button></td>'+
-					"<td><button data-toggle='modal' data-target='#myModalvideodata' style='background-color:#fff;'><a>详情</a></button></td>"+
-                    "<td><button data-toggle='modal' data-target='#myModalteacherRec' style='background-color:#fff;'><a>详情</a></button></td>"+
+					'<td style="padding: 0px;border-right: 0px;text-align: center;">'+'<span class= "Dc">'+dateCompara+'</span>'+"</td>"+
+					'<td style="padding: 0px;border-right: 0px;text-align: center;"><span">'+resultData[i].time+"</td>"+
+					"<td style='padding: 0px;text-align: center;'><button style='' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModaldata' onclick='DARDayData("+pid+","+i+")'></button></td>"+
+					"<td><button data-toggle='modal' data-target='#myModalvideodata' style='background-color:#fff;' onclick='queryStudentDevelopmenVideoDataInfo("+resultData[i].personId+","+i+",0)'><a>详情</a></button></td>"+
+                    "<td><button data-toggle='modal' data-target='#myModalteacherRec' style='background-color:#fff;' onclick='queryStudentDevelopmenObserveDataInfo("+resultData[i].personId+","+i+")'><a>详情</a></button></td>"+
 					"</tr>" );
 //				$a.data('entity', resultData[i]);
 				$("#tb_doc_m").append($a);
@@ -128,7 +163,7 @@ function queryStudentDevelopmenRecordAndAnalysisInfo(pageindx){
 
 			//$("#tblist").append(tbody);//添加到table
 //			bindingHover();
-
+		
 			if(page_Count<=1){
 				$("#divpage").empty();
 			}else{
@@ -148,7 +183,7 @@ function queryStudentDevelopmenRecordAndAnalysisInfo(pageindx){
 
 			}
 
-
+            combine();
 			//combine('tblist');
 
 		},
@@ -169,3 +204,34 @@ function queryStudentDevelopmenRecordAndAnalysisInfo(pageindx){
 	});
 
 };
+
+function switchs(type,a){
+	var resultData=localStorage.getItem("data");
+//	resultData=JSON.parse(resultData);
+//  var data=JSON.parse(localStorage.job);
+    
+    resultData=JSON.parse(resultData);
+    console.log(resultData);
+	var size=resultData.length;
+	//alert(size);
+	var i=localStorage.getItem("i");
+	var n=parseInt(i)+parseInt(a);
+	if(n<0){
+		return;
+	}
+	if(n>size-1){
+		return;
+	}
+	//alert(n);
+	var personId=JSON.parse(resultData[n].personId);
+	//alert(personId);
+	if(type==1){
+		DARDayData(personId,n);
+	}
+	if(type==2){
+		queryStudentDevelopmenVideoDataInfo(personId,n,0);
+	}
+	if(type==3){
+		queryStudentDevelopmenObserveDataInfo(personId,n);
+	}
+}

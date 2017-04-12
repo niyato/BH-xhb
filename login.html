@@ -99,8 +99,9 @@
                         pass: password
                     }
                 }).then(function(data) {
+				    
                     var dataresult = data.data.LoginInfo;
-
+                    console.log(dataresult);
                     //取到园名称  
                     var Gname = dataresult.gardenName;
                     localStorage.setItem("gname",Gname);
@@ -131,6 +132,7 @@
                     var dataresult = data.data.LoginInfo;
                     var errorinfo =data.data.ErrorInfo;
                     alert(errorinfo);
+					console.log(dataresult);
                 });
                 event.preventDefault();
             });

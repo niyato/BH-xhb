@@ -1,5 +1,5 @@
-﻿var urls="192.168.1.153:8081/BflMark/";
-//var urls="truelove.youjiaoyun.net/";
+﻿//var urls="192.168.1.153:8081/BflMark/";
+var urls="truelove.youjiaoyun.net/";
 
 var dom = document.getElementById("areaActivityContainer");
 var myChart = echarts.init(dom);
@@ -50,6 +50,16 @@ function areaAnalysisOrder(){
 		//页数
 //		var page_Count = result.pageCount;
 			
+			var strName="";
+			if(order==1){
+				strName="人次";
+			}else if(order==2){
+				strName="人数";
+			}else if(order==3){
+				strName="人均停留时长";
+			}else{
+				strName="人均活动量";
+			}
 			option = {
 				color: ['#3398DB'],
 			    tooltip : {
@@ -95,7 +105,7 @@ function areaAnalysisOrder(){
 			    yAxis : [
 			        {
 			            type : 'value',
-			            name:'人次',
+			            name:strName,
 						nameTextStyle:{
 							fontSize:'14'
 						}
@@ -127,7 +137,7 @@ function areaAnalysisOrder(){
 			    	barWidth:50,
 			    	type:'bar',
 			    	data : resultData.map(function (item) {
-								return item.time}),
+								return item.num}),
 					itemStyle:{
 			            	   normal:{
 			            	   	   color:'#ffa726'
@@ -180,6 +190,7 @@ function areaAnalysisCollect(){
 	var areaAngleType =document.getElementById("activityStatus_2").value;
 	
 	
+	localStorage.setItem("areaType",areaType);
 	var gardenId=localStorage.getItem('gid');
 	
 	var content1 ="";

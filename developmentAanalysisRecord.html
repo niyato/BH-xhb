@@ -73,12 +73,17 @@
                 </div>
                 <div class="f1right">
 				    <button onClick="switchMSPage()" style="width:163px; height:45px; border: 1px solid #bbbbbb; background-color: white; border-radius: 6px; margin-top: 8px; background-image:url(Content/images/tigan.png); background-repeat:no-repeat;"></button>
-                    <div class="fr signOut">
-                        <img src="" width="30px" height="30px">
-                        <span class="Gname"></span> | <span class="Tname"></span>老师
-                        <a class="mL10" id="logout">退出</a>
-                    </div>
+                    
                 </div>
+				<div class="fr signOut">
+					<div class="Ginfo">
+						<span class="Tname"></span>
+						<span class="Gname"></span>
+					</div>
+					<div style="float:left; padding-top:15px;">
+					    <a class="mL10" id="logout">退出</a>
+					</div>
+				</div>
             </div>
             <!--header_end-->
         </div>
@@ -163,7 +168,7 @@
 							</div>
 							<div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:36px; line-height:36px; text-align: center; float:left;margin-top:20px; margin-left:20px;">
 							    <label>区域所属</label>
-								<select  id="areaTypeSelect" >
+								<select  id="areaTypeSelect" onchange="jinyong()">
 									<option value="1">教室区角</option>
 									<option value="2">公共区域</option>
 								</select>
@@ -196,12 +201,12 @@
 									<tr class="getifazhan" style="border-right:0px solid #D2DAE0;border-left:0px solid #D2DAE0;">
 										<th scope="col">区域名称</th>
 										<th scope="col">学生名称</th>
-										<th scope="col" class="huoyuedu" style="border-right:0px;"><p style="font-size:18px;">活跃度</p><span style="margin-left:20px;">平均活动量</span></th>
-										<th scope="col" style="text-align:left; width:150px;padding: 0px;"><span style="display:block;margin-left: -60px; margin-top: 22px;">|  与班级平均值比</span></th>
-										<th scope="col" style="border-right:0px;"><p style="font-size:18px;">兴趣度</p><span style="margin-left:10px;margin-right: -20px;">平均停留时间</span></th>
-										<th scope="col" style="text-align:left;border-right:0px;padding: 0px;"><span style="display:block;margin-left:-30px; margin-top: 22px;">| 与班级平均值比</span></th>
-										<th scope="col" style="text-align:left;border-right:0px;padding: 0px;width: 100px;"><span style="display:block;margin-left: -70px; margin-top: 23px;">| 参与次数</span></th>
-										<th scope="col" style="text-align:left;padding: 0px;"><span style="display:block;margin-left: -90px; margin-top: 23px;">| 日数据图</span></th>
+										<th scope="col" class="huoyuedu" style="border-right:0px;"><!-- <p style="">活跃度</p> --><span style="">平均活动量</span></th>
+										<th scope="col" style="padding: 0px;"><span style="">班级平均</span></th>
+										<th scope="col" style="border-right:0px;"><!-- <p style="font-size:18px;">兴趣度</p> --><span style="">平均停留时间</span></th>
+										<th scope="col" style="border-right:0px;padding: 0px;"><span style="">班级平均</span></th>
+										<th scope="col" style="border-right:0px;padding: 0px;"><span style="">参与次数</span></th>
+										<th scope="col" style="padding: 0px;"><span style="">日数据图</span></th>
 										<th scope="col">视频呈现</th>
 										<th scope="col">老师观察记录</th>
 									</tr>
@@ -238,16 +243,16 @@
 									</button>
 									<div>
 									   <div style=" margin-left:20px; float:left; margin-top:20px;" >
-									      <p style="float:left; color:black;">豆豆1班</p>
-										  <p style="font-weight: bold; float:left; margin-left:20px;color:black;">小明</p>
-										  <p style=" float:right; margin-left:500px;color:black;">2016年2月10日~2016年2月17日</p>
+									      <p id="ardclassname" style="float:left; color:#FF6700;"></p>
+										  <p class='ardstudentname' style="font-weight: bold; float:left; margin-left:20px;color:#FF6700;"></p>
+										  <p style=" float:right; margin-left:500px;color:#FF6700;"><span id="ardstrattime"></span>~<span id="ardendtime"></span></p>
 									   </div>
 									   
 									</div>
 								</div>
 								<div class="modal-body" style=" width:800px; height:350px;">
-                                     <div class="leftpage"><a onClick=""></a></div>
-                                     <div class="rightpage"><a onClick=""></a></div>
+                                     <div class="leftpage"><a onClick="switchs(1,-1)"></a></div>
+                                     <div class="rightpage"><a onClick="switchs(1,1)"></a></div>
 									 <div class="dar-container" id="ard-container" style=" width:800px; height:350px;"></div>
 								</div>
 								<!-- <div class="modal-footer">
@@ -261,35 +266,35 @@
 				<!-- 视频数据模态框（Modal） -->
 					<div class="modal fade" id="myModalvideodata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" style="width:950px; margin-top:100px;">
-							<div class="modal-content" style=" height:500px;">
+							<div class="modal-content" style=" height:600px;">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 										&times;
 									</button>
 									<div>
 									   <div style=" margin-left:20px; float:left; margin-top:20px;" >
-									      <p style="float:left; color:black;">豆豆1班</p>
-										  <p style="font-weight: bold; float:left; margin-left:20px;color:black;">小明</p>
-										  <p style=" float:right; margin-left:500px;color:black;">2016年2月10日~2016年2月17日</p>
+									      <p style="float:left; color:black;"><span id="class_video"></span></p>
+										  <p style="font-weight: bold; float:left; margin-left:20px;color:black;"><span id="name_video"></span></p>
+										  <p style=" float:right; margin-left:500px;color:black;"><span id="date_video"></span></p>
 									   </div>
 									   
 									</div>
 								</div>
-								<div style="margin-left:550px;">
+								<!-- <div style="margin-left:550px;">
 								    <div style="border:1px solid lightgrey; border-radius:2px; width:245px; height:38px; line-height:36px; text-align: center;margin-top:20px; margin-left:20px;">
 									      <label style="color:#FF6700;">区域名称</label>
 										  <input type="text" placeholder="可根据名称模糊搜索">
 									</div>	  
-								</div>
+								</div> -->
 								<div class="modal-body" style=" width:800px; height:350px; margin-top: 20px;">
-                                     <div class="leftpage"><a onClick=""></a></div>
-                                     <div class="rightpage"><a onClick=""></a></div>
-									 <div class="video-container" id="" style=" height:390px;">
-									    <div class="applicationbox" style=" width:800px; height:330px; margin-left:-210px; margin-top:-180px;">
+                                     <div class="leftpage"><a onClick="switchs(2,-1)"></a></div>
+                                     <div class="rightpage"><a onClick="switchs(2,1)"></a></div>
+									 <div class="video-container" id="" style=" height:500px;">
+									    <div class="applicationbox" style=" width:800px; height:480px; margin-left:-210px; margin-top:-180px;overflow: overlay;">
 											<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_video">
 														<thead >
 															<tr id="">
-																<th scope="col"><input id="allselect" type="checkbox"></th>
+																
 																<th scope="col">区域名称</th>
 																<th scope="col">进入时间</th>
 																<th scope="col">离开时间</th>
@@ -311,13 +316,15 @@
                                                             															
 														</tbody>    
 											</table>
+											<!--分页-->
+											<!-- <div id="divpage2" class="flickr" style="text-align:right"></div> -->
 										</div>
 									 </div>
-									 <div style=" margin-top:-100px; margin-left:-550px; text-align:center;">
+									 <!-- <div style=" margin-top:-100px; margin-left:-550px; text-align:center;">
 											<div class="" style="margin:0 auto;">
 											   <input type="button" id="" style=" width:80px; height:30px; border-radius:5px; background-color:#2baf2b; border-color:#0a8f08; color:#FFF;" onclick="$('#tb_doc_video').tableExport({ type: 'excel', separator: ';', escape: 'false' });" value="批量下载"  />
 											</div>
-									</div>
+									</div> -->
 								</div>
 								<!-- <div class="modal-footer">
 									<div class="ona"><a>上一名</a></div>
@@ -337,9 +344,9 @@
 									</button>
 									<div>
 									   <div style=" margin-left:20px; float:left; margin-top:20px;" >
-									      <p style="font-weight: bold; float:left; color:#FF6700;">小明</p>
-									      <p style="float:left; color:black;margin-left:20px">豆豆1班</p>
-										  <p style=" float:right; margin-left:500px;color:black;">2016年2月10日~2016年2月17日</p>
+									      <p style="font-weight: bold; float:left; color:#FF6700;"><span id="class_observe"></span></p>
+									      <p style="float:left; color:black;margin-left:20px"><span id="name_observe"></span></p>
+										  <p style=" float:right; margin-left:500px;color:black;"><span id="date_observe"></span></p>
 									   </div>
 									   
 									</div>
@@ -353,8 +360,8 @@
 										  </div>	  
 								</div>
 								<div class="modal-body" style=" width:800px; height:350px;">
-                                     <div class="leftpage"><a onClick=""></a></div>
-                                     <div class="rightpage"><a onClick=""></a></div>
+                                     <div class="leftpage"><a onClick="switchs(3,-1)"></a></div>
+                                     <div class="rightpage"><a onClick="switchs(3,1)"></a></div>
 									 <div class="video-container" id="" style="height:350px;">
 									    <div class="applicationbox" style=" width:800px; height:390px;margin-left:-210px; margin-top:-150px;">
 											<table width="100%" border="0" cellspacing="0" style="" class="accTabbox" id="tb_doc_teacherRec">
@@ -369,46 +376,7 @@
 															</tr>
 														</thead>
 														<tbody >
-															<!--<tr>
-															  <td>绘本阅读区域</td>
-															  <td>专注力还可以，但是与人沟通一般</td>
-															  <td>后续加强培养孩子的沟通能力</td>
-															  <td>2016-02-01</td>
-															  <td>周老师</td>
-															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>
-                                                            <tr>
-															  <td>绘本阅读区域</td>
-															  <td>专注力还可以，但是与人沟通一般</td>
-															  <td>后续加强培养孩子的沟通能力</td>
-															  <td>2016-02-01</td>
-															  <td>周老师</td>
-															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>
-															<tr>
-															  <td>绘本阅读区域</td>
-															  <td>专注力还可以，但是与人沟通一般</td>
-															  <td>后续加强培养孩子的沟通能力</td>
-															  <td>2016-02-01</td>
-															  <td>周老师</td>
-															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>
-															<tr>
-															  <td>绘本阅读区域</td>
-															  <td>专注力还可以，但是与人沟通一般</td>
-															  <td>后续加强培养孩子的沟通能力</td>
-															  <td>2016-02-01</td>
-															  <td>周老师</td>
-															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>
-															<tr>
-															  <td>绘本阅读区域</td>
-															  <td>专注力还可以，但是与人沟通一般</td>
-															  <td>后续加强培养孩子的沟通能力</td>
-															  <td>2016-02-01</td>
-															  <td>周老师</td>
-															  <td><a href="observeRecord.html">4月观察记录</a></td>
-															</tr>-->
+															
 														</tbody>    
 											</table>
 											<input type="hidden" id="pagenum">
@@ -450,6 +418,8 @@
     <script src="java_js/developmentAanalysisRecord.js"></script>
 	<script src="Content/Scripts/easydialog.min.js"></script>
 	<script type="text/javascript" src="java_js/dar-zdt.js"></script>
+	<script src="java_js/studentAreaVideo.js"></script>
+    <script src="java_js/combine.js"></script>
     <script type="text/javascript">
     bhyf.checkLogin();
 //  xhb.page.init();
@@ -473,6 +443,17 @@
 		});
 	//复选框end
 	
+	function jinyong(){
+	   var option = $("#areaTypeSelect option:selected");
+		if(option.val()==2){
+		   $("#area_Class").attr("disabled","disabled");
+           $("#area_Class").css({"color":"#B8B8B8"});		   
+		}else{
+		   $("#area_Class").removeAttr("disabled"); 
+		   $("#area_Class").css({"color":"#F90"});
+		}
+	}
+	
 	
     $(function () {
         queryClassInfoByGrade();
@@ -482,6 +463,8 @@
 		var day=CurentTime();
 		document.getElementById("input1").value=day;
 		document.getElementById("input2").value=day;
+		
+		
     });
 	
 	J(function () {
@@ -520,6 +503,14 @@
           
      }
    
+//翻页响应
+      function pageselectCallback2(page_id, jq){
+          var personId=localStorage.getItem("videoPersonId");
+				var personId=localStorage.getItem("i");
+               queryStudentDevelopmenVideoDataInfo(personId,i,pageindx);
+          
+     }    
+	
      function backhome(){
 		    window.location.href = 'Homepage.html';
 			localStorage.removeItem('pid');
